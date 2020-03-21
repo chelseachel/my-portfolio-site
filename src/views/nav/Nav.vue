@@ -1,6 +1,10 @@
 <template>
   <ul class="nav" ref="nav" :class="show ? showNav : hideNav">
-    <li v-for="(item, index) in category" :key="index" @click="handleClickAnchor(item)">{{item}}</li>
+    <li v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)">{{item}}</li>
+    <!-- <li @click="handleClickAnchor('about')">About</li>
+    <li @click="handleClickAnchor('projects')">Projects</li>
+    <li @click="handleClickAnchor('others')">Others</li>
+    <li @click="handleClickAnchor('contact')">Contact</li> -->
   </ul>
 </template>
 
@@ -34,8 +38,8 @@ export default {
         this.show = true
       }
     },
-    handleClickAnchor (item) {
-      this.$emit('goAnchor', item)
+    handleClickAnchor (index) {
+      this.$emit('goAnchor', index)
     }
   },
   mounted () {
@@ -48,17 +52,17 @@ export default {
 
 <style lang="stylus">
   .nav
-    z-index: 3
-    position: sticky
+    z-index: 100
+    position: fixed
     top: 0
     width: 100%
-    height: 50px
+    height: 52px
     background: #FDFDF9
     border-bottom: 1px dotted #ddd
     display: flex
     justify-content: center
     align-items: center
-    transition: all 1s ease
+    transition: all .8s
     li
       position: relative
       padding: 0 25px
@@ -74,7 +78,7 @@ export default {
     opacity: 1
     transform: translate3d(0, 0, 0)
   .hideNav
-    opacity: 0
+    // opacity: 0
     transform: translate3d(0, -100%, 0)
   // .showNav
   //   animation: fadeInDown 1s

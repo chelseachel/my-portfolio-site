@@ -34,7 +34,17 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  // mode: 'history',
+  // base: '/',
+  // scrollBehavior (to, from, savedPosition) {
+  //   if (to.hash) {
+  //     return {
+  //       // 通过 to.hash 的值來找到对应的元素
+  //       selector: to.hash
+  //     }
+  //   }
+  // }
 })
 
 export default router

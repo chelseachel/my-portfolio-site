@@ -1,7 +1,7 @@
 <template>
   <div class="left" ref="left" :style="{position: position, top: top + 'px'}">
     <div class="wrapper">
-      <div class="cate">
+      <div class="cate" ref="cate">
         About
       </div>
     </div>
@@ -54,15 +54,11 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-    // padding: 10px 0
-    // box-sizing: border-box
-    // .wrapper
-    //   width: 100%
-    //   height: 100%
+    background: #F1B908
     .cate
       font-weight: 800
       font-size: 60px
-      color: #F1B908
+      color: #FDFDF9
       letter-spacing: 2px
       font-variant: small-caps
 </style>

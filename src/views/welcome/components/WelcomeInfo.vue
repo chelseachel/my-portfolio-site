@@ -70,7 +70,7 @@ export default {
     align-items: center
     text-align: center 
     .content
-      margin-bottom: 100px
+      margin-bottom: 30px
       // font-weight: 500
       transition: all 1s ease-out
       .title

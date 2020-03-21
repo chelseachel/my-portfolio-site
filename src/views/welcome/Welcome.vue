@@ -39,7 +39,7 @@ export default {
   .welcome
     position:relative
     width: 100vw
-    height: calc(100vh - 50px)
+    height: 100vh
     display: flex
     flex-flow: column
     overflow: visible

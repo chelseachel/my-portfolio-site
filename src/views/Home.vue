@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
+  <div class="home" ref="home">
     <Nav @goAnchor="handleGoAnchor"></Nav>
     <welcome></welcome>
-    <about></about>
-    <projects></projects>
-    <others></others>
-    <contact></contact>
+    <about ref="about"></about>
+    <projects ref="projects"></projects>
+    <others ref="others"></others>
+    <contact ref="contact"></contact>
   </div>
 </template>
 
@@ -24,24 +24,24 @@ export default {
   },
   data () {
     return {
-      anchor: null,
-      item: null
+      anchorElements: []
     }
   },
   methods: {
-    handleGoAnchor (item) {
-      // let anchor = this.$el.querySelector("about")
-      console.log(item);
-      console.log(this.$el.querySelector("about"));
-      // if (anchor) {
-      //   anchor.scrollIntoView(true)
-      // }
+    handleGoAnchor (index) {
+      let anchor = this.anchorElements[index]
+      anchor.scrollIntoView({behavior: "smooth"})
     }
+  },
+  mounted () {
+    this.anchorElements[0]=this.$refs.about.$el
+    this.anchorElements[1]=this.$refs.projects.$el
+    this.anchorElements[2]=this.$refs.others.$el
+    this.anchorElements[3]=this.$refs.contact.$el
   }
 }
 </script>
 
 
 <style lang="stylus">
-
 </style>

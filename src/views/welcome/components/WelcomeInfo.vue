@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="content" ref="parallax">
-      <div class="title" ref="title">
+      <div class="hello" ref="hello">
       </div>
       <div class="info" ref="info"></div>
     </div>
@@ -15,28 +15,28 @@ export default {
   },
   data () {
     return {
-      title: 'Hello, I’m Chelsea',
+      hello: 'Hello, I’m Chelsea',
       info: 'A front-end developer always with an artisan’s heart. ',
-      speed: .2
+      speed: .5
     }
   },
   computed: {
     letters: function () {
-      return this.title.split('')
+      return this.hello.split('')
     },
     infoLetters: function () {
       return this.info.split('')
     }
   },
   methods: {
-    showTitle () {
-      this.letters.forEach(this.titleLandIn)
+    showhello () {
+      this.letters.forEach(this.helloLandIn)
     },
-    titleLandIn (letter, index) {
+    helloLandIn (letter, index) {
       let span = document.createElement('span')
       span.innerText = letter
       span.style.animationDelay = `${index * .04}s`
-      this.$refs.title.append(span)
+      this.$refs.hello.append(span)
     },
     showInfo () {
       this.infoLetters.forEach(this.infoLandIn)
@@ -54,7 +54,7 @@ export default {
     }
   },
   mounted () {
-    this.showTitle()
+    this.showhello()
     this.showInfo()
     window.addEventListener('scroll', this.scrollParallax, true)
   },
@@ -70,10 +70,10 @@ export default {
     align-items: center
     text-align: center 
     .content
-      margin-bottom: 30px
+      // margin-bottom: 30px
       // font-weight: 500
-      transition: all 1s ease-out
-      .title
+      transition: all .5s ease-out
+      .hello
         margin-bottom: 40px
         font-size: 56px
         color: #F1B908
@@ -81,9 +81,9 @@ export default {
         span
           position: relative
           opacity: 0
-          animation: landtitle .6s ease-in
+          animation: landhello .6s ease-in
           animation-fill-mode: forwards
-          @keyframes landtitle
+          @keyframes landhello
             0%
               opacity: 1
               top: -20px

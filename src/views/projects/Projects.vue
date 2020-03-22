@@ -1,13 +1,15 @@
 <template>
   <div class="projects" id="projects">
+    <projects-title></projects-title>
   </div>
 </template>
 
 <script>
-
+import ProjectsTitle from './components/ProjectsTitle'
 export default {
   name: 'Projects',
   components: {
+    ProjectsTitle
   }
 }
 </script>
@@ -15,8 +17,7 @@ export default {
 
 <style lang="stylus">
   .projects
-    position:relative
-    top: 100vh
+    position: relative
     width: 100vw
     height: 100vh
     display: flex

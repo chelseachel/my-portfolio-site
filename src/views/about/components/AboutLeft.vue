@@ -1,10 +1,9 @@
 <template>
   <div class="left" ref="left" :style="{position: position, top: top + 'px'}">
-    <div class="wrapper">
-      <div class="cate" ref="cate">
-        About
-      </div>
+    <div class="cate" ref="cate">
+      About
     </div>
+    <div class="photo"></div>
   </div>
 </template>
 
@@ -17,18 +16,18 @@ export default {
   },
   data () {
     return {
-      position: 'absolute',
+      position: 'absolute ',
       top: 0
     }
   },
   methods: {
     positionState () {
-      let clientHeight = document.body.clientHeight
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop >= clientHeight && scrollTop < (this.scrollHeight)) {
+      const clientHeight = document.body.clientHeight
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop >= clientHeight && scrollTop < this.scrollHeight) {
         this.position = 'fixed'
         this.top = 0
-      } else if (scrollTop >= (this.scrollHeight)) {
+      } else if (scrollTop >= this.scrollHeight) {
         this.position = 'absolute'
         this.top = this.scrollHeight - clientHeight
       } else if (scrollTop < clientHeight) {
@@ -38,7 +37,7 @@ export default {
     }
   },
   mounted () {  
-    let _this = this
+    const _this = this
     window.addEventListener('scroll', _this.positionState, true)
   }
 }
@@ -50,15 +49,24 @@ export default {
     width: 40%
     height: 100vh
     flex: 2
-    border-right: 1px dotted #F1B908
     display: flex
     justify-content: center
     align-items: center
     background: #F1B908
+    &:after
+      clear: both
     .cate
       font-weight: 800
       font-size: 60px
       color: #FDFDF9
       letter-spacing: 2px
       font-variant: small-caps
+    .photo
+      position: absolute
+      top: 100px
+      right: -60px
+      width: 120px
+      height: 120px
+      border-radius: 50%
+      background: #eee
 </style>

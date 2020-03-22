@@ -20,7 +20,8 @@ export default {
   },
   methods: {
     getHeight () {
-      this.scrollHeight = parseInt(this.$refs.about.scrollHeight)
+      // this.scrollHeight = parseInt(this.$refs.about.scrollHeight)
+      this.scrollHeight = parseInt(this.$refs.about.getBoundingClientRect().height)
     }
   },
   mounted () {
@@ -35,7 +36,5 @@ export default {
   .about
     position: relative
     width: 100vw
-    // height: 100vh
-    // display: flex
 
 </style>

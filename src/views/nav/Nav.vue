@@ -1,6 +1,11 @@
 <template>
   <ul class="nav" ref="nav" :class="show ? showNav : hideNav">
-    <li v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)">{{item}}</li>
+    <li 
+      :class="index == anchorIndex ? 'activeColor' : ''"
+      v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)"
+    >
+      {{item}}
+    </li>
     <!-- <li @click="handleClickAnchor('about')">About</li>
     <li @click="handleClickAnchor('projects')">Projects</li>
     <li @click="handleClickAnchor('others')">Others</li>
@@ -12,6 +17,9 @@
 
 export default {
   name: 'Nav',
+  props: {
+    anchorIndex: Number
+  },
   data () {
     return {
       category: ['About', 'Projects', 'Others', 'Contact'],
@@ -42,6 +50,11 @@ export default {
       this.$emit('goAnchor', index)
     }
   },
+  watch: {
+    activeIndex: function () {
+
+    }
+  },
   mounted () {
     this.initNav()
     window.addEventListener('scroll', this.dynamicNav, true)
@@ -65,7 +78,7 @@ export default {
     transition: all .8s
     li
       position: relative
-      padding: 0 25px
+      padding: 0 36px
       cursor: pointer
       &:after
         content: '·'
@@ -74,30 +87,12 @@ export default {
         right: 0
       &:last-child:after
         content: ''
+    .activeColor
+      color: #F1B908
+      font-weight: 500
   .showNav
     opacity: 1
     transform: translate3d(0, 0, 0)
   .hideNav
-    // opacity: 0
     transform: translate3d(0, -100%, 0)
-  // .showNav
-  //   animation: fadeInDown 1s
-  //   animation-fill-mode: both
-  // .hideNav
-  //   animation: fadeOutUp 1s
-  //   animation-fill-mode: both
-  // @keyframes fadeInDown
-  //   from
-  //     opacity: 0
-  //     transform: translate3d(0, -100%, 0)
-  //   to 
-  //     opacity: 1
-  //     transform: translate3d(0, 0, 0)
-  // @keyframes fadeOutUp
-  //   from
-  //     opacity: 1
-  //     transform: translate3d(0, 0, 0)
-  //   to 
-  //     opacity: 0
-  //     transform: translate3d(0, -100%, 0)
 </style>

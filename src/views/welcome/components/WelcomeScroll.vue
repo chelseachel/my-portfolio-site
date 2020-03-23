@@ -29,7 +29,7 @@ export default {
 </script>
 
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .scroll  
     position: absolute;
     bottom: 80px;

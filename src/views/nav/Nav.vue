@@ -22,7 +22,7 @@ export default {
   },
   data () {
     return {
-      category: ['About', 'Projects', 'Others', 'Contact'],
+      category: ['About', 'Projects', 'Otherworks', 'Contact'],
       windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
       show: false,
       showNav: 'showNav',
@@ -35,11 +35,11 @@ export default {
       setTimeout(function () {
         // _this.$refs.nav.style.opacity = 1
         _this.show = true
-      }, 1500)
+      }, 2000)
     },
     dynamicNav () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop > (document.body.clientHeight - 120)) {
+      if (scrollTop > (document.body.clientHeight - 150)) {
         this.show = scrollTop >= this.windowTop ? false : true
         this.windowTop = scrollTop
       } else {
@@ -63,7 +63,7 @@ export default {
 </script>
 
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .nav
     z-index: 100
     position: fixed
@@ -76,9 +76,11 @@ export default {
     justify-content: center
     align-items: center
     transition: all .8s
+    // box-shadow: 0 .06rem .1rem -.04rem rgba(18, 22, 33, .1)
     li
       position: relative
-      padding: 0 36px
+      padding: 0 35px
+      line-height: 52px
       cursor: pointer
       &:after
         content: '·'

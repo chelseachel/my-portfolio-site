@@ -3,8 +3,8 @@
     <Nav @goAnchor="handleGoAnchor" :anchorIndex="anchorIndex"></Nav>
     <welcome></welcome>
     <about ref="about"></about>
-    <projects ref="projects"></projects>
-    <others ref="others"></others>
+    <projects ref="projects" :offset="offset[1]"></projects>
+    <others ref="others" :offset="offset[2]"></others>
     <contact ref="contact"></contact>
   </div>
 </template>
@@ -16,16 +16,17 @@ import Projects from './projects/Projects'
 import Others from './others/Others'
 import Contact from './contact/Contact'
 import Nav from './nav/Nav'
-// import Footer from './footer/Footer'
 export default {
   name: 'Home',
   components: {
-    Welcome, About, Projects, Others, Contact, Nav
+    Nav, Welcome, About, Projects, Others, Contact, 
+    
   },
   data () {
     return {
       anchorElements: [],
-      anchorIndex: null
+      anchorIndex: null,
+      offset: []
     }
   },
   methods: {
@@ -35,22 +36,20 @@ export default {
     },
     getAnchorIndex () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      const offset = []
       for(let i = 0; i < this.anchorElements.length; i++) {
-        offset[i] = this.anchorElements[i].offsetTop
+        this.offset[i] = this.anchorElements[i].offsetTop
       }
-      if (scrollTop < offset[0]) {
+      if (scrollTop < this.offset[0]) {
         this.anchorIndex = -1
-      } else if (scrollTop >= offset[0] && scrollTop < offset[1]) {
+      } else if (scrollTop >= this.offset[0] && scrollTop < this.offset[1]) {
           this.anchorIndex = 0
-      } else if (scrollTop >= offset[1] && scrollTop < offset[2]) {
+      } else if (scrollTop >= this.offset[1] && scrollTop < this.offset[2]) {
           this.anchorIndex = 1
-      } else if (scrollTop >= offset[2] && scrollTop < offset[3]) {
+      } else if (scrollTop >= this.offset[2] && scrollTop < this.offset[3]) {
           this.anchorIndex = 2
-      } else if (scrollTop >= offset[3] && scrollTop) {
+      } else if (scrollTop >= this.offset[3] && scrollTop) {
           this.anchorIndex = 3
       }
-      console.log(this.anchorIndex);
     }
   },
   mounted () {
@@ -65,7 +64,5 @@ export default {
 </script>
 
 
-<style lang="stylus">
-  .home
-    // overflow: scroll
+<style lang="stylus" scoped>
 </style>

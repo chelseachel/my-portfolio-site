@@ -44,7 +44,7 @@ export default {
 </script>
 
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .left
     width: 40%
     height: 100vh
@@ -69,4 +69,17 @@ export default {
       height: 120px
       border-radius: 50%
       background: #eee
+  // @keyframes fade-in-title
+  //   from
+  //     opacity: 0
+  //     top: 50px
+  //   to
+  //     opacity: 1
+  //     top: 0
+  // @keyframes slide-out
+  //   from
+  //     height: 100%
+  //   to
+  //     height: 0
+  //     background: #F1B908
 </style>

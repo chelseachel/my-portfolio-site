@@ -13,11 +13,12 @@ export default {
 </script>
 
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .contact
     position:relative
     top: 100vh
     width: 100vw
-    height: 100vh
+    height: 400px
+    background: #5c5c5f
     display: flex
 </style>

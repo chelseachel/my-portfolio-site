@@ -35,7 +35,7 @@ export default {
 </script>
 
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .welcome
     position:relative
     width: 100vw

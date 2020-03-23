@@ -32,7 +32,7 @@ export default {
 </script>
 
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .about
     position: relative
     width: 100vw

@@ -57,12 +57,12 @@ export default {
     this.showhello()
     this.showInfo()
     window.addEventListener('scroll', this.scrollParallax, true)
-  },
+  }
 }
 </script>
 
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   .wrapper
     flex: 1
     display: flex

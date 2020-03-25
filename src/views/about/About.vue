@@ -26,7 +26,9 @@ export default {
   },
   mounted () {
     this.getHeight()
-    
+  },
+  updated () {
+    this.getHeight()
   }
 }
 </script>

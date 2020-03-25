@@ -25,8 +25,8 @@ export default {
       category: ['About', 'Projects', 'Otherworks', 'Contact'],
       windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
       show: false,
-      showNav: 'showNav',
-      hideNav: 'hideNav'
+      showNav: 'shownav',
+      hideNav: 'hidenav'
     }
   },
   methods: {
@@ -81,6 +81,7 @@ export default {
       position: relative
       padding: 0 35px
       line-height: 52px
+      font-size: 14px
       cursor: pointer
       &:after
         content: '·'
@@ -92,9 +93,9 @@ export default {
     .activeColor
       color: #F1B908
       font-weight: 500
-  .showNav
+  .shownav
     opacity: 1
     transform: translate3d(0, 0, 0)
-  .hideNav
+  .hidenav
     transform: translate3d(0, -100%, 0)
 </style>

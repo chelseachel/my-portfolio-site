@@ -26,7 +26,8 @@ export default {
     return {
       anchorElements: [],
       anchorIndex: null,
-      offset: []
+      offset: [],
+      aboutHeight: 0
     }
   },
   methods: {
@@ -50,7 +51,7 @@ export default {
       } else if (scrollTop >= this.offset[3] && scrollTop) {
           this.anchorIndex = 3
       }
-    }
+    },
   },
   mounted () {
     this.anchorElements[0]=this.$refs.about.$el
@@ -64,5 +65,5 @@ export default {
 </script>
 
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 </style>

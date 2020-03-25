@@ -7,7 +7,6 @@ import 'swiper/css/swiper.css'
 import '@/assets/styles/reset.css'
 
 Vue.config.productionTip = false
-
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 
 new Vue({

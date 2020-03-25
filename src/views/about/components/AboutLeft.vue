@@ -39,6 +39,7 @@ export default {
   mounted () {  
     const _this = this
     window.addEventListener('scroll', _this.positionState, true)
+    window.addEventListener('resize', _this.positionState, true)
   }
 }
 </script>

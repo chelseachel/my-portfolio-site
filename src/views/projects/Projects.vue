@@ -1,38 +1,50 @@
 <template>
-  <div class="projects" id="projects">
+  <div class="projects" id="projects" ref="projects">
     <projects-title v-if="show"></projects-title>
-    <projects-scroll></projects-scroll>
+    <projects-scroll v-if="show"></projects-scroll>
   </div>
 </template>
 
 <script>
 import ProjectsTitle from './components/ProjectsTitle'
-import ProjectsScoll from './components/ProjectsScoll'
+import ProjectsScroll from './components/ProjectsScroll'
 export default {
   name: 'Projects',
   props: {
-    offset: Number
+    offset: Number,
   },
   components: {
-    ProjectsTitle, ProjectsScoll
+    ProjectsTitle, ProjectsScroll
   },
   data () {
     return {
-      show: false
+      show: false,
+      windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
     }
   },
   methods: {
     handleScroll () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       const clientHeight = document.body.clientHeight
-      if (scrollTop > this.offset - clientHeight + 200) {
+      if (scrollTop > this.offset - clientHeight + 100) {
         this.show = true
       }
-    }
+    },
+    // positionState () {
+    //   const el = this.$refs.projects
+    //   const top = el.getBoundingClientRect().top
+    //   const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    //   if (scrollTop > this.windowTop && top > 0 && top < 50) {
+    //     // window.scrollTo(0, this.offset)
+    //     el.scrollIntoView()
+    //     //position = 'fixed'
+    //     this.windowTop = scrollTop
+    //   } 
+    // }
   },
   mounted () {
-    const _this = this
-    window.addEventListener('scroll', _this.handleScroll, true)
+    window.addEventListener('scroll', this.handleScroll, true)
+    // window.addEventListener('scroll', this.positionState, true)
   }
 }
 </script>
@@ -42,6 +54,7 @@ export default {
   .projects
     position: relative
     width: 100vw
-    height: 100vh
-    // display: flex
+    min-height: 700px
+    display: flex
+    flex-flow: column
 </style>

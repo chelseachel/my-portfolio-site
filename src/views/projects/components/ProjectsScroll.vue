@@ -2,7 +2,8 @@
   <div class="container">
     <div class="blank"></div>
     <div class="wrapper">
-      <projects-scroll-item v-for="item in list" :key="item.id" :item="item"></projects-scroll-item>
+      <projects-scroll-item v-for="item in list" :key="item.id" :item="item"  ref="item"></projects-scroll-item>
+      <div class="bottom" ref="bottom"></div>
     </div>
   </div>
 </template>
@@ -49,30 +50,17 @@ export default {
       },]
     }
   },
-  // methods: {
-  //   scrollTimeLine () {
-  //     const items = this.$refs.item
-  //     console.log(items);
-  //     for (let i = 0; i < items.length; i++) {
-        
-  //       if (this.isElementInViewport(items[i])) {
-  //         this.show = true
-  //       }
-  //     }
-  //   },
-  //   isElementInViewport (el) {
-  //     const rect = el.getBoundingClientRect();
-  //     return (
-  //       rect.top >= 0 &&
-  //       rect.left >= 0 &&
-  //       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-  //       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  //     )
-  //   }
-  // },
-  // mounted () {
-  //   window.addEventListener('scroll', this.scrollTimeLine, true)
-  // }
+  methods: {
+    bottomHeight () {
+      const clientHeight = document.body.clientHeight
+      const itemHeight = parseInt(this.$refs.item[4].$el.getBoundingClientRect().height)
+      const bHeight = clientHeight - itemHeight - 320
+      this.$refs.bottom.style.height = bHeight + 'px'
+    }
+  },
+  mounted () {
+    this.bottomHeight()
+  }
 }
 </script>
 
@@ -80,16 +68,13 @@ export default {
 <style lang="stylus" scoped>
   .container
     position: relative
-    flex: 1
     width: 100%
-    background: #eee
     display: flex
-    animation: fade-in 1s both
     .blank
-      flex: 2
+      flex: 1
     .wrapper
-      flex: 3
-      background #fff
+      flex: 1
       display: block
-      
+      .bottom
+        width: 100%
 </style>

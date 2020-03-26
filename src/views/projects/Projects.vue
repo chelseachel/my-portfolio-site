@@ -1,50 +1,36 @@
 <template>
   <div class="projects" id="projects" ref="projects">
-    <projects-title v-if="show"></projects-title>
-    <projects-scroll v-if="show"></projects-scroll>
+    <projects-scroll></projects-scroll>
+    <projects-display :scrollHeight="scrollHeight" :offset="offset"></projects-display>
   </div>
 </template>
 
 <script>
-import ProjectsTitle from './components/ProjectsTitle'
 import ProjectsScroll from './components/ProjectsScroll'
+import ProjectsDisplay from './components/ProjectsDisplay'
 export default {
   name: 'Projects',
   props: {
     offset: Number,
   },
   components: {
-    ProjectsTitle, ProjectsScroll
+    ProjectsScroll, ProjectsDisplay
   },
   data () {
     return {
-      show: false,
+      scrollHeight: 0,
       windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
     }
   },
   methods: {
-    handleScroll () {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      const clientHeight = document.body.clientHeight
-      if (scrollTop > this.offset - clientHeight + 100) {
-        this.show = true
-      }
-    },
-    // positionState () {
-    //   const el = this.$refs.projects
-    //   const top = el.getBoundingClientRect().top
-    //   const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-    //   if (scrollTop > this.windowTop && top > 0 && top < 50) {
-    //     // window.scrollTo(0, this.offset)
-    //     el.scrollIntoView()
-    //     //position = 'fixed'
-    //     this.windowTop = scrollTop
-    //   } 
-    // }
+    getHeight () {
+      this.scrollHeight = parseInt(this.$refs.projects.getBoundingClientRect().height)
+    }
   },
   mounted () {
-    window.addEventListener('scroll', this.handleScroll, true)
-    // window.addEventListener('scroll', this.positionState, true)
+    this.getHeight()
+    window.addEventListener('resize', this.getHeight, true)
+    window.addEventListener('scroll', this.getHeight, true)
   }
 }
 </script>
@@ -54,7 +40,5 @@ export default {
   .projects
     position: relative
     width: 100vw
-    min-height: 700px
-    display: flex
-    flex-flow: column
+   
 </style>

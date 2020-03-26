@@ -20,31 +20,19 @@ export default {
   },
   methods: {
     scrollTimeLine () {
-      console.log(this.rect.top); 
-      let clientHeight = window.innerHeight || document.documentElement.clientHeight
-      if (this.rect && this.rect.top < (clientHeight - 400)) {
+      const clientHeight = document.body.clientHeight
+      this.rect = this.$refs.item.getBoundingClientRect();
+      // let clientHeight = window.innerHeight || document.documentElement.clientHeight
+      if (this.rect && this.rect.top < 300) {
         this.show = true
-        console.log(true);
+      } else if (this.rect && this.rect.top > clientHeight) {
+        this.show = false
       }
     },
-    // isElementInViewport () {
-    //   if (this.rect) {
-    //     return (
-    //       this.rect.top >= 0 &&
-    //       this.rect.left >= 0 &&
-    //       this.rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    //       this.rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    //     )
-    //   }
-    // }
   },
   mounted () {
-    this.rect = this.$refs.item.getBoundingClientRect();
-    console.log(this.rect.top);
+    this.rect = this.$refs.item.getBoundingClientRect()
     window.addEventListener('scroll', this.scrollTimeLine, true)
-  },
-  updated () {
-    this.rect = this.$refs.item.getBoundingClientRect();
   }
 }
 </script>
@@ -52,27 +40,22 @@ export default {
 
 <style lang="stylus" scoped>
   .item
-    width: 60%
-    margin: 100px
-    margin-left: 100px
+    max-width: 60%
+    margin: 150px 0
+    box-sizing: border-box
     line-height: 2em
     text-align: justify
     visibility: hidden
     opacity: 0
-    transition: all .5s ease-in-out
+    transform: translateY(50px)
+    transition: all .6s ease
   .showitem
     visibility: visible
     opacity: 1
+    transform: translateY(0px)
     .title
       line-height: 80px
       font-size: 24px
       font-weight: 600
-      text-align: left
-  @keyframes fade-in
-    from
-      opacity: 0
-      top: 100px
-    to
-      opacity: 1
-      top: 0      
+      text-align: left   
 </style>

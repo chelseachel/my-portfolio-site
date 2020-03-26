@@ -1,7 +1,7 @@
 <template>
-  <div class="left" ref="left" :style="{position: position, top: top + 'px'}">
-    <div class="cate" ref="cate">
-      About
+  <div class="left" :style="{position: position, top: top + 'px'}">
+    <div class="cate">
+      About.
     </div>
     <div class="photo"></div>
   </div>
@@ -36,10 +36,9 @@ export default {
       }
     }
   },
-  mounted () {  
-    const _this = this
-    window.addEventListener('scroll', _this.positionState, true)
-    window.addEventListener('resize', _this.positionState, true)
+  mounted () {
+    window.addEventListener('scroll', this.positionState, true)
+    window.addEventListener('resize', this.positionState, true)
   }
 }
 </script>
@@ -70,17 +69,4 @@ export default {
       height: 120px
       border-radius: 50%
       background: #eee
-  // @keyframes fade-in-title
-  //   from
-  //     opacity: 0
-  //     top: 50px
-  //   to
-  //     opacity: 1
-  //     top: 0
-  // @keyframes slide-out
-  //   from
-  //     height: 100%
-  //   to
-  //     height: 0
-  //     background: #F1B908
 </style>

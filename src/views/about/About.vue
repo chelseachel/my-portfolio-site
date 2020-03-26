@@ -20,15 +20,12 @@ export default {
   },
   methods: {
     getHeight () {
-      // this.scrollHeight = parseInt(this.$refs.about.scrollHeight)
       this.scrollHeight = parseInt(this.$refs.about.getBoundingClientRect().height)
     }
   },
   mounted () {
     this.getHeight()
-  },
-  updated () {
-    this.getHeight()
+    window.addEventListener('resize', this.getHeight, true)
   }
 }
 </script>

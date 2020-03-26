@@ -1,7 +1,7 @@
 <template>
   <ul class="nav" ref="nav" :class="show ? showNav : hideNav">
     <li 
-      :class="index == anchorIndex ? 'activeColor' : ''"
+      :class="index == anchorIndex ? 'active-color' : ''"
       v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)"
     >
       {{item}}
@@ -39,7 +39,7 @@ export default {
     },
     dynamicNav () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop > (document.body.clientHeight - 150)) {
+      if (scrollTop > (document.body.clientHeight - 60)) {
         this.show = scrollTop >= this.windowTop ? false : true
         this.windowTop = scrollTop
       } else {
@@ -83,6 +83,8 @@ export default {
       line-height: 52px
       font-size: 14px
       cursor: pointer
+      &:hover
+        color: #F1B908
       &:after
         content: '·'
         color: #F1B908
@@ -90,7 +92,7 @@ export default {
         right: 0
       &:last-child:after
         content: ''
-    .activeColor
+    .active-color
       color: #F1B908
       font-weight: 500
   .shownav

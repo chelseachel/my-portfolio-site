@@ -36,10 +36,8 @@ export default {
       anchor.scrollIntoView({behavior: "smooth"})
     },
     getAnchorIndex () {
+      this.getOffset()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      for(let i = 0; i < this.anchorElements.length; i++) {
-        this.offset[i] = this.anchorElements[i].offsetTop
-      }
       if (scrollTop < this.offset[0]) {
         this.anchorIndex = -1
       } else if (scrollTop >= this.offset[0] && scrollTop < this.offset[1]) {
@@ -52,6 +50,11 @@ export default {
           this.anchorIndex = 3
       }
     },
+    getOffset () {
+      for(let i = 0; i < this.anchorElements.length; i++) {
+        this.offset[i] = this.anchorElements[i].offsetTop
+      }
+    }
   },
   mounted () {
     this.anchorElements[0]=this.$refs.about.$el

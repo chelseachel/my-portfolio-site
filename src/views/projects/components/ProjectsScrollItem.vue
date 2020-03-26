@@ -10,7 +10,8 @@
 export default {
   name: 'ProjectsScrollItem',
   props: {
-    item: Object
+    item: Object,
+    index: Number
   },
   data () {
     return {
@@ -21,7 +22,7 @@ export default {
   methods: {
     scrollTimeLine () {
       const clientHeight = document.body.clientHeight
-      this.rect = this.$refs.item.getBoundingClientRect();
+      this.rect = this.$refs.item.getBoundingClientRect()
       // let clientHeight = window.innerHeight || document.documentElement.clientHeight
       if (this.rect && this.rect.top < 300) {
         this.show = true
@@ -29,10 +30,19 @@ export default {
         this.show = false
       }
     },
+    scrollStoreIndex () {
+      const clientHeight = document.body.clientHeight
+      this.rect = this.$refs.item.getBoundingClientRect()
+      if (this.rect && this.rect.top < (clientHeight/2 - 200)) {
+        this.$store.commit('changeActiveIndex', this.index)
+      }
+    }
   },
   mounted () {
     this.rect = this.$refs.item.getBoundingClientRect()
+    window.addEventListener('resize', this.getRect, true)
     window.addEventListener('scroll', this.scrollTimeLine, true)
+    window.addEventListener('scroll', this.scrollStoreIndex, true)
   }
 }
 </script>
@@ -40,17 +50,15 @@ export default {
 
 <style lang="stylus" scoped>
   .item
-    max-width: 60%
-    margin: 150px 70px
+    max-width: 80%
+    padding: 150px 70px
     box-sizing: border-box
     line-height: 2em
     text-align: justify
-    visibility: hidden
     opacity: 0
     transform: translateY(50px)
     transition: all .6s ease
   .showitem
-    visibility: visible
     opacity: 1
     transform: translateY(0px)
     .title

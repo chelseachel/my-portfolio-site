@@ -1,7 +1,7 @@
 <template>
   <div class="projects" id="projects" ref="projects">
-    <projects-scroll></projects-scroll>
-    <projects-display :scrollHeight="scrollHeight" :offset="offset"></projects-display>
+    <projects-scroll ref="scroll"></projects-scroll>
+    <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex"></projects-display>
   </div>
 </template>
 
@@ -25,6 +25,9 @@ export default {
   methods: {
     getHeight () {
       this.scrollHeight = parseInt(this.$refs.projects.getBoundingClientRect().height)
+    },
+    handleScrollToIndex () {
+      this.$refs.scroll.scrollToItem()
     }
   },
   mounted () {

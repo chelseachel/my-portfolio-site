@@ -98,6 +98,7 @@ export default {
               top: 0px
       .info
         font-size: 18px
+        font-weight: 200
         span
           position: relative
           opacity: 0

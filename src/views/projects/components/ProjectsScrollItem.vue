@@ -41,7 +41,7 @@ export default {
 <style lang="stylus" scoped>
   .item
     max-width: 60%
-    margin: 150px 0
+    margin: 150px 70px
     box-sizing: border-box
     line-height: 2em
     text-align: justify
@@ -56,6 +56,6 @@ export default {
     .title
       line-height: 80px
       font-size: 24px
-      font-weight: 600
+      font-weight: 500
       text-align: left   
 </style>

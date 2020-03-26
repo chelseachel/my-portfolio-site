@@ -1,16 +1,12 @@
 <template>
   <div class="display" :style="{position: position, top: top + 'px'}" ref="display">
     <div class="wrapper">
-      <div class="title">Projects.</div>
-      <div class="nav">
-        My Portfolio Site<br>
-        Tally App<br>
-        去哪儿网<br>
-        Color Sort Game<br>
-        Othello Game<br>
-        字体排版优化<br>
-      </div>
+      <div class="title">Projects</div>
+      <ul class="nav">
+        <li v-for="(item, index) in list" :key="index">{{item}}</li>
+      </ul>
     </div>
+    <div class="img"></div>
   </div>
 </template>
 
@@ -24,7 +20,8 @@ export default {
   data () {
     return {
       position: 'absolute ',
-      top: 0
+      top: 0,
+      list: ['My Portfolio Site', 'Tally App', '去哪儿网', 'Color Sort Game', 'Othello Game', '字体排版优化']
     }
   },
   methods: {
@@ -56,19 +53,18 @@ export default {
 
 <style lang="stylus" scoped>
   .display
-    width: 50%
+    width: 45%
     height: 100vh
     background: transparent
     opacity: .7
     z-index: 2
     transition: opacity .5s ease
     .wrapper
+      display: flex
+      flex-flow: column
       position: absolute
       left: 50px
-      top: 50%
-      
-      transform: translateY(-50%)
-      display: block
+      top: 9%
       .title
         line-height: 4em
         text-align: left
@@ -77,8 +73,26 @@ export default {
         // font-variant: small-caps
       .nav
         line-height: 4em
-        text-align: left
-        // padding: 20px 25px
-        // border: 1px solid #F1B908
-        // border-radius: 6px
+        text-align: right
+        font-size: 15px
+        font-weight: 200
+        li
+          position: relative
+          &:first-child:after
+            content: ''
+            position: absolute
+            top: 50%
+            right: -20px
+            transform: translateY(-50%)
+            width: 10px
+            height: 10px
+            border-radius: 50%
+            background: #F1B908
+    .img
+      width: 250px
+      height: 400px
+      background: #D0CAC2
+      position: absolute
+      top: 140px
+      right: 10px
 </style>

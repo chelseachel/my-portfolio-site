@@ -71,9 +71,9 @@ export default {
     width: 100%
     display: flex
     .blank
-      flex: 1
+      flex: 45
     .wrapper
-      flex: 1
+      flex: 55
       display: block
       .bottom
         width: 100%

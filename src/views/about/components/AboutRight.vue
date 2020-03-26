@@ -46,8 +46,8 @@ export default {
 <style lang="stylus" scoped>
   .right
     position: relative
-    left: 40%
-    width: 60%
+    left: 45%
+    width: 55%
     .content
       padding: 120px
       box-sizing: border-box

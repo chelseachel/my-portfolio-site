@@ -71,7 +71,7 @@ export default {
     width: 100%
     height: 52px
     background: #FDFDF9
-    border-bottom: 1px dotted #ddd
+    border-bottom: 1px dotted #D0CAC2
     display: flex
     justify-content: center
     align-items: center

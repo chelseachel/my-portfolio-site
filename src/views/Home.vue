@@ -59,8 +59,8 @@ export default {
     this.anchorElements[2]=this.$refs.others.$el
     this.anchorElements[3]=this.$refs.contact.$el
     this.getAnchorIndex()
-    const _this = this
-    window.addEventListener('scroll', _this.getAnchorIndex, true)
+    window.addEventListener('scroll', this.getAnchorIndex, true)
+    window.addEventListener('resize', this.getAnchorIndex, true)
   }
 }
 </script>

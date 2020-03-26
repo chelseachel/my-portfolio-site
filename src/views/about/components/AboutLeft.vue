@@ -46,9 +46,8 @@ export default {
 
 <style lang="stylus" scoped>
   .left
-    width: 40%
+    width: 45%
     height: 100vh
-    flex: 2
     display: flex
     justify-content: center
     align-items: center

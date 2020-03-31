@@ -15,8 +15,8 @@ export default {
   },
   data () {
     return {
-      hello: 'Hello, I’m Chelsea',
-      info: 'A front-end developer always with an artisan’s heart. ',
+      hello: 'Hello, I’m Chelsea.',
+      info: 'A front-end developer always with an artisan’s heart. 匠心编造。',
       speed: .5
     }
   },
@@ -48,7 +48,7 @@ export default {
       this.$refs.info.append(span)
     },
     scrollParallax () {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       const yPosition = scrollTop * this.speed + 'px'
       this.$refs.parallax.setAttribute('style', `transform: translateY(-${yPosition})`)
     }
@@ -77,7 +77,7 @@ export default {
         margin-bottom: 40px
         font-size: 56px
         color: #F1B908
-        font-weight: 800
+        font-weight: 600
         span
           position: relative
           opacity: 0

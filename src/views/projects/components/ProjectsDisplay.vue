@@ -1,14 +1,16 @@
 <template>
   <div class="display" :style="{position: position, top: top + 'px'}" ref="display">
     <div class="wrapper">
-      <div class="title">Projects</div>
+      <div class="title">Projects<span>.</span></div>
       <ul class="nav">
         <li 
           v-for="(item, index) in list" :key="index" 
-          :class="index == activeIndex ? 'active-class' : ''" 
+           
           @click="handleClickIndex(index)"
         >
-          {{item}}
+          <span :class="index == activeIndex ? 'active-class' : ''">
+            {{item}} 
+          </span>
         </li>
       </ul>
     </div>
@@ -28,7 +30,7 @@ export default {
     return {
       position: 'absolute ',
       top: 0,
-      list: ['My Portfolio Site', 'Tally App', '去哪儿网', 'Color Sort Game', 'Othello Game', '字体排版优化']
+      list: ['My Portfolio Site', 'Tally App', 'Qunaer', 'Color Sort Game', 'Othello Game', 'Font Optimization']
     }
   },
   computed: {
@@ -95,44 +97,65 @@ export default {
         font-size: 30px
         font-weight: 600
         // font-variant: small-caps
-        &:after
-          content: ''
-          position: absolute
-          top: 50px
-          right: -20px
-          width: 6px
-          height: 20px
-          border-radius: 3px
-          background: #F1B908
+        // &:after
+        //   content: ''
+        //   position: absolute
+        //   top: 50px
+        //   right: -20px
+        //   width: 6px
+        //   height: 20px
+        //   border-radius: 3px
+        //   background: #F1B908
+        span
+          color: #F1B908
       .nav
         width: 140px
         line-height: 4em
-        text-align: right
+        // text-align: right
         font-size: 15px
-        font-weight: 200
+        font-weight: 400
         li
-          position: relative
-          cursor: pointer
-          transition: all .5s
-          &:hover
-            color: #F1B908
-          &:after
-            content: ''
-            position: absolute
-            top: 50%
-            right: -20px
-            transform: translateY(-50%)
-            width: 10px
-            height: 10px
-            border-radius: 50%
-            background: transparent
+          width: 100%
+          text-align: right
+          span
+            position: relative
+            cursor: pointer
             transition: all .5s
-        .active-class
-          position: relative
-          // color: #F1B908
-          // font-weight: 400
-          &:after
-            background: #F1B908
+            &:hover:before
+              width: 100%
+              left: 0
+              opacity: 1
+            &:before
+              content: ''
+              position: absolute
+              bottom: -1px
+              left: 100%
+              width: 0
+              height: 2px
+              opacity: 0
+              border-radius: 1px
+              background: #F1B908
+              z-index: -1
+              transition: all .3s
+            // &:after
+            //   content: ''
+            //   position: absolute
+            //   top: 50%
+            //   right: -18px
+            //   transform: translateY(-50%)
+            //   width: 10px
+            //   height: 10px
+            //   border-radius: 50%
+            //   background: transparent
+            //   transition: all .5s
+          .active-class
+            // &:after
+            //   background: #F1B908
+            &:before
+              width: 100%
+              height: 2px
+              left: 0
+              opacity: 1
     .img
       width: 250px
       height: 400px

@@ -1,5 +1,5 @@
 <template>
-  <div class="contact" id="contact">
+  <div class="contact">
   </div>
 </template>
 
@@ -15,10 +15,8 @@ export default {
 
 <style lang="stylus" scoped>
   .contact
-    position:relative
-    top: 100vh
+    // position: relative
     width: 100vw
     height: 400px
     background: #5c5c5f
-    display: flex
 </style>

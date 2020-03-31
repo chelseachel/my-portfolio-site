@@ -69,7 +69,6 @@ export default {
       const itemHeight = parseInt(this.$refs.item[5].$el.getBoundingClientRect().height)
       const bottomHeight = clientHeight - itemHeight - 20 
       this.$refs.bottom.style.height = bottomHeight + 'px'
-      console.log(bottomHeight);
     },
     getItemElements () {
       for (let i = 0; i < this.list.length; i++) {

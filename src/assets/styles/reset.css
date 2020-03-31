@@ -17,5 +17,5 @@ mark{background-color:transparent}
 a,ins,s,u,del{text-decoration:none}
 sup,sub{vertical-align:baseline}
 html {overflow-x: hidden;height: 100%;font-size: 50px;-webkit-tap-highlight-color: transparent;}
-body {height: 100%;font-family: Avenir, "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#5C5C5F;font-size: 14px;line-height: 1;-webkit-text-size-adjust: none;}
+body {height: 100%;font-family: "Avenir", "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#5C5C5F;font-size: 14px;line-height: 1;-webkit-text-size-adjust: none;}
 a {color: #5C5C5F;text-decoration: none;}

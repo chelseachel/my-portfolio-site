@@ -23,8 +23,7 @@ export default {
     scrollTimeLine () {
       const clientHeight = document.body.clientHeight
       this.rect = this.$refs.item.getBoundingClientRect()
-      // let clientHeight = window.innerHeight || document.documentElement.clientHeight
-      if (this.rect && this.rect.top < 300) {
+      if (this.rect && this.rect.top < 300 && this.rect.top >= 0) {
         this.show = true
       } else if (this.rect && this.rect.top > clientHeight) {
         this.show = false

@@ -79,17 +79,28 @@ export default {
     // box-shadow: 0 .06rem .1rem -.04rem rgba(18, 22, 33, .1)
     li
       position: relative
-      padding: 0 35px
+      margin: 0 35px
       line-height: 52px
       font-size: 14px
       cursor: pointer
-      &:hover
-        color: #F1B908
+      transition: all .5s
+      &:hover:before
+        width: 100%
+        left: 0
+      &:before
+        content: ''
+        position: absolute
+        bottom: -1px
+        left: 50%
+        width: 0
+        height: 2px
+        background: #F1B908
+        transition: all .5s
       &:after
         content: '·'
-        color: #F1B908
         position: absolute
-        right: 0
+        right: -35px
+        color: #D0CAC2
       &:last-child:after
         content: ''
     .active-color

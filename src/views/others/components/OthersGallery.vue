@@ -1,9 +1,9 @@
 <template>
   <div class="gallery">
-    <div class="container" ref="container" :style="{width: containerWidth + 'px', height: containerHeight + 'px'}">
+    <div class="container" ref="container" :style="{width: width + 'px', height: height + 'px'}">
       <div class="box" ref="box" v-for="item in images" :key="item.id">
         <div class="pic">
-          <img :src="item.url">
+          <img :src="item.url" @load=imageLoaded>
         </div>
       </div>
     </div>
@@ -95,56 +95,61 @@ export default {
         id: '026',
         url: require('@/assets/images/26.jpg')
       }, ],
-      clientWidth: document.body.clientWidth,
-      boxs: null,
+      // clientWidth: document.body.clientWidth,
+      // boxs: null,
       heightArr: [], // 存储每列高度
-      index: 0,
-      // containerHeight: 0
+      minIndex: 0,
+      width: 0,
+      height: 0,
+      loadedImages: 0
+
     }
   },
   computed: {
-    cols () {
-      const galleryWidth = this.clientWidth * 0.9
-      return Math.floor(galleryWidth / 220) // 计算 gallery 的总列数
-    },
-    containerWidth () {
-      return 220 * this.cols // box container 的宽度
-    },
-    containerHeight () {
-      return this.heightArr[this.index]
+    // cols () {
+    //   const galleryWidth = this.clientWidth * 0.9
+    //   return Math.floor(galleryWidth / 220) // 计算 gallery 的总列数
+    // },
+    // containerWidth () {
+    //   return 220 * this.cols // box container 的宽度
+    // },
+    // containerHeight () {
+    //   return Math.max.apply(null, this.heightArr) // box container 的高度
+    // }
+  },
+  watch: {
+    loadedImages: function () {
+      if (this.loadedImages === this.images.length) {
+        this.$nextTick(function() {
+          this.waterfall()
+        }, 100)
+      }
     }
   },
   methods: {
     waterfall () {
-      // this.boxs = this.$refs.box //array
-      // console.log(this.boxs);
-      // this.galleryWidth = document.body.clientWidth * 0.9
-      // const cols = Math.floor(this.galleryWidth / 220) // 计算 gallery 的总列数
-      // const width = 220 * cols 
-      // this.container = this.$refs.container
-      // if (container) {
-      // this.container.style.width = width + 'px' //设置 
-      // }
-      // let heightArr = [] //存储每列高度
-      if (this.boxs) {
-        for (let i = 0; i < this.boxs.length; i++) {
-          if (i < this.cols) {
-            this.heightArr.push(this.boxs[i].offsetHeight)
-          } else {
-            let minH = Math.min.apply(null, this.heightArr)
-            this.index = this.getMinhIndex(this.heightArr, minH) //最小高度那列的index
-            this.boxs[i].style.position = 'absolute'
-            this.boxs[i].style.top = minH + 'px'
-            this.boxs[i].style.left = this.boxs[this.index].offsetLeft + 'px'
-            this.heightArr[this.index] += this.boxs[i].offsetHeight
-            console.log(this.heightArr[this.index]);
-            // this.containerHeight = 
-          }
-        }
+      const boxs = this.$refs.box // array
+      const clientWidth = document.body.clientWidth
+      const galleryWidth = clientWidth * 0.9
+      const cols = Math.floor(galleryWidth / 220) // 计算 gallery 的总列数
+      this.width = 220 * cols // container 的宽度
+      
+      this.heightArr = [] // 存储每列高度
+      for (let i = 0; i < cols; i++) {
+        this.heightArr[i] = 0
       }
-    },
-    getClientWidth () {
-      this.clientWidth = document.body.clientWidth
+      this.$nextTick(() => {
+        for (let i = 0; i < boxs.length; i++) {     
+          let minH = Math.min.apply(null, this.heightArr)
+          this.minIndex = this.getMinhIndex(this.heightArr, minH)
+          boxs[i].style.position = 'absolute'
+          boxs[i].style.top = minH + 'px'
+          boxs[i].style.left = this.minIndex * 220 + 'px'
+          this.heightArr[this.minIndex] += boxs[i].offsetHeight         
+        }
+        this.height = Math.max.apply(null, this.heightArr) // container 的高度
+      }, 100)
+      
     },
     getMinhIndex(arr, val) {
       for (let i = 0; i < arr.length; i++) {
@@ -152,14 +157,12 @@ export default {
           return i
         }
       }
+    },
+    imageLoaded() {
+      this.loadedImages += 1
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      this.boxs = this.$refs.box //array
-      this.waterfall()
-    })
-    window.addEventListener('resize', this.getClientWidth, true)
     window.addEventListener('resize', this.waterfall, true)
   }
 }
@@ -173,23 +176,17 @@ export default {
     .container
       position: relative
       margin: 0 auto
-      overflow: hidden
-      // &:after
-      //   content:''
-      //   display: block
-      //   clear: both
       .box
-        float: left
         padding: 10px
         width: 200px
         background: transparent
+        transition: all .5s
         .pic
           width: 200px
           border-radius: 5px
           overflow: hidden
           background: #ccc
           img
-            display: block
             width: 100%
     
 </style>

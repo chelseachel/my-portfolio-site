@@ -18,5 +18,5 @@ export default {
     // position: relative
     width: 100vw
     height: 400px
-    background: #5c5c5f
+    // background: #5c5c5f
 </style>

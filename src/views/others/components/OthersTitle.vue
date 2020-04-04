@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <!-- <div class="wrapper"> -->
-      <div class="title">What I made else</div>
+    <div class="wrapper">
+      <div class="title" ref="title" :class="inView ? 'in-view' : ''">What I <span>made</span> else</div>
       <!-- <div class="psuedo"></div> -->
-    <!-- </div> -->
+    </div>
   </div>
 </template>
 
@@ -11,49 +11,76 @@
 
 export default {
   name: 'OthersTitle',
+  data () {
+    return {
+      inView: false
+    }
+  },
+  methods: {
+    checkInView () {
+      const el = this.$refs.title
+      if (this.utils.isElementInView(el)) {
+        this.inView = true
+      } else {
+        this.inView = false
+      }
+    }
+  },
+  mounted () {
+    window.addEventListener('scroll', this.checkInView, true)
+  }
 }
 </script>
 
 
 <style lang="stylus" scoped>
   .container
-    left: 0
-    width: 100%
-    height: 150px
-    padding-bottom: 20px
-    z-index: 2
-    // .wrapper
-    //   position: absolute
-    //   top: 50%
-    //   left: 50%
-    //   transform: translate(-50%, -50%)
-    .title
-      line-height: 150px
-      font-size: 36px
-      font-weight: 600
-      text-align: center
-        // letter-spacing: 1px
-        // font-variant: small-caps
-        // animation: fade-in 1s both
-      // .psuedo
-      //   position: absolute
-      //   top: 0
-      //   width: 100%
-      //   height: 100%
-      //   animation: slide-out 1s both
-  // @keyframes fade-in
-  //   from
-  //     opacity: 0
-  //     top: 80px
-  //   to
-  //     opacity: 1
-  //     top: 0
-  // @keyframes slide-out
-  //   from
-  //     height: 100%
-  //   to
-  //     height: 0
-  //     background: #F1B908
+    position: relative
+    left: 10%
+    width: 80%
+    height: 220px
+    margin-bottom: 30px
+    box-sizing: border-box
+    .wrapper
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      .title
+        position: relative
+        font-size: 40px
+        font-weight: 200
+        text-align: center
+        opacity: 0
+        // transform: translateY(50px)
+        transition: all 1s ease
+        // &:before
+        //   content: ''
+        //   position: absolute
+        //   bottom: 8px
+        //   right: -200px
+        //   width: 5px
+        //   height: 5px
+        //   border-radius: 50%
+        //   background: #F1B908
+        //   transition: all 1s ease
+        span
+          display: inline-block
+          font-size: 48px
+          font-weight: 600
+          color: #F1B908
+          // transform: translateY(-80px)
+          transition: all 1s ease
+      .in-view
+        font-size: 48px
+        opacity: 1
+        // transform: translateY(0px)
+        // &:before
+        //   right: -10px
+        span
+          font-size: 48px
+          // transform: translateY(0px)
+      
       
     
 </style>

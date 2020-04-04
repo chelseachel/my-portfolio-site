@@ -1,5 +1,5 @@
 <template>
-  <div class="projects" id="projects" ref="projects">
+  <div class="projects" ref="projects">
     <projects-scroll ref="scroll"></projects-scroll>
     <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex"></projects-display>
   </div>
@@ -43,5 +43,5 @@ export default {
   .projects
     position: relative
     width: 100vw
-   
+    // box-shadow: 0 .06rem .1rem -.04rem rgba(18, 22, 33, .1)
 </style>

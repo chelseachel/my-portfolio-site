@@ -20,12 +20,20 @@ export default {
     }
   },
   methods: {
-    scrollTimeLine () {
-      const clientHeight = document.body.clientHeight
-      this.rect = this.$refs.item.getBoundingClientRect()
-      if (this.rect && this.rect.top < 300 && this.rect.top >= 0) {
+    // scrollTimeLine () {
+    //   const clientHeight = document.body.clientHeight
+    //   this.rect = this.$refs.item.getBoundingClientRect()
+    //   if (this.rect && this.rect.top < 300 && this.rect.top >= 0) {
+    //     this.show = true
+    //   } else if (this.rect && this.rect.top > clientHeight) {
+    //     this.show = false
+    //   }
+    // },
+    checkInView () {
+      const el = this.$refs.item
+      if (this.utils.isElementInView(el)) {
         this.show = true
-      } else if (this.rect && this.rect.top > clientHeight) {
+      } else {
         this.show = false
       }
     },
@@ -38,9 +46,7 @@ export default {
     }
   },
   mounted () {
-    this.rect = this.$refs.item.getBoundingClientRect()
-    window.addEventListener('resize', this.getRect, true)
-    window.addEventListener('scroll', this.scrollTimeLine, true)
+    window.addEventListener('scroll', this.checkInView, true)
     window.addEventListener('scroll', this.scrollStoreIndex, true)
   }
 }
@@ -55,14 +61,14 @@ export default {
     line-height: 2em
     text-align: justify
     opacity: 0
-    transform: translateY(50px)
-    transition: all .6s ease
-  .showitem
-    opacity: 1
-    transform: translateY(0px)
+    transform: translateY(100px)
+    transition: all 1s ease
     .title
       line-height: 80px
       font-size: 24px
       font-weight: 500
-      text-align: left   
+      text-align: left  
+  .showitem
+    opacity: 1
+    transform: translateY(0px) 
 </style>

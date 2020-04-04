@@ -1,11 +1,11 @@
 <template>
   <div class="home" ref="home" id="home">
     <Nav @goAnchor="handleGoAnchor" :anchorIndex="anchorIndex"></Nav>
-    <welcome></welcome>
+    <welcome ref="welcome"></welcome>
     <about ref="about"></about>
     <projects ref="projects" :offset="offset[1]"></projects>
     <others ref="others" :offset="offset[2]"></others>
-    <contact ref="contact"></contact>
+    <contact ref="contact"@backToTop="handleScrollBack"></contact>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
       anchorElements: [],
       anchorIndex: null,
       offset: [],
-      aboutHeight: 0
+      aboutHeight: 0,
     }
   },
   methods: {
@@ -54,6 +54,9 @@ export default {
       for(let i = 0; i < this.anchorElements.length; i++) {
         this.offset[i] = this.anchorElements[i].offsetTop
       }
+    },
+    handleScrollBack () {
+      this.$refs.welcome.$el.scrollIntoView({behavior: "smooth"})
     }
   },
   mounted () {
@@ -69,5 +72,6 @@ export default {
 </script>
 
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+  
 </style>

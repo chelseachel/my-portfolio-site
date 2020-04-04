@@ -1,6 +1,6 @@
 <template>
   <div class="display" :style="{position: position, top: top + 'px'}" ref="display">
-    <div class="wrapper">
+    <div class="wrapper" :class="inView ? 'in-view' : ''" ref="wrapper">
       <div class="title">Projects<span>.</span></div>
       <ul class="nav">
         <li 
@@ -28,6 +28,7 @@ export default {
   },
   data () {
     return {
+      inView: false,
       position: 'absolute ',
       top: 0,
       list: ['My Portfolio Site', 'Tally App', 'Qunaer', 'Color Sort Game', 'Othello Game', 'Font Optimization']
@@ -45,15 +46,15 @@ export default {
       if (scrollTop >= this.offset && scrollTop < (this.offset + this.scrollHeight - clientHeight)) {
         this.position = 'fixed'
         this.top = 0
-        this.$refs.display.style.opacity = '1'
+        // this.$refs.display.style.opacity = '1'
       } else if (scrollTop >= (this.offset + this.scrollHeight - clientHeight)) {
         this.position = 'absolute'
         this.top = this.scrollHeight - clientHeight
-        this.$refs.display.style.opacity = '.7'
+        // this.$refs.display.style.opacity = '.7'
       } else if (scrollTop < this.offset) {
         this.position = 'absolute'
         this.top = 0
-        this.$refs.display.style.opacity = '.7'
+        // this.$refs.display.style.opacity = '.7'
       }
     },
     handleClickIndex (index) {
@@ -62,9 +63,18 @@ export default {
     },
     handleStoreIndex (index) {
       this.$store.commit('changeActiveIndex', index)
+    },
+    checkInView () {
+      const el = this.$refs.wrapper
+      if (this.utils.isElementInView(el)) {
+        this.inView = true
+      } else {
+        this.inView = false
+      }
     }
   },
   mounted () {
+    window.addEventListener('scroll', this.checkInView, true)
     window.addEventListener('scroll', this.positionState, true)
     window.addEventListener('resize', this.positionState, true)
   }
@@ -77,10 +87,10 @@ export default {
     width: 45%
     height: 100vh
     background: transparent
-    opacity: .7
+    // opacity: .7
     overflow: hidden
     z-index: 2
-    transition: opacity .5s ease
+    // transition: opacity .5s ease
     .wrapper
       width: 130px
       display: flex
@@ -88,24 +98,18 @@ export default {
       position: absolute
       left: 30px
       top: 50%
+      transform: translateY(-56%)
+      opacity: 0
+      transition: all 1s ease
+    .in-view
+      opacity: 1
       transform: translateY(-62%)
-      // transform-origin:0, 0
       .title
         width: 140px
         line-height: 4em
         text-align: right
-        font-size: 30px
+        font-size: 31px
         font-weight: 600
-        // font-variant: small-caps
-        // &:after
-        //   content: ''
-        //   position: absolute
-        //   top: 50px
-        //   right: -20px
-        //   width: 6px
-        //   height: 20px
-        //   border-radius: 3px
-        //   background: #F1B908
         span
           color: #F1B908
       .nav
@@ -120,7 +124,7 @@ export default {
           span
             position: relative
             cursor: pointer
-            transition: all .5s
+            transition: all .3s
             &:hover:before
               width: 100%
               left: 0
@@ -137,20 +141,7 @@ export default {
               background: #F1B908
               z-index: -1
               transition: all .3s
-            // &:after
-            //   content: ''
-            //   position: absolute
-            //   top: 50%
-            //   right: -18px
-            //   transform: translateY(-50%)
-            //   width: 10px
-            //   height: 10px
-            //   border-radius: 50%
-            //   background: transparent
-            //   transition: all .5s
           .active-class
-            // &:after
-            //   background: #F1B908
             &:before
               width: 100%
               height: 2px

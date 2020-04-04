@@ -1,5 +1,5 @@
 <template>
-  <div class="about" ref="about" id="about">
+  <div class="about" ref="about">
     <about-right></about-right>
     <about-left :scrollHeight="scrollHeight"></about-left>
   </div>
@@ -35,5 +35,4 @@ export default {
   .about
     position: relative
     width: 100vw
-
 </style>

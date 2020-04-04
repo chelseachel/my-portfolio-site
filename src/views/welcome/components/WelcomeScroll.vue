@@ -32,7 +32,7 @@ export default {
 <style lang="stylus" scoped>
   .scroll  
     position: absolute;
-    bottom: 80px;
+    bottom: 100px;
     left: 0;
     right: 0;
     margin: auto
@@ -44,7 +44,7 @@ export default {
       width: 14px
       height: 26px
       margin: auto
-      border: 2px solid #5c5c5f
+      border: 2px solid #2d2b29
       border-radius: 9px
       &:before
         content: ''
@@ -54,7 +54,7 @@ export default {
         width: 2px
         height: 6px 
         border-radius: 1px
-        background: #5c5c5f
+        background: #2d2b29
       &:after
         content: ''
         position: absolute
@@ -63,7 +63,7 @@ export default {
         width: 2px
         height: 7px
         border-radius: 1px
-        background: #5c5c5f
+        background: #2d2b29
         animation: scroll 1.6s infinite
         @keyframes scroll
           0%
@@ -100,7 +100,7 @@ export default {
         width: 2px
         height: 7px
         border-radius: 1px
-        background: #5c5c5f
+        background: #2d2b29
         transform: rotate(45deg)
       &:after
         content: ''
@@ -110,6 +110,6 @@ export default {
         width: 2px
         height: 7px 
         border-radius: 1px
-        background: #5c5c5f
+        background: #2d2b29
         transform: rotate(-45deg)
 </style>

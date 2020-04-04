@@ -3,7 +3,9 @@
     <div class="cate">
       About.
     </div>
-    <div class="photo"></div>
+    <div class="photo" ref="photo" :class="inView ? 'in-view' : ''">
+      <img src="@/assets/images/26.jpg">
+    </div>
   </div>
 </template>
 
@@ -17,7 +19,8 @@ export default {
   data () {
     return {
       position: 'absolute ',
-      top: 0
+      top: 0,
+      inView: false
     }
   },
   methods: {
@@ -34,11 +37,20 @@ export default {
         this.position = 'absolute'
         this.top = 0
       }
+    },
+    checkInView () {
+      const el = this.$refs.photo
+      if (this.utils.isElementInView(el)) {
+        this.inView = true
+      } else {
+        this.inView = false
+      }
     }
   },
   mounted () {
     window.addEventListener('scroll', this.positionState, true)
     window.addEventListener('resize', this.positionState, true)
+    window.addEventListener('scroll', this.checkInView, true)
   }
 }
 </script>
@@ -55,17 +67,25 @@ export default {
     &:after
       clear: both
     .cate
-      font-weight: 800
-      font-size: 60px
+      font-weight: 600
+      font-size: 70px
       color: #FDFDF9
       letter-spacing: 2px
       font-variant: small-caps
     .photo
       position: absolute
       top: 100px
-      right: -60px
-      width: 120px
-      height: 120px
+      right: -65px
+      width: 130px
+      height: 130px
       border-radius: 50%
-      background: #eee
+      background: khaki
+      overflow: hidden
+      transform: scale(.5)
+      transition: all .8s ease
+    .in-view
+      transform: scale(1)
+      img
+        width: 100%
+
 </style>

@@ -1,6 +1,7 @@
 <template>
-  <div class="others" id="others">
-    <others-title ref="title"></others-title>
+  <div class="others">
+    <others-title></others-title>
+    
     <others-gallery></others-gallery>
   </div>
 </template>
@@ -13,16 +14,16 @@ export default {
   components: {
     OthersTitle, OthersGallery
   },
+  props: {
+    offset: Number
+  },
   data () {
     return {
-      show: false,
     }
   },
   methods: {
-    
   },
   mounted () {
-
   }
 }
 </script>
@@ -31,5 +32,7 @@ export default {
 <style lang="stylus" scoped>
   .others
     width: 100vw
-    // height: 100vh
+    padding-bottom: 100px
+    // box-shadow: 0 5px 10px 3px rgba(18, 22, 33, .1)
+    box-shadow: 0 6px 4px 1px rgba(18, 22, 33, .1)
 </style>

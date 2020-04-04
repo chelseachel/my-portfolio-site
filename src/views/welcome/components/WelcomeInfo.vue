@@ -15,9 +15,9 @@ export default {
   },
   data () {
     return {
-      hello: 'Hello, I’m Chelsea.',
-      info: 'A front-end developer always with an artisan’s heart. 匠心编造。',
-      speed: .5
+      hello: 'Hello, I’m Chelsea',
+      info: 'A front-end developer always with the artisan’s spirit. ',
+      speed: .3
     }
   },
   computed: {
@@ -70,12 +70,10 @@ export default {
     align-items: center
     text-align: center 
     .content
-      // margin-bottom: 30px
-      // font-weight: 500
       transition: all .5s ease-out
       .hello
         margin-bottom: 40px
-        font-size: 56px
+        font-size: 60px
         color: #F1B908
         font-weight: 600
         span
@@ -97,8 +95,8 @@ export default {
               opacity: 1
               top: 0px
       .info
-        font-size: 18px
-        font-weight: 200
+        font-size: 20px
+        font-weight: 400
         span
           position: relative
           opacity: 0

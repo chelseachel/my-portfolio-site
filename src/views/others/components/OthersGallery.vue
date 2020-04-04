@@ -1,9 +1,9 @@
 <template>
-  <div class="gallery">
+  <div class="gallery" ref="gallery">
     <div class="container" ref="container" :style="{width: width + 'px', height: height + 'px'}">
-      <div class="box" ref="box" v-for="item in images" :key="item.id">
+      <div class="box" v-for="item in images" :key="item.id" ref="box" :class="inView ? 'in-view' : ''">
         <div class="pic">
-          <img :src="item.url" @load=imageLoaded>
+          <img :src="item.url" :class="inView ? 'in-view' : ''" @load=imageLoaded>
         </div>
       </div>
     </div>
@@ -11,7 +11,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'OthersGallery',
   data () {
@@ -94,28 +93,14 @@ export default {
       }, {
         id: '026',
         url: require('@/assets/images/26.jpg')
-      }, ],
-      // clientWidth: document.body.clientWidth,
-      // boxs: null,
+      }],
       heightArr: [], // 存储每列高度
       minIndex: 0,
       width: 0,
       height: 0,
-      loadedImages: 0
-
+      loadedImages: 0,
+      inView: false
     }
-  },
-  computed: {
-    // cols () {
-    //   const galleryWidth = this.clientWidth * 0.9
-    //   return Math.floor(galleryWidth / 220) // 计算 gallery 的总列数
-    // },
-    // containerWidth () {
-    //   return 220 * this.cols // box container 的宽度
-    // },
-    // containerHeight () {
-    //   return Math.max.apply(null, this.heightArr) // box container 的高度
-    // }
   },
   watch: {
     loadedImages: function () {
@@ -130,7 +115,7 @@ export default {
     waterfall () {
       const boxs = this.$refs.box // array
       const clientWidth = document.body.clientWidth
-      const galleryWidth = clientWidth * 0.9
+      const galleryWidth = clientWidth * 0.8
       const cols = Math.floor(galleryWidth / 220) // 计算 gallery 的总列数
       this.width = 220 * cols // container 的宽度
       
@@ -160,10 +145,17 @@ export default {
     },
     imageLoaded() {
       this.loadedImages += 1
+    },
+    checkInView () {
+      const el = this.$refs.gallery
+      if (this.utils.isElementInView(el)) {
+        this.inView = true
+      }
     }
   },
   mounted () {
     window.addEventListener('resize', this.waterfall, true)
+    window.addEventListener('scroll', this.checkInView, true)
   }
 }
 </script>
@@ -171,7 +163,8 @@ export default {
 
 <style lang="stylus" scoped>
   .gallery
-    width: 90%
+    position: relative
+    width: 80%
     margin: 0 auto
     .container
       position: relative
@@ -180,13 +173,20 @@ export default {
         padding: 10px
         width: 200px
         background: transparent
-        transition: all .5s
         .pic
           width: 200px
           border-radius: 5px
           overflow: hidden
-          background: #ccc
+          background: #eee
           img
             width: 100%
-    
-</style>
+            opacity: 0.1
+            transform: translateY(-100px)
+            transition: all .8s ease
+            cursor:pointer
+            &:hover
+              transform: scale(1.2)
+          .in-view
+            opacity: 1
+            transform: translateY(0px)
+</style>  

@@ -6,10 +6,6 @@
     >
       {{item}}
     </li>
-    <!-- <li @click="handleClickAnchor('about')">About</li>
-    <li @click="handleClickAnchor('projects')">Projects</li>
-    <li @click="handleClickAnchor('others')">Others</li>
-    <li @click="handleClickAnchor('contact')">Contact</li> -->
   </ul>
 </template>
 
@@ -75,15 +71,16 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-    transition: all .8s
-    // box-shadow: 0 .06rem .1rem -.04rem rgba(18, 22, 33, .1)
+    transition: all .7s
+    // box-shadow: 0 0px 4px 1px rgba(18, 22, 33, .1)
     li
       position: relative
-      margin: 0 35px
+      margin: 0 40px
       line-height: 52px
-      font-size: 14px
+      font-size: 15px
+      font-weight: 400
       cursor: pointer
-      transition: all .5s
+      transition: all .3s
       &:hover:before
         width: 100%
         left: 0
@@ -95,11 +92,11 @@ export default {
         width: 0
         height: 2px
         background: #F1B908
-        transition: all .5s
+        transition: all .3s
       &:after
         content: '·'
         position: absolute
-        right: -35px
+        right: -40px
         color: #D0CAC2
       &:last-child:after
         content: ''

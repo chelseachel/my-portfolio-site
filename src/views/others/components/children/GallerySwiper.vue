@@ -9,7 +9,7 @@
         <div class="swiper-button-next" slot="button-next"></div>
       </swiper>
     </div>
-    <div class="close"></div>
+    <div class="close" @click="handleButtonClick"></div>
   </div>
 </template>
 
@@ -52,6 +52,9 @@ export default {
       if (e.target.className == 'swiper-slide swiper-slide-active') {
         this.$emit('close')
       }
+    },
+    handleButtonClick () {
+      this.$emit('close')
     },
     handleNextClick () {
       this.swiper.slideNext()

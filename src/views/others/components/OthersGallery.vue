@@ -1,7 +1,12 @@
 <template>
   <div class="gallery" ref="gallery">
     <div class="container" ref="container" :style="{width: width + 'px', height: height + 'px'}">
-      <div class="box" v-for="item in images" :key="item.id" ref="box" :class="inView ? 'in-view' : ''">
+      <div class="box" 
+        v-for="(item, index) in images" :key="item.id" 
+        ref="box" 
+        :class="inView ? 'in-view' : ''"
+        @click="handleGalleryClick(index)"
+        >
         <div class="pic">
           <img :src="item.url" :class="inView ? 'in-view' : ''" @load=imageLoaded>
         </div>
@@ -13,6 +18,8 @@
 <script>
 export default {
   name: 'OthersGallery',
+  components: {
+  },
   data () {
     return {
       images: [{
@@ -99,7 +106,7 @@ export default {
       width: 0,
       height: 0,
       loadedImages: 0,
-      inView: false
+      inView: false,
     }
   },
   watch: {
@@ -115,9 +122,9 @@ export default {
     waterfall () {
       const boxs = this.$refs.box // array
       const clientWidth = document.body.clientWidth
-      const galleryWidth = clientWidth * 0.8
-      const cols = Math.floor(galleryWidth / 220) // 计算 gallery 的总列数
-      this.width = 220 * cols // container 的宽度
+      const galleryWidth = clientWidth * 0.9
+      const cols = Math.floor(galleryWidth / 270) // 计算 gallery 的总列数
+      this.width = 270 * cols // container 的宽度
       
       this.heightArr = [] // 存储每列高度
       for (let i = 0; i < cols; i++) {
@@ -129,7 +136,7 @@ export default {
           this.minIndex = this.getMinhIndex(this.heightArr, minH)
           boxs[i].style.position = 'absolute'
           boxs[i].style.top = minH + 'px'
-          boxs[i].style.left = this.minIndex * 220 + 'px'
+          boxs[i].style.left = this.minIndex * 270 + 'px'
           this.heightArr[this.minIndex] += boxs[i].offsetHeight         
         }
         this.height = Math.max.apply(null, this.heightArr) // container 的高度
@@ -151,6 +158,9 @@ export default {
       if (this.utils.isElementInView(el)) {
         this.inView = true
       }
+    },
+    handleGalleryClick (index) {
+      this.$emit('showSwiper', this.images, index)
     }
   },
   mounted () {
@@ -164,17 +174,17 @@ export default {
 <style lang="stylus" scoped>
   .gallery
     position: relative
-    width: 80%
+    width: 90%
     margin: 0 auto
     .container
       position: relative
       margin: 0 auto
       .box
         padding: 10px
-        width: 200px
+        width: 250px
         background: transparent
         .pic
-          width: 200px
+          width: 250px
           border-radius: 5px
           overflow: hidden
           background: #eee

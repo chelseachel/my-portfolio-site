@@ -61,7 +61,7 @@ export default {
 
 <style lang="stylus" scoped>
   .nav
-    z-index: 100
+    z-index: 99
     position: fixed
     top: 0
     width: 100%

@@ -123,8 +123,9 @@ export default {
       const boxs = this.$refs.box // array
       const clientWidth = document.body.clientWidth
       const galleryWidth = clientWidth * 0.9
-      const cols = Math.floor(galleryWidth / 270) // 计算 gallery 的总列数
-      this.width = 270 * cols // container 的宽度
+      const boxWidth = boxs[0].offsetWidth
+      const cols = Math.floor(galleryWidth / boxWidth) // 计算 gallery 的总列数
+      this.width = boxWidth * cols // container 的宽度
       
       this.heightArr = [] // 存储每列高度
       for (let i = 0; i < cols; i++) {

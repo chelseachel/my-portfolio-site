@@ -55,8 +55,9 @@ export default {
 
 <style lang="stylus" scoped>
   .item
-    max-width: 80%
-    padding: 150px 70px
+    max-width: 60%
+    padding: 150px 0
+    margin: 0 13%
     box-sizing: border-box
     line-height: 2em
     text-align: justify

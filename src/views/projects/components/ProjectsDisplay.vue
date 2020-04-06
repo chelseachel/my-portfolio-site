@@ -46,15 +46,12 @@ export default {
       if (scrollTop >= this.offset && scrollTop < (this.offset + this.scrollHeight - clientHeight)) {
         this.position = 'fixed'
         this.top = 0
-        // this.$refs.display.style.opacity = '1'
       } else if (scrollTop >= (this.offset + this.scrollHeight - clientHeight)) {
         this.position = 'absolute'
         this.top = this.scrollHeight - clientHeight
-        // this.$refs.display.style.opacity = '.7'
       } else if (scrollTop < this.offset) {
         this.position = 'absolute'
         this.top = 0
-        // this.$refs.display.style.opacity = '.7'
       }
     },
     handleClickIndex (index) {
@@ -87,10 +84,8 @@ export default {
     width: 45%
     height: 100vh
     background: transparent
-    // opacity: .7
     overflow: hidden
     z-index: 2
-    // transition: opacity .5s ease
     .wrapper
       width: 130px
       display: flex
@@ -115,7 +110,6 @@ export default {
       .nav
         width: 140px
         line-height: 4em
-        // text-align: right
         font-size: 15px
         font-weight: 400
         li
@@ -148,10 +142,11 @@ export default {
               left: 0
               opacity: 1
     .img
-      width: 250px
+      max-width: calc(100% - 200px)
+      width: 50%
       height: 400px
       background: #D0CAC2
       position: absolute
-      top: 140px
+      top: 20%
       right: 10px
 </style>

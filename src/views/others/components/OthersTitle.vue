@@ -36,8 +36,6 @@ export default {
 <style lang="stylus" scoped>
   .container
     position: relative
-    left: 10%
-    width: 80%
     height: 220px
     margin-bottom: 30px
     box-sizing: border-box
@@ -53,7 +51,7 @@ export default {
         text-align: center
         opacity: 0
         // transform: translateY(50px)
-        transition: all 1s ease
+        transition: all .8s ease
         // &:before
         //   content: ''
         //   position: absolute
@@ -70,7 +68,7 @@ export default {
           font-weight: 600
           color: #F1B908
           // transform: translateY(-80px)
-          transition: all 1s ease
+          transition: all .8s ease
       .in-view
         font-size: 48px
         opacity: 1

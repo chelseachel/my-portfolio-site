@@ -75,9 +75,9 @@ export default {
     // box-shadow: 0 0px 4px 1px rgba(18, 22, 33, .1)
     li
       position: relative
-      margin: 0 40px
+      margin: 0 36px
       line-height: 52px
-      font-size: 15px
+      font-size: 14px
       font-weight: 400
       cursor: pointer
       transition: all .3s
@@ -96,13 +96,16 @@ export default {
       &:after
         content: '·'
         position: absolute
-        right: -40px
+        right: -36px
         color: #D0CAC2
       &:last-child:after
         content: ''
     .active-color
       color: #F1B908
       font-weight: 500
+      &:before
+        width: 100%
+        left: 0
   .shownav
     opacity: 1
     transform: translate3d(0, 0, 0)

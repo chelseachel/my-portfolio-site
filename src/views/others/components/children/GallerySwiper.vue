@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     handleCloseClick (e) {
-      if (e.target.className == 'swiper-slide swiper-slide-active') {
+      if (e.target.className == 'swiper-slide swiper-slide-active' || e.target.className == 'wrapper') {
         this.$emit('close')
       }
     },
@@ -84,7 +84,7 @@ export default {
         .gallery-img
           max-width: 80%
           max-height: 100%
-          cursor: auto
+          cursor: pointer
         .swiper-button-prev
         .swiper-button-next
           color: #FDFDF9

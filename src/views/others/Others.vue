@@ -16,7 +16,7 @@ export default {
     OthersTitle, OthersGallery, GallerySwiper
   },
   props: {
-    offset: Number
+    
   },
   data () {
     return {
@@ -27,9 +27,11 @@ export default {
   },
   methods: {
     handleSwiperShow (images, index) {
-      this.showSwiper = true
       this.images = images
       this.itemIndex = index
+      this.$nextTick(() => {
+        this.showSwiper = true
+      })
     },
     handleSwiperClose () {
       this.showSwiper = false

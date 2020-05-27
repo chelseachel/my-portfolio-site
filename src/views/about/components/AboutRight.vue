@@ -53,4 +53,6 @@ export default {
       box-sizing: border-box
       line-height: 2em
       text-align: justify
+      @media screen and (max-width: 1024px)
+        padding: 80px
 </style>

@@ -138,7 +138,7 @@ export default {
           boxs[i].style.position = 'absolute'
           boxs[i].style.top = minH + 'px'
           boxs[i].style.left = this.minIndex * 270 + 'px'
-          this.heightArr[this.minIndex] += boxs[i].offsetHeight         
+          this.heightArr[this.minIndex] += (boxs[i].offsetHeight + 20)
         }
         this.height = Math.max.apply(null, this.heightArr) // container 的高度
       }, 100)
@@ -181,22 +181,31 @@ export default {
       position: relative
       margin: 0 auto
       .box
-        padding: 10px
+        margin: 10px
         width: 250px
+        border-radius: 5px
         background: transparent
+        overflow: hidden
         .pic
+          position: relative
           width: 250px
-          border-radius: 5px
-          overflow: hidden
           background: #eee
+          transition: all .8s ease
+          &:hover
+            transform: scale(1.2)
+          &:hover:before
+            content:''
+            position: absolute
+            width: 100%
+            height: 100%
+            background: rgba(255,255,255,.2)
+            z-index: 10
+            cursor: zoom-in
           img
             width: 100%
             opacity: 0.1
             transform: translateY(-100px)
             transition: all .8s ease
-            cursor:pointer
-            &:hover
-              transform: scale(1.2)
           .in-view
             opacity: 1
             transform: translateY(0px)

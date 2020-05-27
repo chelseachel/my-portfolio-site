@@ -71,7 +71,9 @@ export default {
     }
   },
   mounted () {
+    this.positionState()
     window.addEventListener('scroll', this.checkInView, true)
+    window.addEventListener('resize', this.checkInView, true)
     window.addEventListener('scroll', this.positionState, true)
     window.addEventListener('resize', this.positionState, true)
   }
@@ -87,31 +89,37 @@ export default {
     overflow: hidden
     z-index: 2
     .wrapper
-      width: 130px
+      width: 150px
       display: flex
       flex-flow: column
       position: absolute
-      left: 30px
+      left: 5%
       top: 50%
       transform: translateY(-56%)
       opacity: 0
-      transition: all 1s ease
+      transition: all .8s ease-in-out
+      @media screen and (max-width: 768px)
+        left: 0
     .in-view
       opacity: 1
       transform: translateY(-62%)
       .title
-        width: 140px
+        width: 150px
         line-height: 4em
         text-align: right
-        font-size: 31px
+        font-size: 32px
         font-weight: 600
+        @media screen and (max-width: 768px)
+          font-size: 30px
         span
           color: #F1B908
       .nav
-        width: 140px
+        width: 150px
         line-height: 4em
         font-size: 15px
         font-weight: 400
+        @media screen and (max-width: 768px)
+          font-size: 14px
         li
           width: 100%
           text-align: right
@@ -136,13 +144,14 @@ export default {
               z-index: -1
               transition: all .3s
           .active-class
+            font-weight: 600
             &:before
               width: 100%
               height: 2px
               left: 0
               opacity: 1
     .img
-      max-width: calc(100% - 200px)
+      max-width: calc(90% - 160px)
       width: 50%
       height: 400px
       background: #D0CAC2

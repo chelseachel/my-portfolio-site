@@ -3,9 +3,9 @@
     <Nav @goAnchor="handleGoAnchor" :anchorIndex="anchorIndex"></Nav>
     <welcome ref="welcome"></welcome>
     <about ref="about"></about>
-    <projects ref="projects" :offset="offset[1]"></projects>
-    <others ref="others" :offset="offset[2]"></others>
-    <contact ref="contact"@backToTop="handleScrollBack"></contact>
+    <projects ref="projects" :offset="offset[2]"></projects>
+    <others ref="others"></others>
+    <contact ref="contact" @backToTop="handleScrollBack"></contact>
   </div>
 </template>
 
@@ -38,16 +38,16 @@ export default {
     getAnchorIndex () {
       this.getOffset()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop < this.offset[0]) {
-        this.anchorIndex = -1
-      } else if (scrollTop >= this.offset[0] && scrollTop < this.offset[1]) {
+      if (scrollTop >= this.offset[0] && scrollTop < this.offset[1]) {
           this.anchorIndex = 0
       } else if (scrollTop >= this.offset[1] && scrollTop < this.offset[2]) {
           this.anchorIndex = 1
       } else if (scrollTop >= this.offset[2] && scrollTop < this.offset[3]) {
           this.anchorIndex = 2
-      } else if (scrollTop >= this.offset[3] && scrollTop) {
+      } else if (scrollTop >= this.offset[3] && scrollTop < this.offset[4]) {
           this.anchorIndex = 3
+      } else if (scrollTop >= this.offset[4]) {
+          this.anchorIndex = 4
       }
     },
     getOffset () {
@@ -60,10 +60,11 @@ export default {
     }
   },
   mounted () {
-    this.anchorElements[0]=this.$refs.about.$el
-    this.anchorElements[1]=this.$refs.projects.$el
-    this.anchorElements[2]=this.$refs.others.$el
-    this.anchorElements[3]=this.$refs.contact.$el
+    this.anchorElements[0]=this.$refs.welcome.$el
+    this.anchorElements[1]=this.$refs.about.$el
+    this.anchorElements[2]=this.$refs.projects.$el
+    this.anchorElements[3]=this.$refs.others.$el
+    this.anchorElements[4]=this.$refs.contact.$el
     this.getAnchorIndex()
     window.addEventListener('scroll', this.getAnchorIndex, true)
     window.addEventListener('resize', this.getAnchorIndex, true)
@@ -73,5 +74,4 @@ export default {
 
 
 <style lang="stylus" scoped>
-  
 </style>

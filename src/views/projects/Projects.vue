@@ -43,5 +43,4 @@ export default {
   .projects
     position: relative
     width: 100vw
-    // box-shadow: 0 .06rem .1rem -.04rem rgba(18, 22, 33, .1)
 </style>

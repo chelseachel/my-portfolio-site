@@ -81,10 +81,16 @@ export default {
       cursor: zoom-out
       .swiper-container
         height: 80%
-        .gallery-img
-          max-width: 80%
-          max-height: 100%
-          cursor: pointer
+        .swiper-slide
+          display: flex
+          flex-direction: column
+          justify-content: center
+          align-items: center
+          .gallery-img
+            max-width: 80%
+            max-height: 100%
+            box-shadow: 0px 0px 10px 3px rgba(12, 12, 12, .1)
+            cursor: pointer
         .swiper-button-prev
         .swiper-button-next
           color: #FDFDF9

@@ -73,9 +73,11 @@ export default {
       transition: all .5s ease-out
       .hello
         margin-bottom: 40px
-        font-size: 60px
+        font-size: 64px
         color: #F1B908
         font-weight: 600
+        @media screen and (max-width: 768px)
+          font-size: 56px
         span
           position: relative
           opacity: 0
@@ -96,7 +98,10 @@ export default {
               top: 0px
       .info
         font-size: 22px
-        font-weight: 400
+        font-weight: 200
+        @media screen and (max-width: 768px)
+          font-size: 20px
+          font-weight: 400
         span
           position: relative
           opacity: 0

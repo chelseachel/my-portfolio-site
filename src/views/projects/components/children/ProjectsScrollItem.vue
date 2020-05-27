@@ -47,7 +47,9 @@ export default {
   },
   mounted () {
     window.addEventListener('scroll', this.checkInView, true)
+    window.addEventListener('resize', this.checkInView, true)
     window.addEventListener('scroll', this.scrollStoreIndex, true)
+    window.addEventListener('resize', this.scrollStoreIndex, true)
   }
 }
 </script>
@@ -63,7 +65,7 @@ export default {
     text-align: justify
     opacity: 0
     transform: translateY(100px)
-    transition: all 1s ease
+    transition: all .8s ease-in-out
     .title
       line-height: 80px
       font-size: 24px

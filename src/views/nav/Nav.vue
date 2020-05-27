@@ -18,7 +18,7 @@ export default {
   },
   data () {
     return {
-      category: ['About', 'Projects', 'Otherworks', 'Contact'],
+      category: ['Home', 'About', 'Projects', 'Otherworks', 'Contact'],
       windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
       show: false,
       showNav: 'shownav',
@@ -65,44 +65,58 @@ export default {
     position: fixed
     top: 0
     width: 100%
-    height: 52px
+    height: 60px
     background: #FDFDF9
-    border-bottom: 1px dotted #D0CAC2
+    border-bottom: 1px solid #eee
+    box-sizing: border-box
     display: flex
     justify-content: center
     align-items: center
-    transition: all .7s
+    transition: all .6s ease
     // box-shadow: 0 0px 4px 1px rgba(18, 22, 33, .1)
+    @media screen and (max-width: 768px)
+      padding: 0 50px
+      justify-content: space-around
     li
       position: relative
       margin: 0 36px
-      line-height: 52px
+      line-height: 60px
       font-size: 14px
       font-weight: 400
       cursor: pointer
       transition: all .3s
+      @media screen and (max-width: 768px)
+        margin: 0
       &:hover:before
         width: 100%
         left: 0
       &:before
         content: ''
         position: absolute
-        bottom: -1px
+        bottom: 0px
         left: 50%
         width: 0
         height: 2px
         background: #F1B908
         transition: all .3s
       &:after
-        content: '·'
-        position: absolute
-        right: -36px
-        color: #D0CAC2
-      &:last-child:after
         content: ''
+        position: absolute
+        top: 29px
+        right: -41px
+        width: 2px
+        height: 2px
+        border-radius: 50%
+        background: #F1B908
+        display: none
+      &:last-child:after
+        display: none
+      @media screen and (max-width: 768px)
+        &:after
+          display: none
     .active-color
       color: #F1B908
-      font-weight: 500
+      font-weight: 600
       &:before
         width: 100%
         left: 0

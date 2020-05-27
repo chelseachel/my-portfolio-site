@@ -38,7 +38,7 @@ export default {
     margin: auto
     width: 60px
     height: 60px
-    transition: all 1s ease-out
+    transition: all .5s ease-out
     .mouse
       position:relative
       width: 14px

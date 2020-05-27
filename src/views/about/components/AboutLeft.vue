@@ -72,6 +72,8 @@ export default {
       color: #FDFDF9
       letter-spacing: 2px
       font-variant: small-caps
+      @media screen and (max-width: 768px)
+        font-size: 56px
     .photo
       position: absolute
       top: 100px
@@ -83,6 +85,10 @@ export default {
       overflow: hidden
       transform: scale(.5)
       transition: all .8s ease
+      @media screen and (max-width: 1024px)
+        right: -50px
+        width: 100px
+        height: 100px
     .in-view
       transform: scale(1)
       img

@@ -1,11 +1,13 @@
 <template>
   <div class="projects" ref="projects">
-    <projects-scroll ref="scroll"></projects-scroll>
+    <common-pad-title>Projects</common-pad-title>
     <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex"></projects-display>
+    <projects-scroll ref="scroll"></projects-scroll>
   </div>
 </template>
 
 <script>
+import CommonPadTitle from '../common/CommonPadTitle'
 import ProjectsScroll from './components/ProjectsScroll'
 import ProjectsDisplay from './components/ProjectsDisplay'
 export default {
@@ -14,7 +16,7 @@ export default {
     offset: Number,
   },
   components: {
-    ProjectsScroll, ProjectsDisplay
+    CommonPadTitle, ProjectsScroll, ProjectsDisplay
   },
   data () {
     return {
@@ -43,4 +45,6 @@ export default {
   .projects
     position: relative
     width: 100vw
+    @media screen and (max-width: 768px)
+      margin-top: 65px
 </style>

@@ -1,9 +1,6 @@
 <template>
-  <div class="item" ref="item" :class="show ? 'showitem' : ''">
+  <div class="item">
     <div class="title">{{item.title}}</div>
-    <p class="pic">
-      <img :src="item.url">
-    </p>
     <div>{{item.content}}</div>
   </div>
 </template>
@@ -69,8 +66,6 @@ export default {
     opacity: 0
     transform: translateY(100px)
     transition: all .8s ease-in-out
-    .pic
-      display: none
     .title
       line-height: 80px
       font-size: 24px
@@ -79,21 +74,4 @@ export default {
   .showitem
     opacity: 1
     transform: translateY(0px) 
-  @media screen and (max-width: 768px)
-    .item
-      width: 100%
-      max-width: 100%
-      padding: 50px 80px
-      margin: 0px
-      .pic
-        height: 300px
-        margin-bottom: 25px
-        background: #ccc
-        text-align: center
-        img
-          width:50%
-          height: 100%
-          background: #998
-      .title
-        text-align: center
 </style>

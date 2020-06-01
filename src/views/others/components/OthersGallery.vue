@@ -121,8 +121,8 @@ export default {
   methods: {
     waterfall () {
       const boxs = this.$refs.box // array
-      const clientWidth = document.body.clientWidth
-      const galleryWidth = clientWidth * 0.9
+      // const clientWidth = document.body.clientWidth
+      const galleryWidth = this.$refs.gallery.offsetWidth
       const boxWidth = boxs[0].offsetWidth
       const cols = Math.floor(galleryWidth / boxWidth) // 计算 gallery 的总列数
       this.width = boxWidth * cols // container 的宽度
@@ -175,24 +175,26 @@ export default {
 <style lang="stylus" scoped>
   .gallery
     position: relative
-    width: 90%
+    width: 80%
+    max-width: 1280px
     margin: 0 auto
     .container
       position: relative
       margin: 0 auto
       .box
-        margin: 10px
+        padding: 10px
         width: 250px
-        border-radius: 5px
         background: transparent
-        overflow: hidden
         .pic
           position: relative
           width: 250px
+          border-radius: 5px
           background: #eee
+          overflow: hidden
           transition: all .8s ease
           &:hover
-            transform: scale(1.2)
+            img
+              transform: scale(1.2)
           &:hover:before
             content:''
             position: absolute

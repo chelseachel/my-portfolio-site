@@ -1,17 +1,19 @@
 <template>
   <div class="about" ref="about">
-    <about-right></about-right>
+    <common-pad-title>About</common-pad-title>
     <about-left :scrollHeight="scrollHeight"></about-left>
+    <about-right></about-right>
   </div>
 </template>
 
 <script>
+import CommonPadTitle from '../common/CommonPadTitle'
 import AboutLeft from './components/AboutLeft'
 import AboutRight from './components/AboutRight'
 export default {
   name: 'About',
   components: {
-    AboutLeft, AboutRight
+    CommonPadTitle, AboutLeft, AboutRight
   },
   data () {
     return {
@@ -35,4 +37,5 @@ export default {
   .about
     position: relative
     width: 100vw
+    
 </style>

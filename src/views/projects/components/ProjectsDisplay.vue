@@ -158,4 +158,8 @@ export default {
       position: absolute
       top: 20%
       right: 10px
+  @media screen and (max-width: 768px)
+    .display
+      display: none
+      
 </style>

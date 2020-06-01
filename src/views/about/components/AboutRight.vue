@@ -23,7 +23,7 @@
       和土例力点王治学称与，济后指身拉领再律济形，属关X劫些值容队。
 
       特料参无出单保带命，度领适打调处力，解技励凝矿号杆。
-    </div>
+      </div>
   </div>
 </template>
 
@@ -49,10 +49,22 @@ export default {
     left: 45%
     width: 55%
     .content
-      padding: 120px
+      width: 100%
+      padding: 190px
       box-sizing: border-box
       line-height: 2em
       text-align: justify
+      @media screen and (max-width: 1920px)
+        padding: 145px
+      @media screen and (max-width: 1440px)
+        padding: 120px
       @media screen and (max-width: 1024px)
         padding: 80px
+    .right
+      left: 0px
+      width: 100%
+  @media screen and (max-width: 768px)
+    .right
+      left: 0
+      width: 100%
 </style>

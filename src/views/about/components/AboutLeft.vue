@@ -1,7 +1,7 @@
 <template>
   <div class="left" :style="{position: position, top: top + 'px'}">
     <div class="cate">
-      About.
+      About<span>.</span>
     </div>
     <div class="photo" ref="photo" :class="inView ? 'in-view' : ''">
       <img src="@/assets/images/26.jpg">
@@ -26,16 +26,19 @@ export default {
   methods: {
     positionState () {
       const clientHeight = document.body.clientHeight
+      const clientWidth = document.body.clientWidth
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop >= clientHeight && scrollTop < this.scrollHeight) {
-        this.position = 'fixed'
-        this.top = 0
-      } else if (scrollTop >= this.scrollHeight) {
-        this.position = 'absolute'
-        this.top = this.scrollHeight - clientHeight
-      } else if (scrollTop < clientHeight) {
-        this.position = 'absolute'
-        this.top = 0
+      if (clientWidth > 768) {
+        if (scrollTop >= clientHeight && scrollTop < this.scrollHeight) {
+          this.position = 'fixed'
+          this.top = 0
+        } else if (scrollTop >= this.scrollHeight) {
+          this.position = 'absolute'
+          this.top = this.scrollHeight - clientHeight
+        } else if (scrollTop < clientHeight) {
+          this.position = 'absolute'
+          this.top = 0
+        }
       }
     },
     checkInView () {
@@ -72,8 +75,8 @@ export default {
       color: #FDFDF9
       letter-spacing: 2px
       font-variant: small-caps
-      @media screen and (max-width: 768px)
-        font-size: 56px
+      // @media screen and (max-width: 768px)
+      //   font-size: 56px
     .photo
       position: absolute
       top: 100px
@@ -93,5 +96,7 @@ export default {
       transform: scale(1)
       img
         width: 100%
-
+  @media screen and (max-width: 768px)
+    .left
+      display: none
 </style>

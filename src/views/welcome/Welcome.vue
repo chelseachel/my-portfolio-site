@@ -22,9 +22,8 @@ export default {
   },
   methods: {
     showCompo () {
-      let _this = this
-      setTimeout(function () {
-        _this.show = true
+      setTimeout(() => {
+        this.show = true
       }, 2000)
     }
   },
@@ -40,11 +39,8 @@ export default {
     position:relative
     width: 100vw
     height: 100vh
-    display: flex
-    flex-flow: column
-    overflow: visible
   .v-enter
     opacity: 0
   .v-enter-active
-    transition: opacity .5s ease  
+    transition: opacity 1s ease  
 </style>

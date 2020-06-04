@@ -20,19 +20,18 @@ export default {
     return {
       category: ['Home', 'About', 'Projects', 'Otherworks', 'Contact'],
       windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
-      show: false,
+      show: true,
       showNav: 'shownav',
       hideNav: 'hidenav'
     }
   },
   methods: {
-    initNav () {
-      let _this = this
-      setTimeout(function () {
-        // _this.$refs.nav.style.opacity = 1
-        _this.show = true
-      }, 2000)
-    },
+    // initNav () {
+    //   let _this = this
+    //   setTimeout(function () {
+    //     _this.show = true
+    //   }, 2000)
+    // },
     dynamicNav () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop > (document.body.clientHeight - 60)) {
@@ -52,7 +51,6 @@ export default {
     }
   },
   mounted () {
-    this.initNav()
     window.addEventListener('scroll', this.dynamicNav, true)
   }
 }
@@ -73,9 +71,8 @@ export default {
     justify-content: center
     align-items: center
     transition: all .6s ease
-    // box-shadow: 0 0px 4px 1px rgba(18, 22, 33, .1)
     @media screen and (max-width: 768px)
-      padding: 0 50px
+      padding: 0 20px
       justify-content: space-around
     li
       position: relative

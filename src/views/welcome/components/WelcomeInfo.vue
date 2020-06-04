@@ -1,10 +1,23 @@
 <template>
-  <div class="wrapper">
-    <div class="content" ref="parallax">
-      <div class="hello" ref="hello">
-      </div>
-      <div class="info" ref="info"></div>
-    </div>
+  <div class="content" ref="parallax">
+    <p class="hello" v-html="hello"></p>
+
+    <p class="word"
+      v-for="(item, index) in splitWords" :key="item + index"
+      ref="word"
+      :class="{in: index === currentWordIndex, 
+                out: index === outWordIndex,
+                before: index === behindWordIndex}"
+    >
+      <span class="letter"
+        v-for="(letter, index) in item" :key="index"
+        v-html="letter.replace(' ', '&nbsp;')"
+        :style="{'--out-delay': `${index * 80}ms`,
+                  '--in-delay': `${340 + index * 80}ms`}"
+      >
+      </span>
+    </p>
+
   </div>
 </template>
 
@@ -15,37 +28,41 @@ export default {
   },
   data () {
     return {
-      hello: 'Hello, I’m Chelsea',
-      info: 'A front-end developer always with the artisan’s spirit. ',
-      speed: .3
+      hello: 'Hello, I\'m&nbsp;',
+      words: [
+        'Chelsea.',
+        'a coder.',
+        'a designer.',
+        'a craftsman.'
+      ],
+      currentWordIndex: 3,
+      speed: .3,
+      timer: null
     }
   },
   computed: {
-    letters: function () {
-      return this.hello.split('')
+    splitWords: function () {
+      const splitWords = []
+      this.words.forEach(function (item) {
+        const splitWord = item.split('')
+        splitWords.push(splitWord)
+      })
+      return splitWords
     },
-    infoLetters: function () {
-      return this.info.split('')
+    outWordIndex: function () {
+      const length = this.words.length
+      return this.currentWordIndex === 0 ? length - 1 : this.currentWordIndex - 1
+    },
+    behindWordIndex: function () {
+      const length = this.words.length
+      return this.currentWordIndex === length - 1 ? 0 : this.currentWordIndex + 1
     }
   },
   methods: {
-    showhello () {
-      this.letters.forEach(this.helloLandIn)
-    },
-    helloLandIn (letter, index) {
-      let span = document.createElement('span')
-      span.innerText = letter
-      span.style.animationDelay = `${index * .04}s`
-      this.$refs.hello.append(span)
-    },
-    showInfo () {
-      this.infoLetters.forEach(this.infoLandIn)
-    },
-    infoLandIn (letter, index) {
-      let span = document.createElement('span')
-      span.innerText = letter
-      span.style.animationDelay = `${1.4 + index * .02}s`
-      this.$refs.info.append(span)
+    changeWord () {
+      const length = this.words.length
+      this.currentWordIndex = this.currentWordIndex === length - 1 ? 0 : this.currentWordIndex + 1
+      console.log(this.behindWordIndex, this.currentWordIndex,this.outWordIndex);
     },
     scrollParallax () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
@@ -54,65 +71,56 @@ export default {
     }
   },
   mounted () {
-    this.showhello()
-    this.showInfo()
     window.addEventListener('scroll', this.scrollParallax, true)
+    this.changeWord()
+    this.timer = setInterval(this.changeWord, 3000)
+    
+  },
+  beforeDestroy () {
+    clearInterval(this.timer)
   }
 }
 </script>
 
 
-<style lang="stylus">
-  .wrapper
-    flex: 1
-    display: flex
-    justify-content: center
-    align-items: center
-    text-align: center 
-    .content
-      transition: all .5s ease-out
-      .hello
-        margin-bottom: 40px
-        font-size: 64px
-        color: #F1B908
-        font-weight: 600
-        @media screen and (max-width: 768px)
-          font-size: 56px
-        span
-          position: relative
-          opacity: 0
-          animation: landhello .6s ease-in
-          animation-fill-mode: forwards
-          @keyframes landhello
-            0%
-              opacity: 1
-              top: -20px
-            80%
-              opacity: 1
-              top: 0px
-            90%
-              opacity: 1
-              top: 2px
-            100%
-              opacity: 1
-              top: 0px
-      .info
-        font-size: 22px
-        font-weight: 200
-        @media screen and (max-width: 768px)
-          font-size: 20px
-          font-weight: 400
-        span
-          position: relative
-          opacity: 0
-          animation: landinfo .3s ease-in
-          animation-fill-mode: forwards
-          @keyframes landinfo
-            0%
-              opacity: 1
-              top: -5px
-            100%
-              opacity: 1
-              top: 0px
-    
+<style lang="stylus" scoped>
+  .content
+    width: 52vw
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -22vw
+    margin-top: -5vw
+    font-size: 5vw
+    font-weight: 600
+    @media screen and (max-width: 768px)
+      width: 75vw
+      margin-left: -32vw
+      margin-top: -7vw
+      font-size: 7vw
+    p
+      display: inline-block
+      vertical-align: top
+      white-space: nowrap
+    .word
+      position: absolute
+      color: #F1B908
+      .letter
+        display: inline-block
+        transform: translateZ(25px)
+        transform: rotateX(-90deg)
+        transform-origin: 50% 50% 25px
+    .behind
+      .letter
+        transform: rotateX(-90deg)
+    .in
+      .letter
+        transform: rotateX(0deg)
+        transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+        transition-delay: var(--in-delay)
+    .out
+      .letter
+        transform: rotateX(90deg)
+        transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+        transition-delay: var(--out-delay)
 </style>

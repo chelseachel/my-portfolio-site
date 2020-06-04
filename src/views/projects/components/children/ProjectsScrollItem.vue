@@ -65,6 +65,7 @@ export default {
     margin: 0 13%
     box-sizing: border-box
     line-height: 2em
+    font-size: 15px
     text-align: justify
     opacity: 0
     transform: translateY(100px)
@@ -83,8 +84,9 @@ export default {
     .item
       width: 100%
       max-width: 100%
-      padding: 50px 80px
+      padding: 50px 10vw
       margin: 0px
+      font-size: 13px
       .pic
         height: 300px
         margin-bottom: 25px

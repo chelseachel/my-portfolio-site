@@ -62,7 +62,6 @@ export default {
     changeWord () {
       const length = this.words.length
       this.currentWordIndex = this.currentWordIndex === length - 1 ? 0 : this.currentWordIndex + 1
-      console.log(this.behindWordIndex, this.currentWordIndex,this.outWordIndex);
     },
     scrollParallax () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
@@ -89,7 +88,7 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -22vw
+    margin-left: -23vw
     margin-top: -5vw
     font-size: 5vw
     font-weight: 600

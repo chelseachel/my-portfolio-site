@@ -70,7 +70,7 @@ export default {
     &:after
       clear: both
     .cate
-      font-weight: 600
+      font-weight: 700
       font-size: 70px
       color: #FDFDF9
       letter-spacing: 2px

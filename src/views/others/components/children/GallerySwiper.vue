@@ -71,13 +71,13 @@ export default {
     top: 0
     bottom: 0
     background: rgba(12,12,12,.8)
-    display: flex
-    justify-content: center
-    align-items: center
     z-index: 100
     .wrapper
       width: 100%
       height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
       cursor: zoom-out
       .swiper-container
         height: 80%

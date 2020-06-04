@@ -46,8 +46,8 @@ export default {
       transform: translate(-50%, -50%)
       .title
         position: relative
-        font-size: 52px
-        font-weight: 200
+        font-size: 4vw
+        font-weight: 400
         text-align: center
         opacity: 0
         // transform: translateY(50px)
@@ -64,16 +64,16 @@ export default {
         //   background: #F1B908
         //   transition: all 1s ease
         @media screen and (max-width: 768px)
-          font-size: 44px
+          font-size: 6vw
         span
           display: inline-block
-          font-size: 52px
+          font-size: 4vw
           font-weight: 600
           color: #F1B908
           // transform: translateY(-80px)
           transition: all .8s ease
           @media screen and (max-width: 768px)
-            font-size: 44px
+            font-size: 6vw
       .in-view
         // font-size: 52px
         opacity: 1

@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:500);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
 @charset "utf-8";html{background-color:#FDFDF9;color:#2d2b29;}
 body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{margin:0;padding:0}
 body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;}
@@ -17,5 +21,5 @@ mark{background-color:transparent}
 a,ins,s,u,del{text-decoration:none}
 sup,sub{vertical-align:baseline}
 html {overflow-x: hidden;height: 100%;font-size: 15px;-webkit-tap-highlight-color: transparent;}
-body {height: 100%;font-family: "Avenir", "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#2d2b29;font-size: 15px;line-height: 1;-webkit-text-size-adjust: none;}
+body {height: 100%;font-family: "Open Sans", "Avenir", "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#2d2b29;font-size: 15px;line-height: 1;-webkit-text-size-adjust: none;}
 a {color: #2d2b29;text-decoration: none;}

@@ -137,8 +137,8 @@ export default {
           this.minIndex = this.getMinhIndex(this.heightArr, minH)
           boxs[i].style.position = 'absolute'
           boxs[i].style.top = minH + 'px'
-          boxs[i].style.left = this.minIndex * 270 + 'px'
-          this.heightArr[this.minIndex] += (boxs[i].offsetHeight + 20)
+          boxs[i].style.left = this.minIndex * (boxWidth) + 'px'
+          this.heightArr[this.minIndex] += (boxs[i].offsetHeight)
         }
         this.height = Math.max.apply(null, this.heightArr) // container 的高度
       }, 100)
@@ -182,14 +182,14 @@ export default {
       position: relative
       margin: 0 auto
       .box
-        padding: 10px
+        padding: 12px
         width: 250px
         background: transparent
         .pic
           position: relative
           width: 250px
           border-radius: 5px
-          background: #eee
+          background: rgba(241,185,8,.2)
           overflow: hidden
           transition: all .8s ease
           &:hover
@@ -200,7 +200,7 @@ export default {
             position: absolute
             width: 100%
             height: 100%
-            background: rgba(255,255,255,.2)
+            background: rgba(255,255,255,.1)
             z-index: 10
             cursor: zoom-in
           img
@@ -211,4 +211,13 @@ export default {
           .in-view
             opacity: 1
             transform: translateY(0px)
+  @media screen and (max-width: 768px)
+    .gallery
+      width: 100vw
+      .container
+        .box
+          padding: 2vw
+          width: 45vw
+          .pic
+            width: 45vw
 </style>  

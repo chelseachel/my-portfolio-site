@@ -110,4 +110,6 @@ export default {
   @media screen and (max-width: 768px)
     .blank
       display: none
+    .bottom
+      display: none
 </style>

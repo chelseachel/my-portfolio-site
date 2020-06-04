@@ -72,7 +72,7 @@ export default {
     align-items: center
     transition: all .6s ease
     @media screen and (max-width: 768px)
-      padding: 0 20px
+      padding: 0 10px
       justify-content: space-around
     li
       position: relative

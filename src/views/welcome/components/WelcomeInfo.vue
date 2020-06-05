@@ -89,7 +89,7 @@ export default {
     left: 50%;
     top: 50%;
     margin-left: -23vw
-    margin-top: -5vw
+    margin-top: -4.5vw
     font-size: 5vw
     font-weight: 600
     @media screen and (max-width: 768px)

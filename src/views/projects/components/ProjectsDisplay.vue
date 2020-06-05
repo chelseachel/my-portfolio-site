@@ -152,12 +152,12 @@ export default {
               opacity: 1
     .img
       max-width: calc(90% - 160px)
-      width: 50%
-      height: 400px
+      width: 420px
+      height: 420px
       background: #D0CAC2
       position: absolute
       top: 20%
-      right: 10px
+      right: 0px
   @media screen and (max-width: 768px)
     .display
       display: none

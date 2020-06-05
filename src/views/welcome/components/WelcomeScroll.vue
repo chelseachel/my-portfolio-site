@@ -59,9 +59,9 @@ export default {
         content: ''
         position: absolute
         left: 6px
-        top: 3px
+        top: 5px
         width: 2px
-        height: 7px
+        height: 2px
         border-radius: 1px
         background: #2d2b29
         animation: scroll 1.6s infinite

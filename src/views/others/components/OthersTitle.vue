@@ -1,7 +1,33 @@
 <template>
   <div class="container">
     <div class="wrapper">
-      <div class="title" ref="title" :class="inView ? 'in-view' : ''">What I <span>made</span> else</div>
+      <div class="title" ref="title" :class="inView ? 'in-view' : ''">
+        <span class="normal"
+          v-for="(item, index) in word1" :key="'word1' + index"
+          v-html="item"
+          :style="{'--delay': `${200 + index * 50}ms`}"
+        >
+        </span> 
+        <span class="normal"
+          v-for="(item, index) in word2" :key="'word2' + index"
+          v-html="item"
+          :style="{'--delay': `${200 + index * 50}ms`}"
+        >
+        </span> 
+        <span class="yellow"
+          v-for="(item, index) in word3" :key="'word3' + index"
+          v-html="item"
+          :style="{'--delay': `${200 + index * 50}ms`}"
+        >
+        </span> 
+        <span class="normal"
+          v-for="(item, index) in word4" :key="'word4' + index"
+          v-html="item"
+          :style="{'--delay': `${200 + index * 50}ms`}"
+        >
+        </span> 
+        <span class="yellow" :style="{'--delay': '200ms'}">.</span>
+      </div>
       <!-- <div class="psuedo"></div> -->
     </div>
   </div>
@@ -13,7 +39,11 @@ export default {
   name: 'OthersTitle',
   data () {
     return {
-      inView: false
+      inView: false,
+      word1: ['W', 'h', 'a', 't', '&nbsp;',],
+      word2: ['I', '&nbsp;'],
+      word3: ['m', 'a', 'd', 'e', '&nbsp;'],
+      word4: ['e', 'l', 's', 'e']
     }
   },
   methods: {
@@ -46,44 +76,25 @@ export default {
       transform: translate(-50%, -50%)
       .title
         position: relative
-        font-size: 4vw
+        font-size: 56px
         font-weight: 400
         text-align: center
-        opacity: 0
-        // transform: translateY(50px)
-        // transform: rotate(30deg)
-        transition: all .8s ease
-        // &:before
-        //   content: ''
-        //   position: absolute
-        //   bottom: 8px
-        //   right: -200px
-        //   width: 5px
-        //   height: 5px
-        //   border-radius: 50%
-        //   background: #F1B908
-        //   transition: all 1s ease
+        transition: all .6s ease
         @media screen and (max-width: 768px)
-          font-size: 6vw
+          font-size: 32px
+          font-weight: 600
         span
           display: inline-block
-          font-size: 4vw
+          color: #e0dad2
+          transition: all .2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          transition-delay: var(--delay)
+        span.yellow
           font-weight: 600
-          color: #F1B908
-          // transform: translateY(-80px)
-          transition: all .8s ease
-          @media screen and (max-width: 768px)
-            font-size: 6vw
       .in-view
-        // font-size: 52px
-        opacity: 1
-        transform: rotate(0deg)
-        // transform: translateY(0px)
-        // &:before
-        //   right: -10px
-        span
-          // font-size: 52px
-          // transform: translateY(0px)
+        span.normal
+          color: #2d2b29
+        span.yellow
+          color: #F1B908
       
       
     

@@ -1,12 +1,15 @@
 <template>
-  <ul class="nav" ref="nav" :class="show ? showNav : hideNav">
-    <li 
-      :class="index == anchorIndex ? 'active-color' : ''"
-      v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)"
-    >
-      {{item}}
-    </li>
-  </ul>
+  <div class="header" :class="show ? showNav : hideNav">
+    <a href="index.html" class="logo"></a>
+    <ul class="nav">
+      <li 
+        :class="index == anchorIndex ? 'active-color' : ''"
+        v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)"
+      >
+        {{item}}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -58,7 +61,7 @@ export default {
 
 
 <style lang="stylus" scoped>
-  .nav
+  .header
     z-index: 99
     position: fixed
     top: 0
@@ -67,59 +70,82 @@ export default {
     background: #FDFDF9
     border-bottom: 1px solid #eee
     box-sizing: border-box
-    display: flex
-    justify-content: center
-    align-items: center
     transition: all .6s ease
-    @media screen and (max-width: 768px)
-      padding: 0 10px
-      justify-content: space-around
-    li
-      position: relative
-      margin: 0 36px
-      line-height: 60px
-      font-size: 14px
-      font-weight: 400
-      cursor: pointer
-      transition: all .3s
+    .logo
+      position: absolute
+      top: 18px
+      left: 30px
+      width: 24px
+      height: 24px
+      background: #F1B908
+      border-radius: 50%
+      animation: rotate 30s linear infinite
       @media screen and (max-width: 768px)
-        margin: 0
-      &:hover:before
-        width: 100%
-        left: 0
+        display: none
       &:before
         content: ''
+        width: 4px
+        height: 4px
         position: absolute
-        bottom: 0px
-        left: 50%
-        width: 0
-        height: 2px
-        background: #F1B908
-        transition: all .3s
-      &:after
-        content: ''
-        position: absolute
-        top: 29px
-        right: -41px
-        width: 2px
-        height: 2px
+        top: 10px
+        right: -2px
+        background: #FDFDF9
+        opacity: 1
         border-radius: 50%
-        background: #F1B908
-        display: none
-      &:last-child:after
-        display: none
+        transition: all .3s ease
+      &:hover:before
+        right: 20px
+      @keyframes rotate
+        0%
+          transform: rotate(0deg)
+        25%
+          transform: rotate(90deg)
+        50%
+          transform: rotate(180deg)
+        75%
+          transform: rotate(270deg)
+        100%
+          transform: rotate(360deg)
+    .nav
+      width: 100%
+      height: 60px
+      display: flex
+      justify-content: center
+      align-items: center
       @media screen and (max-width: 768px)
-        &:after
-          display: none
-    .active-color
-      color: #F1B908
-      font-weight: 600
-      &:before
-        width: 100%
-        left: 0
+        padding: 0 10px
+        justify-content: space-around
+      li
+        position: relative
+        margin: 0 36px
+        line-height: 60px
+        font-size: 14px
+        font-weight: 400
+        cursor: pointer
+        transition: all .3s
+        @media screen and (max-width: 768px)
+          margin: 0
+        &:hover:before
+          width: 100%
+          left: 0
+        &:before
+          content: ''
+          position: absolute
+          bottom: 0px
+          left: 50%
+          width: 0
+          height: 2px
+          background: #F1B908
+          transition: all .3s
+      .active-color
+        color: #F1B908
+        font-weight: 600
+        &:before
+          width: 100%
+          left: 0
   .shownav
-    opacity: 1
-    transform: translate3d(0, 0, 0)
+      opacity: .9
+      transform: translate3d(0, 0, 0)
   .hidenav
-    transform: translate3d(0, -100%, 0)
+      transform: translate3d(0, -100%, 0)
 </style>

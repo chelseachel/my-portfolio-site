@@ -74,6 +74,8 @@ export default {
     height: 200px
     margin-bottom: 30px
     box-sizing: border-box
+    @media screen and (max-width: 768px)
+      margin-bottom: 0px
     .wrapper
       position: absolute
       top: 50%

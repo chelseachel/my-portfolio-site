@@ -54,7 +54,10 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.dynamicNav, true)
+    window.addEventListener('scroll', this.utils.throttle(this.dynamicNav), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.dynamicNav), true)
   }
 }
 </script>

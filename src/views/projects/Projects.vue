@@ -2,7 +2,7 @@
   <div class="projects" ref="projects">
     <common-pad-title>Projects</common-pad-title>
     <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex"></projects-display>
-    <projects-scroll ref="scroll"></projects-scroll>
+    <projects-scroll ref="scroll" @refreshHeight='getHeight'></projects-scroll>
   </div>
 </template>
 
@@ -34,8 +34,13 @@ export default {
   },
   mounted () {
     this.getHeight()
-    window.addEventListener('resize', this.getHeight, true)
-    window.addEventListener('scroll', this.getHeight, true)
+    window.addEventListener('resize', this.utils.throttle(this.getHeight), true)
+  },
+  updated () {
+    this.getHeight()
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.utils.throttle(this.getHeight), true)
   }
 }
 </script>

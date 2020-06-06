@@ -23,15 +23,6 @@ export default {
     }
   },
   methods: {
-    // scrollTimeLine () {
-    //   const clientHeight = document.body.clientHeight
-    //   this.rect = this.$refs.item.getBoundingClientRect()
-    //   if (this.rect && this.rect.top < 300 && this.rect.top >= 0) {
-    //     this.show = true
-    //   } else if (this.rect && this.rect.top > clientHeight) {
-    //     this.show = false
-    //   }
-    // },
     checkInView () {
       const el = this.$refs.item
       if (this.utils.isElementInView(el)) {
@@ -43,16 +34,22 @@ export default {
     scrollStoreIndex () {
       const clientHeight = document.body.clientHeight
       this.rect = this.$refs.item.getBoundingClientRect()
-      if (this.rect && this.rect.top < (clientHeight/2 - 200)) {
+      if (this.rect && this.rect.top < (clientHeight * 0.45)) {
         this.$store.commit('changeActiveIndex', this.index)
       }
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.checkInView, true)
-    window.addEventListener('resize', this.checkInView, true)
-    window.addEventListener('scroll', this.scrollStoreIndex, true)
-    window.addEventListener('resize', this.scrollStoreIndex, true)
+    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('scroll', this.utils.throttle(this.scrollStoreIndex), true)
+    window.addEventListener('resize', this.utils.throttle(this.scrollStoreIndex), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('scroll', this.utils.throttle(this.scrollStoreIndex), true)
+    window.removeEventListener('resize', this.utils.throttle(this.scrollStoreIndex), true)
   }
 }
 </script>

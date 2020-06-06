@@ -3,7 +3,7 @@
     <div class="blank"></div>
     <div class="wrapper">
       <projects-scroll-item v-for="(item, index) in list" :key="item.id" :item="item" :index="index" ref="item"></projects-scroll-item>
-      <div class="bottom" ref="bottom"></div>
+      <div class="bottom" ref="bottom" :style="{height: bottomHeight + 'px'}"></div>
     </div>
   </div>
 </template>
@@ -61,7 +61,9 @@ export default {
         content: `5格华出教青适门区术，提给正采蠢走正。 团至表市志多元第千，子千使口装新后，史由X气小步陕。 收派何地动做头实却，备明重N该该。 然委金压政物眼状织，劳许什不响个路直全，回刷区容辰火儿。 加容打示政己，千完面方点，斗7E拒。
           除例亲被广现标，义气候家行何，面多材市政坊。 保事起道水社型处院满，研放相那深都九后提，写是豆I品回肃省。 定志当济严三品数也片，低料商五图斗接认，支很励重后拉U卧。 质两需转斗类示，工对需济指易接情，带C镰记估查。
           型文无联济强完期社么专适，立号育集K只律布个。 办何了音始装达，观事55。`
-      },]
+      },],
+      itemHeight: 0,
+      bottomHeight: 0
     }
   },
   computed: {
@@ -69,12 +71,20 @@ export default {
       'activeIndex'
     ]),
   },
+  watch: {
+    itemHeight: function () {
+      let clientHeight = document.body.clientHeight
+      this.bottomHeight = clientHeight - this.itemHeight - 20
+      if (this.bottomHeight < 0) {
+        this.bottomHeight = 0
+      }
+    }
+  },
   methods: {
-    setbottomHeight () {
-      const clientHeight = document.body.clientHeight
-      const itemHeight = parseInt(this.$refs.item[5].$el.getBoundingClientRect().height)
-      const bottomHeight = clientHeight - itemHeight - 20 
-      this.$refs.bottom.style.height = bottomHeight + 'px'
+    getItemHeight () {
+      this.$nextTick(function() {
+        this.itemHeight = parseInt(this.$refs.item[5].$el.getBoundingClientRect().height)
+      }, 10)
     },
     getItemElements () {
       for (let i = 0; i < this.list.length; i++) {
@@ -87,9 +97,16 @@ export default {
     }
   },
   mounted () {
-    this.setbottomHeight()
-    window.addEventListener('resize', this.setbottomHeight, true)
+    this.getItemHeight()
+    window.addEventListener('resize', this.utils.throttle(this.getItemHeight), true)
     this.getItemElements()
+  },
+  updated () {
+    this.getItemHeight()
+    this.$emit('refreshHeight')
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.utils.throttle(this.setbottomHeight), true)
   }
 }
 </script>

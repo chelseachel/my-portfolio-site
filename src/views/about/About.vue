@@ -27,7 +27,10 @@ export default {
   },
   mounted () {
     this.getHeight()
-    window.addEventListener('resize', this.getHeight, true)
+    window.addEventListener('resize', this.utils.throttle(this.getHeight), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.utils.throttle(this.getHeight), true)
   }
 }
 </script>

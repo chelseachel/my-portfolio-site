@@ -51,9 +51,16 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.positionState, true)
-    window.addEventListener('resize', this.positionState, true)
-    window.addEventListener('scroll', this.checkInView, true)
+    window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
+    window.addEventListener('resize', this.utils.throttle(this.positionState), true)
+    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.positionState), true)
+    window.removeEventListener('resize', this.utils.throttle(this.positionState), true)
+    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
   }
 }
 </script>

@@ -4,7 +4,6 @@
       <div class="box" 
         v-for="(item, index) in images" :key="item.id" 
         ref="box" 
-        :class="inView ? 'in-view' : ''"
         @click="handleGalleryClick(index)"
         >
         <div class="pic">
@@ -165,8 +164,15 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('resize', this.waterfall, true)
-    window.addEventListener('scroll', this.checkInView, true)
+    this.checkInView()
+    window.addEventListener('resize', this.utils.throttle(this.waterfall), true)
+    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.utils.throttle(this.waterfall), true)
+    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
   }
 }
 </script>

@@ -70,13 +70,13 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.scrollParallax, true)
     this.changeWord()
     this.timer = setInterval(this.changeWord, 3000)
-    
+    window.addEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   },
   beforeDestroy () {
     clearInterval(this.timer)
+    window.removeEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   }
 }
 </script>

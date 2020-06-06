@@ -66,8 +66,12 @@ export default {
     this.anchorElements[3]=this.$refs.others.$el
     this.anchorElements[4]=this.$refs.contact.$el
     this.getAnchorIndex()
-    window.addEventListener('scroll', this.getAnchorIndex, true)
-    window.addEventListener('resize', this.getAnchorIndex, true)
+    window.addEventListener('scroll', this.utils.throttle(this.getAnchorIndex), true)
+    window.addEventListener('resize', this.utils.throttle(this.getAnchorIndex), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.getAnchorIndex), true)
+    window.removeEventListener('resize', this.utils.throttle(this.getAnchorIndex), true)
   }
 }
 </script>

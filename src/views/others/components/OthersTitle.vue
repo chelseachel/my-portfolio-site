@@ -5,28 +5,28 @@
         <span class="normal"
           v-for="(item, index) in word1" :key="'word1' + index"
           v-html="item"
-          :style="{'--delay': `${200 + index * 50}ms`}"
+          :style="{'--delay': `${200 + index * 60}ms`}"
         >
         </span> 
         <span class="normal"
           v-for="(item, index) in word2" :key="'word2' + index"
           v-html="item"
-          :style="{'--delay': `${200 + index * 50}ms`}"
+          :style="{'--delay': '260ms'}"
         >
         </span> 
         <span class="yellow"
           v-for="(item, index) in word3" :key="'word3' + index"
           v-html="item"
-          :style="{'--delay': `${200 + index * 50}ms`}"
+          :style="{'--delay': `${200 + index * 60}ms`}"
         >
         </span> 
         <span class="normal"
           v-for="(item, index) in word4" :key="'word4' + index"
           v-html="item"
-          :style="{'--delay': `${200 + index * 50}ms`}"
+          :style="{'--delay': `${200 + index * 60}ms`}"
         >
         </span> 
-        <span class="yellow" :style="{'--delay': '200ms'}">.</span>
+        <span class="yellow" :style="{'--delay': '260ms'}">.</span>
       </div>
       <!-- <div class="psuedo"></div> -->
     </div>
@@ -57,7 +57,12 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.checkInView, true)
+    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
   }
 }
 </script>
@@ -66,7 +71,7 @@ export default {
 <style lang="stylus" scoped>
   .container
     position: relative
-    height: 220px
+    height: 200px
     margin-bottom: 30px
     box-sizing: border-box
     .wrapper
@@ -79,6 +84,7 @@ export default {
         font-size: 56px
         font-weight: 400
         text-align: center
+        white-space: nowrap
         transition: all .6s ease
         @media screen and (max-width: 768px)
           font-size: 32px
@@ -92,7 +98,7 @@ export default {
           font-weight: 600
       .in-view
         span.normal
-          color: #2d2b29
+          color: #332c21
         span.yellow
           color: #F1B908
       

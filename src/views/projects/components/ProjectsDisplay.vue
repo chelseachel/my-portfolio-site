@@ -72,10 +72,19 @@ export default {
   },
   mounted () {
     this.positionState()
-    window.addEventListener('scroll', this.checkInView, true)
-    window.addEventListener('resize', this.checkInView, true)
-    window.addEventListener('scroll', this.positionState, true)
-    window.addEventListener('resize', this.positionState, true)
+    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
+    window.addEventListener('resize', this.utils.throttle(this.positionState), true)
+  },
+  updated () {
+    this.positionState()
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('scroll', this.utils.throttle(this.positionState), true)
+    window.removeEventListener('resize', this.utils.throttle(this.positionState), true)
   }
 }
 </script>
@@ -116,6 +125,7 @@ export default {
       .nav
         width: 150px
         line-height: 4em
+        white-space: nowrap
         font-size: 15px
         font-weight: 400
         @media screen and (max-width: 768px)
@@ -153,7 +163,9 @@ export default {
     .img
       max-width: calc(90% - 160px)
       width: 420px
-      height: 420px
+      max-width: calc(90% - 160px)
+      height: 500px
+      max-height: 60vh
       background: #D0CAC2
       position: absolute
       top: 20%

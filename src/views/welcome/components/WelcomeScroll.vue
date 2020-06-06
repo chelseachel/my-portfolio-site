@@ -22,9 +22,11 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.scrollParallax, true)
+    window.addEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   }
-
 }
 </script>
 

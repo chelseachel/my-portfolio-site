@@ -157,7 +157,6 @@ export default {
             font-weight: 600
             &:before
               width: 100%
-              height: 2px
               left: 0
               opacity: 1
     .img

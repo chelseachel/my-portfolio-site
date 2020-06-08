@@ -31,7 +31,7 @@ export default {
       hello: 'Hello, I\'m&nbsp;',
       words: [
         'Chelsea.',
-        'a coder.',
+        'a developer.',
         'a designer.',
         'a craftsman.'
       ],
@@ -88,13 +88,13 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -23vw
+    margin-left: -24vw
     margin-top: -4.5vw
     font-size: 5vw
     font-weight: 600
     @media screen and (max-width: 768px)
       width: 75vw
-      margin-left: -32vw
+      margin-left: -33vw
       margin-top: -7vw
       font-size: 7vw
     p

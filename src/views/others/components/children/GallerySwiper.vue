@@ -81,6 +81,7 @@ export default {
       cursor: zoom-out
       .swiper-container
         height: 80%
+        max-height: 600px
         .swiper-slide
           display: flex
           flex-direction: column

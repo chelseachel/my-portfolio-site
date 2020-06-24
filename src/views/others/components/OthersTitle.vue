@@ -102,7 +102,7 @@ export default {
         span.normal
           color: #332c21
         span.yellow
-          color: #F1B908
+          color: var(--theme-color)
       
       
     

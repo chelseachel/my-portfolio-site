@@ -34,7 +34,7 @@ export default {
     scrollStoreIndex () {
       const clientHeight = document.body.clientHeight
       this.rect = this.$refs.item.getBoundingClientRect()
-      if (this.rect && this.rect.top < (clientHeight * 0.45)) {
+      if (this.rect && this.rect.top < (clientHeight * 0.45) && (this.rect.top + 150) >  (clientHeight * 0.2)) {
         this.$store.commit('changeActiveIndex', this.index)
       }
     }

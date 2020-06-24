@@ -1,6 +1,6 @@
 <template>
   <div class="home" ref="home" id="home">
-    <Nav @goAnchor="handleGoAnchor" :anchorIndex="anchorIndex"></Nav>
+    <Nav @goAnchor="handleGoAnchor" @resetSkin="handleResetSkin" :anchorIndex="anchorIndex"></Nav>
     <welcome ref="welcome"></welcome>
     <about ref="about"></about>
     <projects ref="projects" :offset="offset[2]"></projects>
@@ -28,6 +28,7 @@ export default {
       anchorIndex: null,
       offset: [],
       aboutHeight: 0,
+      themeNum: 0
     }
   },
   methods: {
@@ -57,6 +58,22 @@ export default {
     },
     handleScrollBack () {
       this.$refs.welcome.$el.scrollIntoView({behavior: "smooth"})
+    },
+    handleResetSkin() {
+      if (this.themeNum === 0) {
+        document.documentElement.style.setProperty('--theme-color', '#827717')
+        document.documentElement.style.setProperty('--theme-translucent', 'rgba(130,119,23,.2)')
+        this.themeNum ++
+      } else if (this.themeNum === 1) {
+        document.documentElement.style.setProperty('--theme-color', '#26A69A')
+        document.documentElement.style.setProperty('--theme-translucent', 'rgba(38,166,154,.2)')
+        this.themeNum ++
+        console.log(true);
+      } else if (this.themeNum === 2) {
+        document.documentElement.style.setProperty('--theme-color', '#F1B908')
+        document.documentElement.style.setProperty('--theme-translucent', 'rgba(241, 185, 8, .2)')
+        this.themeNum = 0
+      }
     }
   },
   mounted () {
@@ -65,7 +82,9 @@ export default {
     this.anchorElements[2]=this.$refs.projects.$el
     this.anchorElements[3]=this.$refs.others.$el
     this.anchorElements[4]=this.$refs.contact.$el
-    this.getAnchorIndex()
+    this.$nextTick(function() {
+      this.getAnchorIndex()
+    }, 0)
     window.addEventListener('scroll', this.utils.throttle(this.getAnchorIndex), true)
     window.addEventListener('resize', this.utils.throttle(this.getAnchorIndex), true)
   },

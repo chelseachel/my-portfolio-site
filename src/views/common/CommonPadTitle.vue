@@ -27,7 +27,7 @@ export default {
       font-size: 32px
       font-weight: 600
       span
-        color: #F1B908
+        color: var(--theme-color)
 @media screen and (min-width: 769px)
   .title-pad
     display: none

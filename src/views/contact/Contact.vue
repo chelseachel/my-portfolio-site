@@ -26,7 +26,7 @@ export default {
     position: relative
     width: 100vw
     height: 400px
-    background: #332c21
+    background: var(--theme-translucent)
     .back
       position: absolute
       top: -30px
@@ -36,12 +36,12 @@ export default {
       height: 60px
       border-radius: 50%
       background: #FDFDF9
-      box-shadow: 0 5px 10px 3px rgba(18, 22, 33, .1)
+      box-shadow: 0 5px 10px 3px rgba(18, 22, 33, .05)
       transition: all .2s ease-in-out
       cursor: pointer
       z-index: 10
       &:hover
-        box-shadow: 0 4px 4px 1px rgba(18, 22, 33, .1)
+        box-shadow: 0 4px 4px 1px rgba(18, 22, 33, .05)
       .arrow
         position: absolute
         top: 29px

@@ -2,7 +2,9 @@
   <div class="others" :class="inView ? 'in-view' : ''" ref="others">
     <others-title></others-title>
     <others-gallery @showSwiper="handleSwiperShow"></others-gallery>
-    <gallery-swiper :imgs="images" :index="itemIndex" v-show="showSwiper" @close="handleSwiperClose"></gallery-swiper>
+    <transition name="fade">
+      <gallery-swiper :imgs="images" :index="itemIndex" v-show="showSwiper" @close="handleSwiperClose"></gallery-swiper>
+    </transition>
   </div>
 </template>
 
@@ -59,9 +61,18 @@ export default {
   .others
     width: 100vw
     padding-bottom: 100px
-    box-shadow: 0 6px 4px 1px rgba(18, 22, 33, .1)
-    background-color: rgba(241, 185, 8, .2)
+    // box-shadow: 0 6px 4px 1px rgba(18, 22, 33, .1)
+    background-color: var(--theme-translucent)
     transition: background-color .6s
   .in-view
     background-color: transparent
+  .fade-enter
+  .fade-leave-to
+    opacity: 0
+  .fade-enter-to
+  .fade-leave
+    opacity: 1
+  .fade-enter-active
+  .fade-leave-active
+    transition: opacity .3s
 </style>

@@ -195,7 +195,7 @@ export default {
           position: relative
           width: 250px
           border-radius: 5px
-          background: rgba(241,185,8,.2)
+          background: var(--theme-translucent)
           overflow: hidden
           transition: all .8s ease
           &:hover

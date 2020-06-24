@@ -121,7 +121,7 @@ export default {
         @media screen and (max-width: 768px)
           font-size: 30px
         span
-          color: #F1B908
+          color: var(--theme-color)
       .nav
         width: 150px
         line-height: 4em
@@ -150,7 +150,7 @@ export default {
               height: 2px
               opacity: 0
               border-radius: 1px
-              background: #F1B908
+              background: var(--theme-color)
               z-index: -1
               transition: all .3s
           .active-class

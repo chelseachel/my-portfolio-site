@@ -73,17 +73,15 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-    background: #F1B908
+    background: var(--theme-color)
     &:after
       clear: both
     .cate
       font-weight: 700
-      font-size: 70px
+      font-size: 5vw
       color: #FDFDF9
-      letter-spacing: 2px
-      font-variant: small-caps
-      // @media screen and (max-width: 768px)
-      //   font-size: 56px
+      // letter-spacing: 2px
+      // font-variant: small-caps
     .photo
       position: absolute
       top: 100px

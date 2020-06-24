@@ -77,7 +77,7 @@ export default {
       .hello
         margin-bottom: 40px
         font-size: 5vw
-        color: #F1B908
+        color: var(--theme-color)
         font-weight: 600
         span
           position: relative

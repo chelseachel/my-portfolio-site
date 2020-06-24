@@ -103,7 +103,7 @@ export default {
       white-space: nowrap
     .word
       position: absolute
-      color: #F1B908
+      color: var(--theme-color)
       .letter
         display: inline-block
         transform: translateZ(25px)

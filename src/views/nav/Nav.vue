@@ -1,6 +1,6 @@
 <template>
   <div class="header" :class="show ? showNav : hideNav">
-    <a href="index.html" class="logo"></a>
+    <div class="logo" @click="logoClick" ref="logo"></div>
     <ul class="nav">
       <li 
         :class="index == anchorIndex ? 'active-color' : ''"
@@ -46,6 +46,9 @@ export default {
     },
     handleClickAnchor (index) {
       this.$emit('goAnchor', index)
+    },
+    logoClick() {
+      this.$emit('resetSkin')
     }
   },
   watch: {
@@ -80,8 +83,9 @@ export default {
       left: 30px
       width: 24px
       height: 24px
-      background: #F1B908
+      background: var(--theme-color)
       border-radius: 50%
+      cursor: pointer
       animation: rotate 30s linear infinite
       @media screen and (max-width: 768px)
         display: none
@@ -120,10 +124,9 @@ export default {
         justify-content: space-around
       li
         position: relative
-        margin: 0 36px
+        margin: 0 35px
         line-height: 60px
         font-size: 14px
-        font-weight: 400
         cursor: pointer
         transition: all .3s
         @media screen and (max-width: 768px)
@@ -131,6 +134,7 @@ export default {
         &:hover:before
           width: 100%
           left: 0
+          border-radius: 1px
         &:before
           content: ''
           position: absolute
@@ -138,16 +142,17 @@ export default {
           left: 50%
           width: 0
           height: 2px
-          background: #F1B908
+          background: var(--theme-color)
           transition: all .3s
       .active-color
-        color: #F1B908
+        color: var(--theme-color)
         font-weight: 600
         &:before
           width: 100%
           left: 0
+          border-radius: 1px
   .shownav
-      opacity: .9
+      opacity: .95
       transform: translate3d(0, 0, 0)
   .hidenav
       transform: translate3d(0, -100%, 0)

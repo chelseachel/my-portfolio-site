@@ -223,7 +223,7 @@ export default {
       .container
         .box
           padding: 2vw
-          width: 45vw
+          width: 44vw
           .pic
-            width: 45vw
+            width: 44vw
 </style>  

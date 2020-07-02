@@ -65,13 +65,16 @@ export default {
         document.documentElement.style.setProperty('--theme-translucent', 'rgba(130,119,23,.2)')
         this.themeNum ++
       } else if (this.themeNum === 1) {
-        document.documentElement.style.setProperty('--theme-color', '#26A69A')
-        document.documentElement.style.setProperty('--theme-translucent', 'rgba(38,166,154,.2)')
+        document.documentElement.style.setProperty('--theme-color', 'rgb(140,208,189)')
+        document.documentElement.style.setProperty('--theme-translucent', 'rgba(140,208,189,.2)')
         this.themeNum ++
-        console.log(true);
       } else if (this.themeNum === 2) {
+        document.documentElement.style.setProperty('--theme-color', 'RGB(238,200,182)')
+        document.documentElement.style.setProperty('--theme-translucent', 'rgba(238,200,182,.2)')
+        this.themeNum ++
+      } else if (this.themeNum === 3) {
         document.documentElement.style.setProperty('--theme-color', '#F1B908')
-        document.documentElement.style.setProperty('--theme-translucent', 'rgba(241, 185, 8, .2)')
+        document.documentElement.style.setProperty('--theme-translucent', 'rgba(241,185,8,.2)')
         this.themeNum = 0
       }
     }

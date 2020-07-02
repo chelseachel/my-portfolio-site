@@ -21,7 +21,6 @@ export default {
   data () {
     return {
       scrollHeight: 0,
-      windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
     }
   },
   methods: {

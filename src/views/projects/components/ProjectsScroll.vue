@@ -70,10 +70,9 @@ export default {
   watch: {
     itemHeight: function () {
       let clientHeight = document.body.clientHeight
-      this.bottomHeight = clientHeight - this.itemHeight - 20
-      if (this.bottomHeight < 0) {
-        this.bottomHeight = 0
-      }
+      // 使 item 顶部与展示图片平齐
+      let bottomH = clientHeight - 0.2*clientHeight - (this.itemHeight -150)
+      this.bottomHeight = bottomH < 0 ? 0 : bottomH
     }
   },
   methods: {

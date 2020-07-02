@@ -15,20 +15,21 @@ export default {
 
 
 <style lang="stylus" scoped>
-@media screen and (max-width: 768px)
-  .title-pad
-    width: 100%
-    height: 50px
-    display: flex
-    justify-content: center
-    align-items: center
-    .cate
-      color: #2d2b29
-      font-size: 32px
-      font-weight: 600
-      span
-        color: var(--theme-color)
-@media screen and (min-width: 769px)
-  .title-pad
-    display: none
+@import '~@/assets/styles/variables.styl'
+  @media screen and (max-width: 768px)
+    .title-pad
+      width: 100%
+      height: 50px
+      display: flex
+      justify-content: center
+      align-items: center
+      .cate
+        color: $color1
+        font-size: 32px
+        font-weight: 600
+        span
+          color: var(--theme-color)
+  @media screen and (min-width: 769px)
+    .title-pad
+      display: none
 </style>

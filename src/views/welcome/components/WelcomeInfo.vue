@@ -97,6 +97,10 @@ export default {
       margin-left: -33vw
       margin-top: -7vw
       font-size: 7vw
+    @media screen and (min-width: 1600px)
+      font-size: 80px
+      margin-left: -380px
+      margin-top: -40px
     p
       display: inline-block
       vertical-align: top

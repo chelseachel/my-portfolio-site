@@ -77,8 +77,8 @@ export default {
     &:after
       clear: both
     .cate
-      font-weight: 700
-      font-size: 5vw
+      font-weight: 600
+      font-size: 64px
       color: #FDFDF9
       // letter-spacing: 2px
       // font-variant: small-caps
@@ -91,6 +91,7 @@ export default {
       border-radius: 50%
       background: khaki
       overflow: hidden
+      opacity: 0
       transform: scale(.5)
       transition: all .8s ease
       @media screen and (max-width: 1024px)
@@ -98,6 +99,7 @@ export default {
         width: 100px
         height: 100px
     .in-view
+      opacity: 1
       transform: scale(1)
       img
         width: 100%

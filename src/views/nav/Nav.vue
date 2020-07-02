@@ -1,6 +1,7 @@
 <template>
   <div class="header" :class="show ? showNav : hideNav">
-    <div class="logo" @click="logoClick" ref="logo"></div>
+    <a class="logo" href="./index.html"><span>CHELSEA'S</span></a>
+    <div class="round" @click="roundClick" ref="round"></div>
     <ul class="nav">
       <li 
         :class="index == anchorIndex ? 'active-color' : ''"
@@ -47,7 +48,7 @@ export default {
     handleClickAnchor (index) {
       this.$emit('goAnchor', index)
     },
-    logoClick() {
+    roundClick() {
       this.$emit('resetSkin')
     }
   },
@@ -73,35 +74,49 @@ export default {
     top: 0
     width: 100%
     height: 60px
-    background: #FDFDF9
-    border-bottom: 1px solid #eee
+    background: #fdfcf6
+    border-bottom: 1px dotted #eee
     box-sizing: border-box
+    display: flex
     transition: all .6s ease
     .logo
+      float: left
+      padding-left: 25px
+      height: 60px
+      line-height: 60px
+      font-size: 18px
+      color: var(--theme-color)
+      opacity: 1
+      transition: opacity .3s
+      span
+        font-weight: 600
+    @media screen and (max-width: 979px)
+      .logo
+        display: none
+    .round
       position: absolute
-      top: 18px
-      left: 30px
-      width: 24px
-      height: 24px
+      top: 41px
+      right: 40px
+      width: 38px
+      height: 38px
       background: var(--theme-color)
       border-radius: 50%
       cursor: pointer
-      animation: rotate 30s linear infinite
+      animation: rotate 10s linear infinite
       @media screen and (max-width: 768px)
         display: none
       &:before
         content: ''
-        width: 4px
-        height: 4px
+        width: 6px
+        height: 6px
         position: absolute
-        top: 10px
-        right: -2px
-        background: #FDFDF9
-        opacity: 1
+        top: 16px
+        right: -6px
+        background: #fdfcf6
         border-radius: 50%
         transition: all .3s ease
       &:hover:before
-        right: 20px
+        right: 16px
       @keyframes rotate
         0%
           transform: rotate(0deg)
@@ -114,7 +129,7 @@ export default {
         100%
           transform: rotate(360deg)
     .nav
-      width: 100%
+      flex: 1
       height: 60px
       display: flex
       justify-content: center
@@ -124,7 +139,7 @@ export default {
         justify-content: space-around
       li
         position: relative
-        margin: 0 35px
+        margin: 0 25px
         line-height: 60px
         font-size: 14px
         cursor: pointer
@@ -152,8 +167,8 @@ export default {
           left: 0
           border-radius: 1px
   .shownav
-      opacity: .95
-      transform: translate3d(0, 0, 0)
+    opacity: .95
+    transform: translate3d(0, 0, 0)
   .hidenav
-      transform: translate3d(0, -100%, 0)
+    transform: translate3d(0, -100%, 0)
 </style>

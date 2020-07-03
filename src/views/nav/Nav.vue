@@ -1,15 +1,17 @@
 <template>
-  <div class="header" :class="show ? showNav : hideNav">
+  <div class="header" :class="showNav ? 'shownav' : 'hidenav'">
     <a class="logo" href="./index.html"><span>CHELSEA'S</span></a>
-    <div class="round" @click="roundClick" ref="round"></div>
     <ul class="nav">
       <li 
-        :class="index == anchorIndex ? 'active-color' : ''"
+        :class="{'active-color' : index === anchorIndex}"
         v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)"
       >
         {{item}}
       </li>
     </ul>
+    <div class="right"><transition>
+      <div class="round" @click="handleClickRound"></div>
+    </transition></div>
   </div>
 </template>
 
@@ -24,31 +26,23 @@ export default {
     return {
       category: ['Home', 'About', 'Projects', 'Otherworks', 'Contact'],
       windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
-      show: true,
-      showNav: 'shownav',
-      hideNav: 'hidenav'
+      showNav: true
     }
   },
   methods: {
-    // initNav () {
-    //   let _this = this
-    //   setTimeout(function () {
-    //     _this.show = true
-    //   }, 2000)
-    // },
     dynamicNav () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop > (document.body.clientHeight - 60)) {
-        this.show = scrollTop >= this.windowTop ? false : true
+        this.showNav = scrollTop >= this.windowTop ? false : true
         this.windowTop = scrollTop
       } else {
-        this.show = true
+        this.showNav = true
       }
     },
     handleClickAnchor (index) {
       this.$emit('goAnchor', index)
     },
-    roundClick() {
+    handleClickRound() {
       this.$emit('resetSkin')
     }
   },
@@ -90,50 +84,15 @@ export default {
       transition: opacity .3s
       span
         font-weight: 600
-    @media screen and (max-width: 979px)
-      .logo
-        display: none
-    .round
-      position: absolute
-      top: 41px
-      right: 40px
-      width: 38px
-      height: 38px
-      background: var(--theme-color)
-      border-radius: 50%
-      cursor: pointer
-      animation: rotate 10s linear infinite
       @media screen and (max-width: 768px)
         display: none
-      &:before
-        content: ''
-        width: 6px
-        height: 6px
-        position: absolute
-        top: 16px
-        right: -6px
-        background: #fdfcf6
-        border-radius: 50%
-        transition: all .3s ease
-      &:hover:before
-        right: 16px
-      @keyframes rotate
-        0%
-          transform: rotate(0deg)
-        25%
-          transform: rotate(90deg)
-        50%
-          transform: rotate(180deg)
-        75%
-          transform: rotate(270deg)
-        100%
-          transform: rotate(360deg)
     .nav
       flex: 1
       height: 60px
       display: flex
       justify-content: center
       align-items: center
+      opacity: .95
       @media screen and (max-width: 768px)
         padding: 0 10px
         justify-content: space-around
@@ -166,9 +125,49 @@ export default {
           width: 100%
           left: 0
           border-radius: 1px
+    .right
+      float: right
+      position: relative
+      width: 70px
+      height: 60px
+      @media screen and (max-width: 768px)
+        display: none
+    .round
+      position: absolute
+      right: 36px
+      width: 22px
+      height: 22px
+      background: var(--theme-color)
+      border-radius: 50%
+      border: 8px solid var(--theme-color)
+      cursor: pointer
+      transition: all .6s ease
+      &:before
+        content: ''
+        width: 4px
+        height: 4px
+        position: absolute
+        top: 9px
+        right: 9px
+        background: #fdfcf6
+        border-radius: 50%
+        transition: opacity .3s ease
+      &:hover:before
+        opacity: 0
   .shownav
-    opacity: .95
-    transform: translate3d(0, 0, 0)
+    transform: translateY(0)
+    .round
+      top: 12px
+      border: 8px solid #fdfcf6
   .hidenav
-    transform: translate3d(0, -100%, 0)
+    transform: translateY(-100%)
+    .round
+      top: 41px
+      border: 8px solid var(--theme-color)
+      &:hover
+        top: 46px
+        transition: top .3s ease
+      &:before
+        opacity: 0
+        
 </style>

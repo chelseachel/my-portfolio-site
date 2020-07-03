@@ -28,7 +28,14 @@ export default {
       anchorIndex: null,
       offset: [],
       aboutHeight: 0,
-      themeNum: 0
+      themes: [
+        ['rgb(241,185,8)', 'rgba(241,185,8,.2)'],
+        ['rgb(130,119,23)', 'rgba(130,119,23,.2)'],
+        ['rgb(140,208,189)', 'rgba(140,208,189,.2)'],
+        ['rgb(247,72,78)', 'rgba(247,72,78,.1)'],
+        ['rgb(238,200,182)', 'rgba(238,200,182,.2)']
+      ],
+      themeNum: localStorage.num || 0
     }
   },
   methods: {
@@ -59,25 +66,27 @@ export default {
     handleScrollBack () {
       this.$refs.welcome.$el.scrollIntoView({behavior: "smooth"})
     },
-    handleResetSkin() {
-      if (this.themeNum === 0) {
-        document.documentElement.style.setProperty('--theme-color', '#827717')
-        document.documentElement.style.setProperty('--theme-translucent', 'rgba(130,119,23,.2)')
+    resetSkin (color, colorTranslucent) {
+      document.documentElement.style.setProperty('--theme-color', color)
+      document.documentElement.style.setProperty('--theme-translucent', colorTranslucent)
+    },
+    setLocalStorage (num) {
+      try {
+        localStorage.num = num
+      } catch (e) {} 
+    },
+    handleResetSkin () {
+      if (this.themeNum < this.themes.length - 1) {
         this.themeNum ++
-      } else if (this.themeNum === 1) {
-        document.documentElement.style.setProperty('--theme-color', 'rgb(140,208,189)')
-        document.documentElement.style.setProperty('--theme-translucent', 'rgba(140,208,189,.2)')
-        this.themeNum ++
-      } else if (this.themeNum === 2) {
-        document.documentElement.style.setProperty('--theme-color', 'RGB(238,200,182)')
-        document.documentElement.style.setProperty('--theme-translucent', 'rgba(238,200,182,.2)')
-        this.themeNum ++
-      } else if (this.themeNum === 3) {
-        document.documentElement.style.setProperty('--theme-color', '#F1B908')
-        document.documentElement.style.setProperty('--theme-translucent', 'rgba(241,185,8,.2)')
+      } else {
         this.themeNum = 0
       }
+      this.resetSkin(this.themes[this.themeNum][0], this.themes[this.themeNum][1])
+      this.setLocalStorage(this.themeNum)
     }
+  },
+  created () {
+    this.resetSkin(this.themes[this.themeNum][0], this.themes[this.themeNum][1])
   },
   mounted () {
     this.anchorElements[0]=this.$refs.welcome.$el

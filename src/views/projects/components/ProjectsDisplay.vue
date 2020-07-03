@@ -14,7 +14,9 @@
         </li>
       </ul>
     </div>
-    <div class="img"></div>
+    <div class="img">
+      <img src=""/>
+    </div>
   </div>
 </template>
 
@@ -169,6 +171,12 @@ export default {
       position: absolute
       top: 20%
       right: 0px
+      img
+        max-width: 100%
+        max-height: 100%
+        position: relative
+        top: 0px
+        right: 0px
   @media screen and (max-width: 768px)
     .display
       display: none

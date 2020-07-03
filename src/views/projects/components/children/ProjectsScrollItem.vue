@@ -73,7 +73,7 @@ export default {
     .title
       line-height: 80px
       font-size: 24px
-      font-weight: 500
+      font-weight: 600
       text-align: left  
   .showitem
     opacity: 1

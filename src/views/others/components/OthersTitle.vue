@@ -28,7 +28,6 @@
         </span> 
         <span class="yellow" :style="{'--delay': '260ms'}">.</span>
       </div>
-      <!-- <div class="psuedo"></div> -->
     </div>
   </div>
 </template>
@@ -93,7 +92,7 @@ export default {
           font-weight: 600
         span
           display: inline-block
-          color: #e0dad2
+          color: #E0DAD2
           transition: all .2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
           transition-delay: var(--delay)
         span.yellow
@@ -103,7 +102,6 @@ export default {
           color: #332c21
         span.yellow
           color: var(--theme-color)
-      
       
     
 </style>

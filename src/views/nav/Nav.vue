@@ -134,7 +134,7 @@ export default {
         display: none
     .round
       position: absolute
-      right: 36px
+      right: 40px
       width: 22px
       height: 22px
       background: var(--theme-color)

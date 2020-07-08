@@ -71,6 +71,7 @@ export default {
     background: #fdfcf6
     border-bottom: 1px dotted #eee
     box-sizing: border-box
+    opacity: .95
     display: flex
     transition: all .6s ease
     .logo
@@ -92,7 +93,6 @@ export default {
       display: flex
       justify-content: center
       align-items: center
-      opacity: .95
       @media screen and (max-width: 768px)
         padding: 0 10px
         justify-content: space-around

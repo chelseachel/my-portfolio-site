@@ -56,6 +56,9 @@ export default {
     window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
     window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
   },
+  updated () {
+    this.positionState()
+  },
   beforeDestroy () {
     window.removeEventListener('scroll', this.utils.throttle(this.positionState), true)
     window.removeEventListener('resize', this.utils.throttle(this.positionState), true)

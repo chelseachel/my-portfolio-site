@@ -13,7 +13,7 @@ export default {
 
   throttle(fn, delay = 16) {
     let timer = null
-    return function () {  //返回一个函数
+    return function () {
       if (timer) {
         return
       }

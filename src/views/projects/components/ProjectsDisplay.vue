@@ -73,7 +73,6 @@ export default {
     }
   },
   mounted () {
-    this.positionState()
     window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
     window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
     window.addEventListener('scroll', this.utils.throttle(this.positionState), true)

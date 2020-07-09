@@ -1,8 +1,8 @@
 <template>
-  <div class="content" ref="parallax">
+  <div class="content" ref="parallax" @click="changeWord">
     <p class="hello" v-html="hello"></p>
 
-    <p class="word" @click="changeWord"
+    <p class="word" 
       v-for="(item, index) in splitWords" :key="item + index"
       ref="word"
       :class="{in: index === currentWordIndex, 
@@ -95,6 +95,7 @@ export default {
     margin-top: -4.5vw
     font-size: 5vw
     font-weight: 600
+    cursor: pointer
     @media screen and (max-width: 768px)
       width: 75vw
       margin-left: -33vw
@@ -112,7 +113,6 @@ export default {
     .word
       position: absolute
       color: var(--theme-color)
-      cursor: pointer
       .letter
         display: inline-block
         transform: translateZ(25px)

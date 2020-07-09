@@ -27,6 +27,16 @@ export default {
     width: 100vw
     height: 400px
     background: var(--theme-translucent)
+    &:before
+      content: ''
+      width: 66px
+      height: 33px
+      border-radius: 33px 33px 0 0
+      background: var(--theme-translucent)
+      position: absolute
+      top: -33px
+      left: 50%
+      transform: translateX(-50%)
     .back
       position: absolute
       top: -30px
@@ -35,13 +45,14 @@ export default {
       width: 60px
       height: 60px
       border-radius: 50%
-      background: #FDFDF9
-      box-shadow: 0 5px 10px 3px rgba(18, 22, 33, .05)
+      background: #fdfcf6
+      // box-shadow: 0 5px 10px 3px rgba(18, 22, 33, .04)
       transition: all .2s ease-in-out
       cursor: pointer
       z-index: 10
       &:hover
-        box-shadow: 0 4px 4px 1px rgba(18, 22, 33, .05)
+        transform: translateX(-50%) scale(.92)
+        // box-shadow: 0 4px 4px 1px rgba(18, 22, 33, .04)
       .arrow
         position: absolute
         top: 29px

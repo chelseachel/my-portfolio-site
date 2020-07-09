@@ -141,7 +141,7 @@ export default {
       border-radius: 50%
       border: 8px solid var(--theme-color)
       cursor: pointer
-      transition: all .6s ease
+      transition: all .6s ease, background .2s, opacity .2s
       &:before
         content: ''
         width: 4px
@@ -154,6 +154,8 @@ export default {
         transition: opacity .3s ease
       &:hover:before
         opacity: 0
+      &:active
+        opacity: .7
   .shownav
     transform: translateY(0)
     .round
@@ -166,8 +168,7 @@ export default {
       border: 8px solid var(--theme-color)
       &:hover
         top: 46px
-        transition: top .3s ease
+        transition: top .3s ease-in-out, background .2s, opacity .2s, border .2s
       &:before
-        opacity: 0
-        
+        opacity: 0   
 </style>

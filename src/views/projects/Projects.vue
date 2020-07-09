@@ -49,6 +49,7 @@ export default {
   .projects
     position: relative
     width: 100vw
+    min-height: 100vh
     @media screen and (max-width: 768px)
       margin-top: 65px
 </style>

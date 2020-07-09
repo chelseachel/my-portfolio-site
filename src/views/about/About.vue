@@ -40,5 +40,5 @@ export default {
   .about
     position: relative
     width: 100vw
-    
+    min-height: 100vh
 </style>

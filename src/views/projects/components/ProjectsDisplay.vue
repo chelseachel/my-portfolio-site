@@ -137,7 +137,7 @@ export default {
           span
             position: relative
             cursor: pointer
-            transition: all .3s
+            transition: all .2s
             &:hover:before
               width: 100%
               left: 0
@@ -145,7 +145,7 @@ export default {
             &:before
               content: ''
               position: absolute
-              bottom: -1px
+              bottom: -2px
               left: 100%
               width: 0
               height: 2px
@@ -155,11 +155,12 @@ export default {
               z-index: -1
               transition: all .3s
           .active-class
-            font-weight: 600
-            &:before
-              width: 100%
-              left: 0
-              opacity: 1
+            // font-weight: 600
+            color: var(--theme-color)
+            // &:before
+            //   width: 100%
+            //   left: 0
+            //   opacity: 1
     .img
       max-width: calc(90% - 160px)
       width: 420px

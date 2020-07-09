@@ -2,7 +2,7 @@
   <div class="content" ref="parallax">
     <p class="hello" v-html="hello"></p>
 
-    <p class="word"
+    <p class="word" @click="changeWord"
       v-for="(item, index) in splitWords" :key="item + index"
       ref="word"
       :class="{in: index === currentWordIndex, 
@@ -60,8 +60,12 @@ export default {
   },
   methods: {
     changeWord () {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
       const length = this.words.length
       this.currentWordIndex = this.currentWordIndex === length - 1 ? 0 : this.currentWordIndex + 1
+      this.timer = setTimeout(this.changeWord, 3000)
     },
     scrollParallax () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
@@ -71,11 +75,10 @@ export default {
   },
   mounted () {
     this.changeWord()
-    this.timer = setInterval(this.changeWord, 3000)
     window.addEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   },
   beforeDestroy () {
-    clearInterval(this.timer)
+    clearTimeout(this.timer)
     window.removeEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   }
 }
@@ -108,6 +111,7 @@ export default {
     .word
       position: absolute
       color: var(--theme-color)
+      cursor: pointer
       .letter
         display: inline-block
         transform: translateZ(25px)

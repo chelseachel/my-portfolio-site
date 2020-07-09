@@ -128,7 +128,7 @@ export default {
     .right
       float: right
       position: relative
-      width: 70px
+      width: 80px
       height: 60px
       @media screen and (max-width: 768px)
         display: none

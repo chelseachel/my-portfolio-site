@@ -87,7 +87,7 @@ export default {
 
 <style lang="stylus" scoped>
   .content
-    width: 52vw
+    width: 54vw
     position: absolute;
     left: 50%;
     top: 50%;
@@ -102,6 +102,7 @@ export default {
       font-size: 7vw
     @media screen and (min-width: 1600px)
       font-size: 80px
+      width: 866px
       margin-left: -380px
       margin-top: -40px
     p

@@ -94,15 +94,13 @@ export default {
       border-radius: 50%
       background: khaki
       overflow: hidden
-      opacity: 0
-      transform: scale(.5)
+      transform: scale(0)
       transition: all .8s ease
       @media screen and (max-width: 1024px)
         right: -50px
         width: 100px
         height: 100px
     .in-view
-      opacity: 1
       transform: scale(1)
       img
         width: 100%

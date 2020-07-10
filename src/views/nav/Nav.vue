@@ -1,5 +1,5 @@
 <template>
-  <div class="header" :class="showNav ? 'shownav' : 'hidenav'">
+  <div class="header" :class="showNav ? 'shownav' : 'hidenav'" :style="topStyle ? {top: '4px'} : {}">
     <a class="logo" href="./index.html"><span>CHELSEA'S</span></a>
     <ul class="nav">
       <li 
@@ -26,7 +26,8 @@ export default {
     return {
       category: ['Home', 'About', 'Projects', 'Otherworks', 'Contact'],
       windowTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
-      showNav: true
+      showNav: true,
+      topStyle: true
     }
   },
   methods: {
@@ -37,6 +38,7 @@ export default {
         this.windowTop = scrollTop
       } else {
         this.showNav = true
+        this.topStyle = scrollTop > 0 ? false : true
       }
     },
     handleClickAnchor (index) {
@@ -65,11 +67,11 @@ export default {
   .header
     z-index: 99
     position: fixed
-    top: 0
+    top: 0px
     width: 100%
     height: 60px
     background: #fdfcf6
-    border-bottom: 1px dotted #eee
+    border-bottom: 1px dotted var(--theme-translucent)
     box-sizing: border-box
     opacity: .95
     display: flex
@@ -170,5 +172,5 @@ export default {
         top: 46px
         transition: top .3s ease-in-out, background .2s, opacity .2s, border .2s
       &:before
-        opacity: 0   
+        opacity: 0
 </style>

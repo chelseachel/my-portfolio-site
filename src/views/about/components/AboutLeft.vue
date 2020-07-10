@@ -1,7 +1,7 @@
 <template>
   <div class="left" :style="{position: position, top: top + 'px'}">
     <div class="cate">
-      About<span>.</span>
+      About.
     </div>
     <div class="photo" ref="photo" :class="inView ? 'in-view' : ''">
       <img src="@/assets/images/26.jpg">

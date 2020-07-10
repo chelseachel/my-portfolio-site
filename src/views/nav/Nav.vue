@@ -1,5 +1,5 @@
 <template>
-  <div class="header" :class="showNav ? 'shownav' : 'hidenav'" :style="topStyle ? {top: '4px'} : {}">
+  <div class="header" :class="showNav ? 'shownav' : 'hidenav'" :style="topStyle ? {top: '4px', transition: 'top .1s'} : {}">
     <a class="logo" href="./index.html"><span>CHELSEA'S</span></a>
     <ul class="nav">
       <li 

@@ -1,6 +1,18 @@
 <template>
   <div class="right">
     <div class="content">
+      <b>技能清单</b><br>
+拥有前端组件化开发思想，熟练使用 Vue 及 Vue 相关生态 <br>
+熟练掌握 HTML5 / CSS3 / Javascript 前端基础技术<br>
+了解常用 ES6 语法 <br>
+能够使用 Webpack 实现简单的前端工程化<br>
+熟悉响应式布局<br>
+了解各大浏览器兼容性问题<br>
+熟练使用 Git ，了解 Git Flow 工作流<br>
+了解 RESTful API<br>
+对 Web颜色混合模式 及 Opentype 的特性有一定认知<br><br>
+<b>设计工具</b><br>
+Axure AI PS<br><br>
       <b>关于我</b><br><br>
       毕业前夕开始从事阿里创作平台自媒体，同时有持续的手作品产出。<br>
       内心深处想成为一个Desigrammer，开始纯自学前端，即便没有年龄优势，仍决心将它实现。<br>

@@ -1,6 +1,6 @@
 <template>
   <div class="header" :class="showNav ? 'shownav' : 'hidenav'" :style="topStyle ? {top: '4px', transition: 'top .1s'} : {}">
-    <a class="logo" href="./index.html"><span>CHELSEA'S</span></a>
+    <a class="logo" href="./index.html">CHELSEA'S</a>
     <ul class="nav">
       <li 
         :class="{'active-color' : index === anchorIndex}"
@@ -75,18 +75,17 @@ export default {
     box-sizing: border-box
     opacity: .95
     display: flex
-    transition: all .6s ease
+    transition: all .5s ease
     .logo
       float: left
       padding-left: 25px
       height: 60px
       line-height: 60px
       font-size: 18px
+      font-weight: 600
       color: var(--theme-color)
       opacity: 1
       transition: opacity .3s
-      span
-        font-weight: 600
       @media screen and (max-width: 768px)
         display: none
     .nav
@@ -143,7 +142,7 @@ export default {
       border-radius: 50%
       border: 8px solid var(--theme-color)
       cursor: pointer
-      transition: all .6s ease, background .2s, opacity .2s
+      transition: all .5s ease, background .2s, opacity .2s
       &:before
         content: ''
         width: 4px

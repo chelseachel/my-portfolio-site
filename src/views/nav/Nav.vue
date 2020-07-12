@@ -1,5 +1,5 @@
 <template>
-  <div class="header" :class="showNav ? 'shownav' : 'hidenav'" :style="topStyle ? {top: '4px', transition: 'top .1s'} : {}">
+  <div class="header" :class="showNav ? 'shownav' : 'hidenav'" ref="header">
     <a class="logo" href="./index.html">CHELSEA'S</a>
     <ul class="nav">
       <li 
@@ -35,10 +35,10 @@ export default {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop > (document.body.clientHeight - 60)) {
         this.showNav = scrollTop >= this.windowTop ? false : true
+        console.log(scrollTop,this.windowTop);
         this.windowTop = scrollTop
       } else {
         this.showNav = true
-        this.topStyle = scrollTop > 0 ? false : true
       }
     },
     handleClickAnchor (index) {
@@ -66,8 +66,9 @@ export default {
 <style lang="stylus" scoped>
   .header
     z-index: 99
-    position: fixed
+    position: sticky
     top: 0px
+    margin-top: 4px
     width: 100%
     height: 60px
     background: #fdfcf6
@@ -75,7 +76,7 @@ export default {
     box-sizing: border-box
     opacity: .95
     display: flex
-    transition: all .5s ease
+    transition: all .6s ease
     .logo
       float: left
       padding-left: 25px
@@ -84,8 +85,6 @@ export default {
       font-size: 18px
       font-weight: 600
       color: var(--theme-color)
-      opacity: 1
-      transition: opacity .3s
       @media screen and (max-width: 768px)
         display: none
     .nav
@@ -142,7 +141,7 @@ export default {
       border-radius: 50%
       border: 8px solid var(--theme-color)
       cursor: pointer
-      transition: all .5s ease, background .2s, opacity .2s
+      transition: all .6s ease, background .2s, opacity .2s
       &:before
         content: ''
         width: 4px
@@ -160,7 +159,7 @@ export default {
   .shownav
     transform: translateY(0)
     .round
-      top: 12px
+      top: 11px
       border: 8px solid #fdfcf6
   .hidenav
     transform: translateY(-100%)

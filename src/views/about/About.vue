@@ -1,7 +1,7 @@
 <template>
   <div class="about" ref="about">
     <common-pad-title>About</common-pad-title>
-    <about-left :scrollHeight="scrollHeight"></about-left>
+    <about-left :scrollHeight="scrollHeight" v-if="!isMobile"></about-left>
     <about-right></about-right>
   </div>
 </template>
@@ -17,7 +17,8 @@ export default {
   },
   data () {
     return {
-      scrollHeight: 0
+      scrollHeight: 0,
+      isMobile: this.utils.isMobile()
     }
   },
   methods: {

@@ -84,7 +84,6 @@ export default {
       max-width: 100%
       padding: 50px 10vw
       margin: 0px
-      font-size: 13px
       .pic
         height: 300px
         margin-bottom: 25px

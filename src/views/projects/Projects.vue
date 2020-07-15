@@ -1,7 +1,7 @@
 <template>
   <div class="projects" ref="projects">
     <common-pad-title>Projects</common-pad-title>
-    <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex"></projects-display>
+    <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex" v-if="!isMobile"></projects-display>
     <projects-scroll ref="scroll" @refreshHeight='getHeight'></projects-scroll>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
   data () {
     return {
       scrollHeight: 0,
+      isMobile: this.utils.isMobile()
     }
   },
   methods: {

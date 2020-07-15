@@ -35,7 +35,6 @@ export default {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop > (document.body.clientHeight - 60)) {
         this.showNav = scrollTop >= this.windowTop ? false : true
-        console.log(scrollTop,this.windowTop);
         this.windowTop = scrollTop
       } else {
         this.showNav = true

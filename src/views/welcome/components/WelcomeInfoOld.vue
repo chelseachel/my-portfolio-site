@@ -100,7 +100,7 @@ export default {
       .info
         font-size: 2vw
         font-weight: 200
-        @media screen and (max-width: 768px)
+        @media screen and (max-width: 992px)
           font-size: 20px
           font-weight: 400
         span

@@ -1,10 +1,23 @@
 <template>
   <div class="item" ref="item" :class="show ? 'showitem' : ''">
-    <div class="title">{{item.title}}</div>
-    <p class="pic">
-      <img :src="item.url">
+    <div class="title">
+      <span>{{item.title}}</span>
+      
+    </div>
+    <p>
+      <a href="">源码</a>
+      <a href="">预览</a>
     </p>
-    <div>{{item.content}}</div>
+    <div class="pic">
+      <img :src="item.url">
+    </div>
+    <p class="desc">{{item.desc}}</p>
+    <div class="sub-title">功能难点</div>
+    <p class="content" v-html="item.content"></p>
+    <div class="sub-title">技术栈</div>
+    <div class="techs">
+      <span class="tech" v-for="(value, index) in item.techs" :key="index">{{value}}</span>
+    </div>
   </div>
 </template>
 
@@ -56,13 +69,14 @@ export default {
 
 
 <style lang="stylus" scoped>
+@import '~@/assets/styles/variables.styl'
   .item
-    width: 60%
+    width: 65%
     max-width: 500px
     padding: 100px 0
-    margin: 0 13%
+    margin-left: 13.5%
     box-sizing: border-box
-    line-height: 2em
+    line-height: 1.75em
     font-size: 15px
     text-align: justify
     opacity: 0
@@ -71,14 +85,61 @@ export default {
     .pic
       display: none
     .title
-      line-height: 80px
-      font-size: 24px
+      margin-bottom: .5em
+      font-size: 20px
       font-weight: 600
-      text-align: left  
+      // line-height: 20px
+      // text-align: left
+      // display: flex
+      // align-items: center
+      // span
+      //   font-size: 20px
+      //   font-weight: 600
+      //   margin-right: 15px
+    a
+      position: relative
+      display: inline-block
+      margin-right: 10px
+      margin-bottom: .8em
+      // padding: .12em .45em
+      // border-radius: 5px
+      // border: 1px solid var(--theme-color)
+      line-height: 1em
+      font-size: 15px
+      opacity: .9
+      // font-weight: 400
+      // background: var(--theme-translucent)
+      // color: var(--theme-color)
+      &:before 
+        content: ''
+        position: absolute
+        left: 0
+        bottom: -3px
+        width: 100%
+        height: 2px
+        background: var(--theme-color)
+    .desc
+      margin-bottom: 1em
+    .content
+      margin-bottom: 1em
+    .sub-title
+      margin: .6em 0
+      font-weight: 600
+    .techs
+      .tech
+        display: inline-block
+        margin-right: 10px
+        padding: .3em .65em
+        border-radius: .85em
+        line-height: 1em
+        // background: var(--theme-color)
+        border: 1px solid var(--theme-color)
+        color: var(--theme-color)
+        font-size: 13px
   .showitem
     opacity: 1
     transform: translateY(0px) 
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: 992px)
     .item
       width: 100%
       max-width: 100%

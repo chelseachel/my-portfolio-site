@@ -51,6 +51,6 @@ export default {
     position: relative
     width: 100vw
     min-height: 100vh
-    @media screen and (max-width: 768px)
+    @media screen and (max-width: 992px)
       margin-top: 65px
 </style>

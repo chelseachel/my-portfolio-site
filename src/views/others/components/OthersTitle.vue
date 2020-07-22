@@ -68,12 +68,13 @@ export default {
 
 
 <style lang="stylus" scoped>
+@import '~@/assets/styles/variables.styl'
   .container
     position: relative
     height: 200px
     margin-bottom: 30px
     box-sizing: border-box
-    @media screen and (max-width: 768px)
+    @media screen and (max-width: 992px)
       margin-bottom: 0px
     .wrapper
       position: absolute
@@ -87,6 +88,9 @@ export default {
         text-align: center
         white-space: nowrap
         transition: all .6s ease
+        @media screen and (min-width: 769px) and (max-width: 992px)
+          font-size: 4.2vw
+          font-weight: 600
         @media screen and (max-width: 768px)
           font-size: 32px
           font-weight: 600
@@ -99,7 +103,7 @@ export default {
           font-weight: 600
       .in-view
         span.normal
-          color: #332c21
+          color: $color1
         span.yellow
           color: var(--theme-color)
       

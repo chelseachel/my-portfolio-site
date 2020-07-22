@@ -217,13 +217,13 @@ export default {
           .in-view
             opacity: 1
             transform: translateY(0px)
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: 992px)
     .gallery
-      width: 100vw
+      width: 90vw
       .container
         .box
           padding: 2vw
-          width: 44vw
+          width: 40vw
           .pic
-            width: 44vw
+            width: 40vw
 </style>  

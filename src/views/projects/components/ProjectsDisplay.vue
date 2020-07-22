@@ -108,7 +108,7 @@ export default {
       transform: translateY(-56%)
       opacity: 0
       transition: all .8s ease-in-out
-      @media screen and (max-width: 768px)
+      @media screen and (max-width: 992px)
         left: 0
     .in-view
       opacity: 1
@@ -119,7 +119,7 @@ export default {
         text-align: right
         font-size: 32px
         font-weight: 600
-        @media screen and (max-width: 768px)
+        @media screen and (max-width: 992px)
           font-size: 30px
         span
           color: var(--theme-color)
@@ -129,7 +129,7 @@ export default {
         white-space: nowrap
         font-size: 15px
         font-weight: 400
-        @media screen and (max-width: 768px)
+        @media screen and (max-width: 992px)
           font-size: 14px
         li
           width: 100%
@@ -177,7 +177,7 @@ export default {
         position: relative
         top: 0px
         right: 0px
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: 992px)
     .display
       display: none
       

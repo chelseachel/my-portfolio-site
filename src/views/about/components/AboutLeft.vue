@@ -28,7 +28,7 @@ export default {
       const clientHeight = document.body.clientHeight
       const clientWidth = document.body.clientWidth
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (clientWidth > 768) {
+      if (clientWidth > 992) {
         if (scrollTop >= clientHeight && scrollTop < this.scrollHeight) {
           this.position = 'fixed'
           this.top = 0
@@ -104,7 +104,7 @@ export default {
       transform: scale(1)
       img
         width: 100%
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: 992px)
     .left
       display: none
 </style>

@@ -129,7 +129,7 @@ export default {
       position: relative
       width: 80px
       height: 60px
-      @media screen and (max-width: 768px)
+      @media screen and (max-width: 992px)
         display: none
     .round
       position: absolute

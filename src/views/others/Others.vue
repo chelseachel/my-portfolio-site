@@ -11,7 +11,7 @@
 <script>
 import OthersTitle from './components/OthersTitle'
 import OthersGallery from './components/OthersGallery'
-import GallerySwiper from './components/children/GallerySwiper'
+import GallerySwiper from './components/GallerySwiper'
 export default {
   name: 'Others',
   components: {

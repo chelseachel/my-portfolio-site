@@ -38,6 +38,7 @@ export default {
 
 
 <style lang="stylus" scoped>
+@import '~@/assets/styles/variables.styl'
   .wrapper
     position: relative
     width: 100vw
@@ -76,8 +77,8 @@ export default {
         left: 25px
         width: 8px
         height: 8px
-        border-left: 2px solid #332c21
-        border-top: 2px solid #332c21
+        border-left: 2px solid $color1
+        border-top: 2px solid $color1
         transform: rotate(45deg)
     .container
       margin: 100px auto

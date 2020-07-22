@@ -96,11 +96,11 @@ export default {
     font-size: 5vw
     font-weight: 600
     cursor: pointer
-    @media screen and (max-width: 768px)
+    @media screen and (max-width: 992px)
       width: 75vw
-      margin-left: -33vw
+      margin-left: -32vw
       margin-top: -7vw
-      font-size: 7vw
+      font-size: 6.5vw
     @media screen and (min-width: 1600px)
       font-size: 80px
       width: 866px

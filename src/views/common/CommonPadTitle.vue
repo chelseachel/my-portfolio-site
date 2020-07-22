@@ -16,7 +16,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/styles/variables.styl'
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: 992px)
     .title-pad
       width: 100%
       height: 50px
@@ -25,11 +25,14 @@ export default {
       align-items: center
       .cate
         color: $color1
-        font-size: 32px
         font-weight: 600
+        @media screen and (min-width: 769px) and (max-width: 992px)
+          font-size: 4.2vw
+        @media screen and (max-width: 768px)
+          font-size: 32px
         span
           color: var(--theme-color)
-  @media screen and (min-width: 769px)
+  @media screen and (min-width: 993px)
     .title-pad
       display: none
 </style>

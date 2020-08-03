@@ -16,7 +16,6 @@ export let scrollParallax = {
   methods: {
     getScrollTop() {
       this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      console.log(this.parallaxStyle,this.yPos);
     }
   },
   mounted () {

@@ -39,9 +39,6 @@
         <li><span class="decimal">3.</span>能熟用 <span class="emph">Vue / Veux / Vue-router</span> ，具有组件化开发思维</li>
         <li><span class="decimal">4.</span>能够使用 <span class="emph">Webpack</span> 进行自动化构建</li>
         <li><span class="decimal">5.</span>了解 <span class="emph">http</span> 请求，能够使用 mock 工具进行接口数据模拟</li>
-        <!-- <li><span class="decimal">1.</span>善用版本管理工具 Git；</li> -->
-        <!-- <li><span class="decimal">1.</span>熟悉基本的 linux 命令</li> -->
-        <!-- <li>对 Web颜色混合模式 及 Opentype 的特性有一定认知</li> -->
         <span class="ellipsis">……</span>
        
       </ul>

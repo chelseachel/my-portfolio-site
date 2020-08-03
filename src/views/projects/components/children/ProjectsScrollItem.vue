@@ -127,6 +127,16 @@ export default {
       margin-bottom: 1em
     .content
       margin-bottom: 1em
+      li
+        position: relative
+        padding-left: 1.3em
+        li:before
+          content: '●'
+          position: absolute
+          left: 0px
+          color: var(--theme-color)
+          display: inline-block
+          transform: scale(.8)
     .sub-title
       margin: .6em 0
       font-size: 16px

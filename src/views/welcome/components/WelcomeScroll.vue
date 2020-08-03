@@ -1,31 +1,19 @@
 <template>
-  <div class="scroll" ref="parallax">
+  <div class="scroll" :style="parallaxStyle" ref="parallax">
     <div class="mouse"></div>
     <div class="arrow"></div>
   </div>
 </template>
 
 <script>
-
+import { scrollParallax } from '@/common/mixin.js'
 export default {
   name: 'WelcomeScroll',
+  mixins: [scrollParallax],
   data () {
     return {
       speed: .1
     }
-  },
-  methods: {
-    scrollParallax () {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      const yPosition = scrollTop * this.speed + 'px'
-      this.$refs.parallax.setAttribute('style', `transform: translateY(-${yPosition})`)
-    }
-  },
-  mounted () {
-    window.addEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
-  },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   }
 }
 </script>

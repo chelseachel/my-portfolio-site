@@ -1,5 +1,5 @@
 <template>
-  <div class="content" ref="parallax" @click="changeWord">
+  <div class="content" :style="parallaxStyle" @click="changeWord">
     <p class="hello" v-html="hello"></p>
 
     <p class="word" 
@@ -22,12 +22,15 @@
 </template>
 
 <script>
+import { scrollParallax } from '@/common/mixin.js'
 export default {
   name: 'WelcomeInfo',
+  mixins: [scrollParallax],
   components: {
   },
   data () {
     return {
+      speed: .3,
       hello: 'Hello, I\'m&nbsp;',
       words: [
         'Chelsea.',
@@ -36,7 +39,6 @@ export default {
         'a craftsman.'
       ],
       currentWordIndex: 3,
-      speed: .3,
       timer: null
     }
   },
@@ -66,20 +68,13 @@ export default {
       const length = this.words.length
       this.currentWordIndex = this.currentWordIndex === length - 1 ? 0 : this.currentWordIndex + 1
       this.timer = setTimeout(this.changeWord, 3000)
-    },
-    scrollParallax () {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      const yPosition = scrollTop * this.speed + 'px'
-      this.$refs.parallax.setAttribute('style', `transform: translateY(-${yPosition})`)
     }
   },
   mounted () {
     this.changeWord()
-    window.addEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   },
   beforeDestroy () {
     clearTimeout(this.timer)
-    window.removeEventListener('scroll', this.utils.throttle(this.scrollParallax), true)
   }
 }
 </script>
@@ -105,7 +100,7 @@ export default {
       font-size: 80px
       width: 866px
       margin-left: -380px
-      margin-top: -40px
+      margin-top: -72px
     p
       display: inline-block
       vertical-align: top

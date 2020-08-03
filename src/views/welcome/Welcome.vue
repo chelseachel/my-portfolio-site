@@ -24,7 +24,7 @@ export default {
     showCompo () {
       setTimeout(() => {
         this.show = true
-      }, 2000)
+      }, 1000)
     }
   },
   mounted () {

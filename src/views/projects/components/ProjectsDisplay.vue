@@ -95,28 +95,26 @@ export default {
   .display
     width: 45%
     height: 100vh
-    background: transparent
     overflow: hidden
     z-index: 2
     .wrapper
       width: 150px
+      height: 100vh
       display: flex
       flex-flow: column
+      justify-content: center
+      align-items: flex-end
       position: absolute
       left: 5%
-      top: 50%
-      transform: translateY(-56%)
       opacity: 0
       transition: all .8s ease-in-out
       @media screen and (max-width: 992px)
         left: 0
     .in-view
       opacity: 1
-      transform: translateY(-62%)
+      transform: translateY(-6%)
       .title
-        width: 150px
         line-height: 4em
-        text-align: right
         font-size: 32px
         font-weight: 600
         @media screen and (max-width: 992px)
@@ -134,6 +132,7 @@ export default {
         li
           width: 100%
           text-align: right
+          // font-weight: 600
           span
             position: relative
             cursor: pointer
@@ -145,7 +144,7 @@ export default {
             &:before
               content: ''
               position: absolute
-              bottom: -2px
+              bottom: -1px
               left: 100%
               width: 0
               height: 2px
@@ -156,11 +155,11 @@ export default {
               transition: all .3s
           .active-class
             // font-weight: 600
-            color: var(--theme-color)
-            // &:before
-            //   width: 100%
-            //   left: 0
-            //   opacity: 1
+            // color: var(--theme-color)
+            &:before
+              width: 100%
+              left: 0
+              opacity: 1
     .img
       max-width: calc(90% - 160px)
       width: 420px

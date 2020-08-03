@@ -10,7 +10,6 @@ export default {
       // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     )
   },
-
   throttle(fn, delay = 16) {
     let timer = null
     return function () {
@@ -26,6 +25,6 @@ export default {
   isMobile() {
     const flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
     return flag
-   }
+  }
 }
 

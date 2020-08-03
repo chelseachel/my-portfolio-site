@@ -5,14 +5,14 @@
       
     </div>
     <p>
-      <a href="">源码</a>
-      <a href="">预览</a>
+      <a href="">Code</a>
+      <a href="">Demo</a>
     </p>
     <div class="pic">
       <img :src="item.url">
     </div>
     <p class="desc">{{item.desc}}</p>
-    <div class="sub-title">功能难点</div>
+    <!-- <div class="sub-title">功能难点</div> -->
     <p class="content" v-html="item.content"></p>
     <div class="sub-title">技术栈</div>
     <div class="techs">
@@ -47,7 +47,7 @@ export default {
     scrollStoreIndex () {
       const clientHeight = document.body.clientHeight
       this.rect = this.$refs.item.getBoundingClientRect()
-      if (this.rect && this.rect.top < (clientHeight * 0.35) && this.rect.top > 0) {
+      if (this.rect && this.rect.top < (clientHeight * 0.35) && this.rect.top > 0 || this.rect && this.rect.bottom > (clientHeight * 0.7) && this.rect.bottom <= clientHeight) {
         this.$store.commit('changeActiveIndex', this.index)
       }
     }
@@ -101,29 +101,35 @@ export default {
       display: inline-block
       margin-right: 10px
       margin-bottom: .8em
-      // padding: .12em .45em
-      // border-radius: 5px
+      padding: .3em .45em
+      border-radius: 5px
       // border: 1px solid var(--theme-color)
       line-height: 1em
-      font-size: 15px
-      opacity: .9
+      font-size: 14px
+      // opacity: .9
       // font-weight: 400
-      // background: var(--theme-translucent)
-      // color: var(--theme-color)
-      &:before 
-        content: ''
-        position: absolute
-        left: 0
-        bottom: -3px
-        width: 100%
-        height: 2px
-        background: var(--theme-color)
+      background: #f5f4ef
+      color: #aaa
+      font-style: italic
+      transition: all .2s ease
+      &:hover
+        background: var(--theme-translucent)
+        color: var(--theme-color)
+      // &:before 
+      //   content: ''
+      //   position: absolute
+      //   left: 0
+      //   bottom: -4px
+      //   width: 100%
+      //   height: 2px
+      //   background: var(--theme-color)
     .desc
       margin-bottom: 1em
     .content
       margin-bottom: 1em
     .sub-title
       margin: .6em 0
+      font-size: 16px
       font-weight: 600
     .techs
       .tech

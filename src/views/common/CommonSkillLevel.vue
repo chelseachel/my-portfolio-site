@@ -24,7 +24,7 @@ export default {
         return Math.ceil(this.item.level / 2)
     },
     lastHalf () {
-      return this.item.level % 2 === 1 ? true : false
+      return this.item.level % 2 > 0 ? true : false
     }
   }
 }

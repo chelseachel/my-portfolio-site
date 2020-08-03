@@ -1,7 +1,7 @@
 <template>
   <div class="right">
     <article>
-      <p>我是 Chelsea ，<br>毕业于深圳大学广告系，擅长排版与 PPT 交互动画，完全自学进入前端领域。<br>你可以通过我的 <a href="https://codepen.io/chelseachel" target="_blank">CodePen</a> 和 <a href="https://github.com/chelseachel/" target="_blank">Github</a> 了解我。</p>
+      <p>我叫黄艺千，坐标北京，是一名前端开发者。<br>我毕业于深圳大学广告系，完全自学进入前端领域，在此之前，我是一名手作人。我喜欢用代码编写令人愉悦的交互体验。<!-- 擅长排版与 PPT 交互动画， --><br></p><p>你可以通过我的 <a href="https://codepen.io/chelseachel" target="_blank">CodePen</a> 和 <a href="https://github.com/chelseachel/" target="_blank">Github</a> 了解我。</p>
       <!-- <p> -->
       <!-- <span class="iconfont icon-github"></span>
         <a href="https://github.com/chelseachel/">github.com/chelseachel/</a><br> -->
@@ -19,13 +19,13 @@
       <p class="subtitle"><span class="iconfont icon-code"></span>Being a desigrammer</p>
       <p>开始自学前端，也是同样的原因。<br>
         作为一个擅长理工科的人，比起纯粹的设计，我更偏好艺术与技术的结合。<br>
-        我喜欢美好的功能性设计，喜欢有趣而优雅的交互体验。
+        我喜欢美好的功能性设计，喜欢有趣而优雅的交互体验，本身就擅长交互动画制作。
         而能自己亲手用代码将它们实现出来，会更酷不是吗？<br>
-        于是曾在 <a href="https://www.codecademy.dev/">codecademy</a> 自学了 HTML、CSS和Javascript，然而当时并没有发展成职业。</p>
+        本着这样的初心，我曾在 <a href="https://www.codecademy.dev/">codecademy</a> 自学了 HTML、CSS和Javascript，然而当时并没有发展成职业，算是一个未尽的愿望……</p>
       <p>
         <!-- 作为一个未完成的愿望，我决心继续践行它。<br>
         去年起，我将前端的点滴慢慢拾起，也逐渐拾获更多、更深的技能。<br> -->
-        如今我决心继续践行它，逐渐拾起前端的点滴，也不断拾获着更多、更深的技能。<br>每当把心中所想用手指敲打出来，我看到更广阔的可能性。<br>
+        如今我决心继续践行它，逐渐拾起曾经掌握的技能，也在持续拾获更广、更深的技能。<br>每当把心中所想用手指敲打出来，就如同亲手制成一件作品，我看到无限的可能性。<br>
         如你所见，我实实在在踏入了前端这条河流。
       </p>
       <h2>My Skills</h2>
@@ -33,22 +33,20 @@
       <div class="skills">
         <common-skill-level v-for="(item) in skills" :key="item.name" :item="item"></common-skill-level>
       </div>
-      <ul class="skills-desc">
-        <li><span class="decimal">1.</span> 灵活运用 <span class="emph">HTML5 / CSS3</span> 进行语义化开发，像素级还原设计稿</li>
-        <li><span class="decimal">2.</span> 尽可能使 <span class="emph">Javascript / ES6</span> 成为母语，并熟络 <span class="emph">Web API</span></li>
-        <li><span class="decimal">3.</span> 熟悉 <span class="emph">Vue / Veux / Vue-router</span> 的使用，拥有组件化开发思想</li>
-        <li><span class="decimal">4.</span> 熟悉响应式布局，了解 PC 与移动端的开发适配</li>
-        <li><span class="decimal">5.</span> 了解 <span class="emph">Webpack</span> 模块打包工具</li>
-        <li><span class="decimal">6.</span> 了解 <span class="emph">RESTful API</span>，能够使用 Mock.js 进行数据模拟</li>
-        <!-- <li><span class="decimal">1.</span>了解各大浏览器兼容性问题；</li> -->
+      <ul class="skill-list">
+        <li><span class="decimal">1.</span>能灵活运用 <span class="emph">HTML5 / CSS3</span> 进行语义化开发，熟悉响应式布局，有移动端与 PC 端的开发适配经验，能像素级还原设计稿</li>
+        <li><span class="decimal">2.</span>尽我所能使 <span class="emph">Javascript / ES6</span> 成为母语，能熟用 <span class="emph">Web API</span></li>
+        <li><span class="decimal">3.</span>能熟用 <span class="emph">Vue / Veux / Vue-router</span> ，具有组件化开发思维</li>
+        <li><span class="decimal">4.</span>能够使用 <span class="emph">Webpack</span> 进行自动化构建</li>
+        <li><span class="decimal">5.</span>了解 <span class="emph">http</span> 请求，能够使用 mock 工具进行接口数据模拟</li>
         <!-- <li><span class="decimal">1.</span>善用版本管理工具 Git；</li> -->
         <!-- <li><span class="decimal">1.</span>熟悉基本的 linux 命令</li> -->
         <!-- <li>对 Web颜色混合模式 及 Opentype 的特性有一定认知</li> -->
-        ……
+        <span class="ellipsis">……</span>
        
       </ul>
       <h3>设计技能</h3>
-      <ul class="labellist">
+      <ul class="skill-list">
         <li>Axure RP</li>
         <li>Illustrator</li>
         <li>Photoshop</li>
@@ -59,24 +57,25 @@
       <!-- <br> 个人特质：<br>
       独立解决问题，擅长空间思维，注重细节，思维严谨，具有好奇心与探索欲。<br> -->
       <!-- 软实力：<br> -->
-      <ul class="labellist">
+      <ul class="skill-list">
         <li>具有独立解决问题的能力</li>
         <!-- <li>洞察力 同理心</li> -->
-        <li>善于钻研，永远充满好奇心与探索欲</li>
+        <li>对自己高要求，不只是实现功能，更追求简洁、优雅的代码</li>
         <!-- <li>持续积累</li> -->
         <li>深度细节控，注重美感</li>
-        <li>擅长空间思维</li>
-        <li>喜欢并擅长做技、艺相结合的事情</li>
+        <li>有良好的空间思维能力与动手能力，实践出真知</li>
+        <li>永远充满好奇心与探索欲</li>
+        <!-- <li>喜欢并擅长做技、艺相结合的事情</li> -->
         <!-- <li>独立解决问题，有良好的空间思维能力与动手能力，深度细节控，注重美感。</li> -->
       </ul>
       <!-- <h3>我的关键词</h3>
       独立解决问题 空间思维 细节控 探索欲 洞察力 -->
       <h3>业余其他</h3>
       <ul class="myfeature">
-        <li><span class="iconfont icon-briefcase"></span>手工皮具</li>
-        <li><span class="iconfont icon-mugong"></span>木工</li>
-        <li><span class="iconfont icon-bike"></span>竹子自行车</li>
-        <li><span class="iconfont icon-gesture"></span>Macrame</li>
+        <li><span class="iconfont icon-briefcase"></span><!-- 手工皮具 --></li>
+        <li><span class="iconfont icon-mugong"></span><!-- 木工 --></li>
+        <li><span class="iconfont icon-bike"></span><!-- 竹子自行车 --></li>
+        <li><span class="iconfont icon-gesture"></span><!-- Macrame --></li>
       </ul>
     </article>
   </div>
@@ -108,7 +107,7 @@ export default {
         level: 6
       },{
         name: 'React',
-        level: 4
+        level: 5
       }]
     }
   },
@@ -142,7 +141,7 @@ export default {
       h3
         font-size: 16px
         margin-top: 3.6em
-        margin-bottom: .7em
+        margin-bottom: .8em
       // b 
         // font-weight: 600
       p
@@ -163,8 +162,8 @@ export default {
           color: var(--theme-color) 
       .skills
         max-width: 600px 
-        padding: .5em 0
-        margin-bottom: 1.3em
+        padding: .4em 0
+        margin-bottom: 1.4em
         display: flex
         justify-content: center
         align-items: center
@@ -173,21 +172,28 @@ export default {
         margin-bottom: 1em
         line-height: 1.75em
         li
-          margin-bottom: .45em       
+          margin-bottom: .45em
+        .ellipsis
+          margin-left: 1.4em     
         .decimal
           // margin-right: .2em
           color: var(--theme-color)
           font-weight: 600
+          display: none
         .emph
           font-weight: 600
           // background: var(--theme-translucent)
-      .labellist
-        li:before
-          content: '◗'
+      .skill-list
+        li
           position: relative
-          top: -1px
-          margin-right: .5em
+          padding-left: 1.3em
+        li:before
+          content: '●'
+          position: absolute
+          left: 0px
           color: var(--theme-color)
+          display: inline-block
+          transform: scale(.8)
         .iconfont
           display: none
           float: left
@@ -199,15 +205,17 @@ export default {
         // color: var(--theme-color)
         // font-weight: 600
         .iconfont
-          // float: left
+          float: left
           margin-right: .4em
           font-size: 20px
           font-weight: 400
-          // color: var(--theme-color)
+          color: var(--theme-color)
+          opacity: .6
       a
         font-size: 15px
         color: var(--theme-color)
         font-weight: 600
+        font-style: italic
       @media screen and (max-width: 1920px)
         padding: 145px
       @media screen and (max-width: 1440px)

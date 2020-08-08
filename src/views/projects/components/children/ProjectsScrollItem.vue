@@ -4,19 +4,35 @@
       <span>{{item.title}}</span>
       
     </div>
-    <p>
-      <a href="">Code</a>
+    <div class="link">
+      <a href="">Github</a>
       <a href="">Demo</a>
-    </p>
+    </div>
     <div class="pic">
       <img :src="item.url">
     </div>
-    <p class="desc">{{item.desc}}</p>
-    <!-- <div class="sub-title">功能难点</div> -->
-    <p class="content" v-html="item.content"></p>
-    <div class="sub-title">技术栈</div>
-    <div class="techs">
-      <span class="tech" v-for="(value, index) in item.techs" :key="index">{{value}}</span>
+    <div class="desc" v-html="item.desc"></div>
+    <div class="content-wrapper">
+      <div class="sub-title">技术要点</div>
+      <ul class="content">
+        <li 
+          v-for="(content, index) in item.content" :key="index">
+          <span v-if="content.info" v-html="content.info"></span>
+          <ul v-if="content.list">
+            <li 
+              v-for="(item, index) in content.list" 
+              :key="index"
+              v-html="item">
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="techs-wrapper">
+      <div class="sub-title">技术栈</div>
+      <div class="techs">
+        <span class="tech" v-for="(value, index) in item.techs" :key="index">{{value}}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +63,7 @@ export default {
     scrollStoreIndex () {
       const clientHeight = document.body.clientHeight
       this.rect = this.$refs.item.getBoundingClientRect()
-      if (this.rect && this.rect.top < (clientHeight * 0.35) && this.rect.top > 0 || this.rect && this.rect.bottom > (clientHeight * 0.7) && this.rect.bottom <= clientHeight) {
+      if (this.rect && this.rect.top < (clientHeight * 0.5) && this.rect.top > 0 || this.rect && this.rect.bottom >= (clientHeight * 0.5) && this.rect.bottom <= clientHeight) {
         this.$store.commit('changeActiveIndex', this.index)
       }
     }
@@ -73,82 +89,85 @@ export default {
   .item
     width: 65%
     max-width: 500px
-    padding: 100px 0
+    padding: 150px 0 50px
     margin-left: 13.5%
     box-sizing: border-box
     line-height: 1.75em
     font-size: 15px
     text-align: justify
     opacity: 0
-    transform: translateY(100px)
-    transition: all .8s ease-in-out
+    transform: translateY(50px)
+    transition: all .6s ease-in-out
     .pic
       display: none
     .title
-      margin-bottom: .5em
+      margin-bottom: 10px
       font-size: 20px
       font-weight: 600
-      // line-height: 20px
-      // text-align: left
-      // display: flex
-      // align-items: center
-      // span
-      //   font-size: 20px
-      //   font-weight: 600
-      //   margin-right: 15px
-    a
-      position: relative
-      display: inline-block
-      margin-right: 10px
-      margin-bottom: .8em
-      padding: .3em .45em
-      border-radius: 5px
-      // border: 1px solid var(--theme-color)
-      line-height: 1em
-      font-size: 14px
-      // opacity: .9
-      // font-weight: 400
-      background: #f5f4ef
-      color: #aaa
-      font-style: italic
-      transition: all .2s ease
-      &:hover
-        background: var(--theme-translucent)
-        color: var(--theme-color)
-      // &:before 
-      //   content: ''
-      //   position: absolute
-      //   left: 0
-      //   bottom: -4px
-      //   width: 100%
-      //   height: 2px
-      //   background: var(--theme-color)
-    .desc
-      margin-bottom: 1em
-    .content
-      margin-bottom: 1em
-      li
+    .link
+      @media screen and (max-width: 992px)
+        text-align: center
+      a
         position: relative
-        padding-left: 1.3em
-        li:before
-          content: '●'
-          position: absolute
-          left: 0px
+        display: inline-block
+        margin-right: 10px
+        margin-bottom: 10px
+        padding: .36em .56em
+        border-radius: 6px
+        line-height: 1em
+        font-size: 13px
+        background: var(--theme-translucent)
+        // background: #f5f4ef
+        // color: #aaa
+        color: var(--theme-color)
+        font-style: italic
+        transition: all .2s ease
+        &:hover
+          background: var(--theme-translucent)
           color: var(--theme-color)
-          display: inline-block
-          transform: scale(.8)
+    .desc,
+    .content-wrapper
+      margin-bottom: 1em
+    .desc >>> a
+      color: var(--theme-color)
+    .content
+      padding-left: 0em
+      line-height: 1.75em
+      // padding: 14px 17px
+      // background: rgba(241,185,8,.1)
+      // border-radius: 3px
+      span:after
+        content: '：'
+        color: var(--theme-color)
+        font-weight: 600
+      > li
+        margin-bottom: .45em
+        li >>> strong
+          font-weight: 600
+        ul
+          li
+            position: relative
+            padding-left: 1.3em
+            &:before
+              content: '●'
+              position: absolute
+              left: 0px
+              color: var(--theme-color)
+              display: inline-block
+              transform: scale(.8)
     .sub-title
-      margin: .6em 0
-      font-size: 16px
+      margin-bottom: .2em
+      font-size: 15px
       font-weight: 600
     .techs
+      margin-top: .4em
       .tech
         display: inline-block
         margin-right: 10px
+        margin-bottom: 10px
         padding: .3em .65em
         border-radius: .85em
         line-height: 1em
-        // background: var(--theme-color)
         border: 1px solid var(--theme-color)
         color: var(--theme-color)
         font-size: 13px

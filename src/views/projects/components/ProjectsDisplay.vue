@@ -33,7 +33,7 @@ export default {
       inView: false,
       position: 'absolute ',
       top: 0,
-      list: ['My Portfolio Site', 'Tally App', 'Qunaer', 'Color Sort Game', 'Othello Game', 'Font Optimization']
+      list: ['My Portfolio', '滑动交互记账 App', '分页器插件', '旅游网站 App', '颜色排序游戏', '黑白棋游戏' ]
     }
   },
   computed: {
@@ -107,7 +107,7 @@ export default {
       position: absolute
       left: 5%
       opacity: 0
-      transition: all .8s ease-in-out
+      transition: all .6s ease-in-out
       @media screen and (max-width: 992px)
         left: 0
     .in-view

@@ -21,7 +21,7 @@
         作为一个擅长理工科的人，比起纯粹的设计，我更偏好艺术与技术的结合。<br>
         我喜欢美好的功能性设计，喜欢有趣而优雅的交互体验，本身就擅长交互动画制作。
         而能自己亲手用代码将它们实现出来，会更酷不是吗？<br>
-        本着这样的初心，我曾在 <a href="https://www.codecademy.dev/">codecademy</a> 自学了 HTML、CSS和Javascript，然而当时并没有发展成职业，算是一个未尽的愿望……</p>
+        本着这样的初心，我曾在 <a href="https://www.codecademy.dev/">codecademy</a> 自学了 HTML、CSS 和 Javascript，然而当时并没有发展成职业，算是一个未尽的愿望……</p>
       <p>
         <!-- 作为一个未完成的愿望，我决心继续践行它。<br>
         去年起，我将前端的点滴慢慢拾起，也逐渐拾获更多、更深的技能。<br> -->
@@ -35,10 +35,10 @@
       </div>
       <ul class="skill-list">
         <li><span class="decimal">1.</span>能灵活运用 <span class="emph">HTML5 / CSS3</span> 进行语义化开发，熟悉响应式布局，有移动端与 PC 端的开发适配经验，能像素级还原设计稿</li>
-        <li><span class="decimal">2.</span>尽我所能使 <span class="emph">Javascript / ES6</span> 成为母语，能熟用 <span class="emph">Web API</span></li>
-        <li><span class="decimal">3.</span>能熟用 <span class="emph">Vue / Veux / Vue-router</span> ，具有组件化开发思维</li>
-        <li><span class="decimal">4.</span>能够使用 <span class="emph">Webpack</span> 进行自动化构建</li>
-        <li><span class="decimal">5.</span>了解 <span class="emph">http</span> 请求，能够使用 mock 工具进行接口数据模拟</li>
+        <li><span class="decimal">2.</span>熟悉 <span class="emph">Javascript / ES6</span> 语法，能熟用 <span class="emph">Web API</span></li>
+        <li><span class="decimal">3.</span>能熟用 <span class="emph">Vue / Veux / Vue-router</span> ，熟悉模块化开发模式</li>
+        <li><span class="decimal">4.</span>了解 <span class="emph">Webpack</span> 的基本配置，有相关的实践经验</li>
+        <li><span class="decimal">5.</span>了解 <span class="emph">Ajax</span> 请求，能够使用 mock.js 等工具进行接口数据模拟</li>
         <span class="ellipsis">……</span>
        
       </ul>
@@ -68,12 +68,12 @@
       <!-- <h3>我的关键词</h3>
       独立解决问题 空间思维 细节控 探索欲 洞察力 -->
       <h3>业余其他</h3>
-      <ul class="myfeature">
-        <li><span class="iconfont icon-briefcase"></span><!-- 手工皮具 --></li>
-        <li><span class="iconfont icon-mugong"></span><!-- 木工 --></li>
-        <li><span class="iconfont icon-bike"></span><!-- 竹子自行车 --></li>
-        <li><span class="iconfont icon-gesture"></span><!-- Macrame --></li>
-      </ul>
+      <div class="feature">
+        <div class="tag"><span class="iconfont icon-briefcase"></span>手工皮具</div>
+        <div class="tag"><span class="iconfont icon-mugong"></span>木工</div>
+        <div class="tag"><span class="iconfont icon-bike"></span>竹子自行车</div>
+        <div class="tag"><span class="iconfont icon-gesture"></span>Macrame</div>
+      </div>
     </article>
   </div>
 </template>
@@ -139,12 +139,8 @@ export default {
         font-size: 16px
         margin-top: 3.6em
         margin-bottom: .8em
-      // b 
-        // font-weight: 600
       p
         margin-bottom: 1em
-        &:first-child
-          margin-top: 0
       .subtitle
         position: relative
         font-size: 15px
@@ -170,6 +166,22 @@ export default {
         line-height: 1.75em
         li
           margin-bottom: .45em
+          position: relative
+          padding-left: 1.3em
+          &:before
+            content: '●'
+            position: absolute
+            left: 0px
+            color: var(--theme-color)
+            display: inline-block
+            transform: scale(.8)
+        .iconfont
+          display: none
+          float: left
+          margin-right: .4em
+          font-size: 14px
+          color: var(--theme-color)
+          // transform: rotate(90deg)
         .ellipsis
           margin-left: 1.4em     
         .decimal
@@ -180,39 +192,30 @@ export default {
         .emph
           font-weight: 600
           // background: var(--theme-translucent)
-      .skill-list
-        li
-          position: relative
-          padding-left: 1.3em
-        li:before
-          content: '●'
-          position: absolute
-          left: 0px
-          color: var(--theme-color)
+      .feature
+        margin-top: 18px
+        .tag
           display: inline-block
-          transform: scale(.8)
-        .iconfont
-          display: none
-          float: left
-          margin-right: .4em
+          margin-right: 10px
+          margin-bottom: 14px
+          padding: 4px 11px 4px
+          border: 1px solid var(--theme-translucent)
+          // box-sizing: border-box
+          border-radius: 6px
+          // background-color: rgba(241,185,8,.1)
           font-size: 14px
           color: var(--theme-color)
-          // transform: rotate(90deg)
-      .myfeature
-        // color: var(--theme-color)
-        // font-weight: 600
-        .iconfont
-          float: left
-          margin-right: .4em
-          font-size: 20px
-          font-weight: 400
-          color: var(--theme-color)
-          opacity: .6
+          .iconfont
+            float: left
+            margin-right: 5px
+            font-size: 16px
+            font-weight: 400
       a
         font-size: 15px
         color: var(--theme-color)
         font-weight: 600
-        font-style: italic
+        // font-style: italic
+        text-decoration: underline
       @media screen and (max-width: 1920px)
         padding: 145px
       @media screen and (max-width: 1440px)

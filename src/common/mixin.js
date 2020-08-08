@@ -25,3 +25,31 @@ export let scrollParallax = {
     window.removeEventListener('scroll', this.utils.throttle(this.getScrollTop), true)
   }
 }
+
+export let checkInView = {
+  data () {
+    return {
+      inView: false,
+      el: null
+    }
+  },
+  methods: {
+    checkInView () {
+      if (this.utils.isElementInView(this.el)) {
+        this.inView = true
+      } else {
+        this.inView = false
+      }
+    }
+  },
+  mounted () {
+    this.el = this.$refs.viewCheck // 使用时需在元素上绑定 ref="viewCheck"
+    this.checkInView()
+    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
+    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
+  }
+}

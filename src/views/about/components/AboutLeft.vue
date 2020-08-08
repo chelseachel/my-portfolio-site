@@ -3,16 +3,17 @@
     <div class="cate">
       About.
     </div>
-    <div class="photo" ref="photo" :class="inView ? 'in-view' : ''">
+    <div class="photo" ref="viewCheck" :class="inView ? 'in-view' : ''">
       <img src="@/assets/images/26.jpg">
     </div>
   </div>
 </template>
 
 <script>
-
+import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'AboutLeft',
+  mixins: [checkInView],
   props: {
     scrollHeight: Number
   },
@@ -20,7 +21,6 @@ export default {
     return {
       position: 'absolute ',
       top: 0,
-      inView: false
     }
   },
   methods: {
@@ -41,20 +41,10 @@ export default {
         }
       }
     },
-    checkInView () {
-      const el = this.$refs.photo
-      if (this.utils.isElementInView(el)) {
-        this.inView = true
-      } else {
-        this.inView = false
-      }
-    }
   },
   mounted () {
     window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
     window.addEventListener('resize', this.utils.throttle(this.positionState), true)
-    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
   },
   updated () {
     this.positionState()
@@ -62,8 +52,6 @@ export default {
   beforeDestroy () {
     window.removeEventListener('scroll', this.utils.throttle(this.positionState), true)
     window.removeEventListener('resize', this.utils.throttle(this.positionState), true)
-    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
   }
 }
 </script>

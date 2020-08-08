@@ -1,5 +1,5 @@
 <template>
-  <div class="others" :class="inView ? 'in-view' : ''" ref="others">
+  <div class="others" :class="inView ? 'in-view' : ''" ref="viewCheck">
     <others-title></others-title>
     <others-gallery @showSwiper="handleSwiperShow"></others-gallery>
     <transition name="fade">
@@ -12,20 +12,18 @@
 import OthersTitle from './components/OthersTitle'
 import OthersGallery from './components/OthersGallery'
 import GallerySwiper from './components/GallerySwiper'
+import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'Others',
   components: {
     OthersTitle, OthersGallery, GallerySwiper
   },
-  props: {
-    
-  },
+  mixins: [checkInView],
   data () {
     return {
       showSwiper: false,
       images:[],
-      itemIndex: 0,
-      inView: false
+      itemIndex: 0
     }
   },
   methods: {
@@ -38,20 +36,7 @@ export default {
     },
     handleSwiperClose () {
       this.showSwiper = false
-    },
-    checkInView () {
-      const el = this.$refs.others
-      if (this.utils.isElementInView(el)) {
-        this.inView = true
-      } else {
-        this.inView = false
-      }
-    },
-  },
-  mounted () {
-    this.checkInView()
-    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
+    }
   }
 }
 </script>
@@ -61,7 +46,6 @@ export default {
   .others
     width: 100vw
     padding-bottom: 100px
-    // box-shadow: 0 6px 4px 1px rgba(18, 22, 33, .1)
     background-color: var(--theme-translucent)
     transition: background-color .6s
   .in-view

@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery" ref="gallery">
+  <div class="gallery" ref="viewCheck">
     <div class="container" ref="container" :style="{width: width + 'px', height: height + 'px'}">
       <div class="box" 
         v-for="(item, index) in images" :key="item.id" 
@@ -15,10 +15,10 @@
 </template>
 
 <script>
+import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'OthersGallery',
-  components: {
-  },
+  mixins: [checkInView],
   data () {
     return {
       images: [{
@@ -104,8 +104,7 @@ export default {
       minIndex: 0,
       width: 0,
       height: 0,
-      loadedImages: 0,
-      inView: false,
+      loadedImages: 0
     }
   },
   watch: {
@@ -121,7 +120,7 @@ export default {
     waterfall () {
       const boxs = this.$refs.box // array
       // const clientWidth = document.body.clientWidth
-      const galleryWidth = this.$refs.gallery.offsetWidth
+      const galleryWidth = this.$refs.viewCheck.offsetWidth
       const boxWidth = boxs[0].offsetWidth
       const cols = Math.floor(galleryWidth / boxWidth) // 计算 gallery 的总列数
       this.width = boxWidth * cols // container 的宽度
@@ -153,26 +152,15 @@ export default {
     imageLoaded() {
       this.loadedImages += 1
     },
-    checkInView () {
-      const el = this.$refs.gallery
-      if (this.utils.isElementInView(el)) {
-        this.inView = true
-      }
-    },
     handleGalleryClick (index) {
       this.$emit('showSwiper', this.images, index)
     }
   },
   mounted () {
-    this.checkInView()
     window.addEventListener('resize', this.utils.throttle(this.waterfall), true)
-    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.utils.throttle(this.waterfall), true)
-    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
   }
 }
 </script>

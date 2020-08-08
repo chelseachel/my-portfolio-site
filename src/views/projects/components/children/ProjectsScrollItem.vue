@@ -1,5 +1,5 @@
 <template>
-  <div class="item" ref="item" :class="show ? 'showitem' : ''">
+  <div class="item" :class="inView ? 'showitem' : ''" ref="viewCheck">
     <div class="title">
       <span>{{item.title}}</span>
       
@@ -38,45 +38,33 @@
 </template>
 
 <script>
-
+import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'ProjectsScrollItem',
+  mixins: [checkInView],
   props: {
     item: Object,
     index: Number
   },
   data () {
     return {
-      show: false,
       rect: null
     }
   },
   methods: {
-    checkInView () {
-      const el = this.$refs.item
-      if (this.utils.isElementInView(el)) {
-        this.show = true
-      } else {
-        this.show = false
-      }
-    },
     scrollStoreIndex () {
       const clientHeight = document.body.clientHeight
-      this.rect = this.$refs.item.getBoundingClientRect()
+      this.rect = this.$refs.viewCheck.getBoundingClientRect()
       if (this.rect && this.rect.top < (clientHeight * 0.5) && this.rect.top > 0 || this.rect && this.rect.bottom >= (clientHeight * 0.5) && this.rect.bottom <= clientHeight) {
         this.$store.commit('changeActiveIndex', this.index)
       }
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
     window.addEventListener('scroll', this.utils.throttle(this.scrollStoreIndex), true)
     window.addEventListener('resize', this.utils.throttle(this.scrollStoreIndex), true)
   },
   beforeDestroy () {
-    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
     window.removeEventListener('scroll', this.utils.throttle(this.scrollStoreIndex), true)
     window.removeEventListener('resize', this.utils.throttle(this.scrollStoreIndex), true)
   }

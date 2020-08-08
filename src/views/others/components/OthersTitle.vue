@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="wrapper">
-      <div class="title" ref="title" :class="inView ? 'in-view' : ''">
+      <div class="title" ref="viewCheck" :class="inView ? 'in-view' : ''">
         <span class="normal"
           v-for="(item, index) in word1" :key="'word1' + index"
           v-html="item"
@@ -33,35 +33,17 @@
 </template>
 
 <script>
-
+import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'OthersTitle',
+  mixins: [checkInView],
   data () {
     return {
-      inView: false,
       word1: ['W', 'h', 'a', 't', '&nbsp;',],
       word2: ['I', '&nbsp;'],
       word3: ['m', 'a', 'd', 'e', '&nbsp;'],
       word4: ['e', 'l', 's', 'e']
     }
-  },
-  methods: {
-    checkInView () {
-      const el = this.$refs.title
-      if (this.utils.isElementInView(el)) {
-        this.inView = true
-      } else {
-        this.inView = false
-      }
-    }
-  },
-  mounted () {
-    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
-  },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
   }
 }
 </script>

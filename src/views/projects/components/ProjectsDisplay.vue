@@ -1,6 +1,6 @@
 <template>
   <div class="display" :style="{position: position, top: top + 'px'}" ref="display">
-    <div class="wrapper" :class="inView ? 'in-view' : ''" ref="wrapper">
+    <div class="wrapper" :class="inView ? 'in-view' : ''" ref="viewCheck">
       <div class="title">Projects<span>.</span></div>
       <ul class="nav">
         <li 
@@ -22,15 +22,16 @@
 
 <script>
 import { mapState } from 'vuex'
+import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'ProjectsDisplay',
+  mixins: [checkInView],
   props: {
     scrollHeight: Number,
     offset: Number
   },
   data () {
     return {
-      inView: false,
       position: 'absolute ',
       top: 0,
       list: ['My Portfolio', '滑动交互记账 App', '分页器插件', '旅游网站 App', '颜色排序游戏', '黑白棋游戏' ]
@@ -62,19 +63,9 @@ export default {
     },
     handleStoreIndex (index) {
       this.$store.commit('changeActiveIndex', index)
-    },
-    checkInView () {
-      const el = this.$refs.wrapper
-      if (this.utils.isElementInView(el)) {
-        this.inView = true
-      } else {
-        this.inView = false
-      }
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.addEventListener('resize', this.utils.throttle(this.checkInView), true)
     window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
     window.addEventListener('resize', this.utils.throttle(this.positionState), true)
   },
@@ -82,8 +73,6 @@ export default {
     this.positionState()
   },
   beforeDestroy () {
-    window.removeEventListener('scroll', this.utils.throttle(this.checkInView), true)
-    window.removeEventListener('resize', this.utils.throttle(this.checkInView), true)
     window.removeEventListener('scroll', this.utils.throttle(this.positionState), true)
     window.removeEventListener('resize', this.utils.throttle(this.positionState), true)
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="display" :style="{position: position, top: top + 'px'}" ref="display">
+    <div class="title">Projects<span>.</span></div>
     <div class="wrapper" :class="inView ? 'in-view' : ''" ref="viewCheck">
-      <div class="title">Projects<span>.</span></div>
       <ul class="nav">
         <li 
           v-for="(item, index) in list" :key="index" 
@@ -34,7 +34,7 @@ export default {
     return {
       position: 'absolute ',
       top: 0,
-      list: ['My Portfolio', '滑动交互记账 App', '分页器插件', '旅游网站 App', '颜色排序游戏', '黑白棋游戏' ]
+      list: ['My Portfolio', '滑动交互记账 App', '旅游网站 App', '分页器插件', '颜色排序游戏', '黑白棋游戏' ]
     }
   },
   computed: {
@@ -86,33 +86,39 @@ export default {
     height: 100vh
     overflow: hidden
     z-index: 2
+    .title
+      position: absolute
+      top: 6%
+      left: 8%
+      // font-size: 33px
+      font-size: 3.5vw
+      font-weight: 600
+      @media screen and (min-width: 1440px)
+        font-size: 50px
+      @media screen and (max-width: 992px)
+        font-size: 30px
+      span
+        color: var(--theme-color)
     .wrapper
-      width: 150px
       height: 100vh
       display: flex
       flex-flow: column
       justify-content: center
       align-items: flex-end
       position: absolute
-      left: 5%
+      top: calc(50% + 50px)
+      left: 10%
+      transform: translateY(-50%)
       opacity: 0
       transition: all .6s ease-in-out
       @media screen and (max-width: 992px)
         left: 0
     .in-view
       opacity: 1
-      transform: translateY(-6%)
-      .title
-        line-height: 4em
-        font-size: 32px
-        font-weight: 600
-        @media screen and (max-width: 992px)
-          font-size: 30px
-        span
-          color: var(--theme-color)
+      top: 50%
       .nav
-        width: 150px
-        line-height: 4em
+        // width: 150px
+        line-height: 3.7em
         white-space: nowrap
         font-size: 15px
         font-weight: 400
@@ -120,7 +126,7 @@ export default {
           font-size: 14px
         li
           width: 100%
-          text-align: right
+          text-align: left
           // font-weight: 600
           span
             position: relative
@@ -134,7 +140,7 @@ export default {
               content: ''
               position: absolute
               bottom: -1px
-              left: 100%
+              // left: 100%
               width: 0
               height: 2px
               opacity: 0
@@ -147,12 +153,11 @@ export default {
             // color: var(--theme-color)
             &:before
               width: 100%
-              left: 0
+              // left: 0
               opacity: 1
     .img
-      max-width: calc(90% - 160px)
-      width: 420px
-      max-width: calc(90% - 160px)
+      width: 450px
+      max-width: calc(90% - 170px)
       height: 500px
       max-height: 60vh
       background: #D0CAC2

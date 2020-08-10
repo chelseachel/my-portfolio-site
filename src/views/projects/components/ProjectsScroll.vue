@@ -55,7 +55,7 @@ export default {
                 ]
         }
         ],
-        techs: ['Vue', 'Vuex', 'Anime.js', 'vue-awesome-swiper', 'Stylus']
+        techs: ['Vue', 'Vuex', 'anime.js', 'vue-awesome-swiper', 'Stylus']
       }, {
         id: '002',
         url: '',
@@ -77,6 +77,22 @@ export default {
       }, {
         id: '003',
         url: '',
+        title: 'Travel App - 旅游网站 App',
+        desc: '这是我第一次使用 Vue.js 完成的项目，是一个实战学习项目。<br>模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用，并且自己进行了一些功能拓展。<br>可<a href="https://github.com/chelseachel/TravelApp">在此</a>查看我的详细笔记。',
+        content: [
+        { 
+          list: [
+                '实现较复杂的功能比如字母表滑动索引、搜索提示、递归组件、数据分页逻辑等',
+                '通过 <strong>axios</strong> 获取请求数据，并动态加载内容',
+                '拆分可复用的过渡组件，优化代码可维护性',
+                '使用 <strong>better-scroll</strong> 优化滚动列表', 
+                '通过<strong>配置路由</strong>实现指定页面的回退历史功能'
+                ]
+        }],
+        techs: ['Vue', 'Vuex', 'Vue-router', 'vue-awesome-swiper', 'better-scroll']
+      }, {
+        id: '004',
+        url: '',
         title: 'Vue Handy Pagination - 分页器插件',
         desc: '这是一个 npm 开源项目，是基于 Vue 的 Web 分页器插件，可通过 npm 安装或者 script 标签引入使用。在过程中我熟悉了插件的开发，以及 npm library 的配置和打包发布流程。',
         content: [
@@ -89,22 +105,6 @@ export default {
                 ]
         }],
         techs: ['Vue', 'npm', 'Jest']
-      }, {
-        id: '004',
-        url: '',
-        title: 'Travel App - 旅游网站 App',
-        desc: '这是我第一次使用 Vue.js 完成的项目，是一个实战学习项目。模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用，并且自己进行了一些功能拓展。可<a href="https://github.com/chelseachel/TravelApp">在此</a>查看我的详细笔记。',
-        content: [
-        { 
-          list: [
-                '实现较复杂的功能比如字母表滑动索引、搜索提示、递归组件、数据分页逻辑等',
-                '通过 <strong>axios</strong> 获取请求数据，并动态加载内容',
-                '拆分可复用的过渡组件，优化代码可维护性',
-                '使用 <strong>better-scroll</strong> 优化滚动列表', 
-                '通过<strong>配置路由</strong>实现指定页面的回退历史功能'
-                ]
-        }],
-        techs: ['Vue', 'Vuex', 'Vue-router', 'vue-awesome-swiper', 'better-scroll']
       }, {
         id: '005',
         url: '',

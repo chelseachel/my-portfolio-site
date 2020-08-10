@@ -89,7 +89,7 @@ export default {
     return {
       skills: [{
         name: 'HTML',
-        level: 9
+        level: 8
       },{
         name: 'CSS',
         level: 9

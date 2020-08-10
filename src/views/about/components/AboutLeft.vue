@@ -71,8 +71,6 @@ export default {
       font-weight: 600
       font-size: 64px
       color: #FDFDF9
-      // letter-spacing: 2px
-      // font-variant: small-caps
     .photo
       position: absolute
       top: 100px

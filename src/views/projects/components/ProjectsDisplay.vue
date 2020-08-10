@@ -17,18 +17,20 @@
     <div class="img">
       <img src="@/assets/images/1.jpg"/>
     </div>
-    <projects-display-bg></projects-display-bg>
+    <div class="blob-wrapper">
+      <morphing-blob></morphing-blob>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import { checkInView } from '@/common/mixin.js'
-import ProjectsDisplayBg from './ProjectsDisplayBg'
+import MorphingBlob from '../../common/MorphingBlob'
 export default {
   name: 'ProjectsDisplay',
   components: {
-    ProjectsDisplayBg
+    MorphingBlob
   },
   mixins: [checkInView],
   props: {
@@ -174,6 +176,15 @@ export default {
         position: relative
         top: 0px
         right: 0px
+    .blob-wrapper
+      position: absolute
+      top: 30%
+      right: 20%
+      width: 60%
+      height: 60%
+      min-width: 300px
+      min-height: 300px
+      z-index: -1
   @media screen and (max-width: 992px)
     .display
       display: none

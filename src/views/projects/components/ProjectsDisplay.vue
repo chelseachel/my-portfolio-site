@@ -15,16 +15,21 @@
       </ul>
     </div>
     <div class="img">
-      <img src=""/>
+      <img src="@/assets/images/1.jpg"/>
     </div>
+    <projects-display-bg></projects-display-bg>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import { checkInView } from '@/common/mixin.js'
+import ProjectsDisplayBg from './ProjectsDisplayBg'
 export default {
   name: 'ProjectsDisplay',
+  components: {
+    ProjectsDisplayBg
+  },
   mixins: [checkInView],
   props: {
     scrollHeight: Number,
@@ -160,7 +165,6 @@ export default {
       max-width: calc(90% - 170px)
       height: 500px
       max-height: 60vh
-      background: #D0CAC2
       position: absolute
       top: 20%
       right: 0px

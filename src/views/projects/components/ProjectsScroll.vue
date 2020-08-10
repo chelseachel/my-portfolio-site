@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ProjectsScrollItem from './children/ProjectsScrollItem'
+import ProjectsScrollItem from './ProjectsScrollItem'
 import { mapState } from 'vuex'
 export default {
   name: 'ProjectsScroll',

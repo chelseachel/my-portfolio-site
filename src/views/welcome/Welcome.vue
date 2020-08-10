@@ -1,5 +1,6 @@
 <template>
   <div class="welcome">
+    <welcome-bg></welcome-bg>
     <welcome-info></welcome-info>
     <transition>
       <welcome-scroll v-if="show"></welcome-scroll>
@@ -8,12 +9,13 @@
 </template>
 
 <script>
+import WelcomeBg from './components/WelcomeBg'
 import WelcomeInfo from './components/WelcomeInfo'
 import WelcomeScroll from './components/WelcomeScroll'
 export default {
   name: 'Welcome',
   components: {
-    WelcomeInfo, WelcomeScroll
+    WelcomeBg, WelcomeInfo, WelcomeScroll
   },
   data () {
     return {

@@ -1,8 +1,14 @@
 <template>
   <div class="projects" ref="projects">
     <common-pad-title>Projects</common-pad-title>
-    <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex" v-if="!isMobile"></projects-display>
-    <projects-scroll ref="scroll" @refreshHeight='getHeight'></projects-scroll>
+    <div class="main">
+      <div class="left">
+        <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex" v-if="!isMobile"></projects-display>
+      </div>
+      <div class="right">
+        <projects-scroll ref="scroll" @refreshHeight='getHeight'></projects-scroll>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,8 +55,20 @@ export default {
 <style lang="stylus" scoped>
   .projects
     position: relative
-    width: 100vw
-    min-height: 100vh
-    @media screen and (max-width: 992px)
-      margin-top: 65px
+    .main
+      position: relative
+      width: 100vw
+      min-height: 100vh
+      display: flex
+      .left
+        flex: 9
+        order: 1
+      .right
+        flex: 11
+        order: 2
+  @media screen and (max-width: 992px)
+    .left
+      display: none
+      .main
+        margin-top: 65px
 </style>

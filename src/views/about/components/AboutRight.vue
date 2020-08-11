@@ -1,5 +1,5 @@
 <template>
-  <div class="right">
+  <div class="wrapper">
     <article>
       <p>我叫黄艺千，坐标北京，是一名前端开发者。<br>我毕业于深圳大学广告系，完全自学进入前端领域，在此之前，我是一名手作人。我喜欢用代码编写令人愉悦的交互体验。<!-- 擅长排版与 PPT 交互动画， --><br></p><p>你可以通过我的 <a href="https://codepen.io/chelseachel" target="_blank">CodePen</a> 和 <a href="https://github.com/chelseachel/" target="_blank">Github</a> 了解我。</p>
       <!-- <p> -->
@@ -120,116 +120,109 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/styles/variables.styl'
-  .right
-    position: relative
-    left: 45%
-    width: 55%
-    article
-      width: 100%
-      padding: 190px
-      box-sizing: border-box
+  article
+    width: 100%
+    padding: 190px
+    box-sizing: border-box
+    font-size: 15px
+    line-height: 1.75em
+    h2
+      font-size: 1.4em
+      margin-top: 4em
+      padding-top: 2em
+      border-top: 1px solid var(--theme-translucent)
+    h3
+      font-size: 16px
+      margin-top: 3.6em
+      margin-bottom: .8em
+    p
+      margin-bottom: 1em
+    .subtitle
+      position: relative
       font-size: 15px
-      line-height: 1.75em
-      h2
-        font-size: 1.4em
-        margin-top: 4em
-        padding-top: 2em
-        border-top: 1px solid var(--theme-translucent)
-      h3
+      font-weight: bold
+      margin-top: 3.6em
+      .iconfont
+        position: absolute
+        left: -1.5em
+        margin-right: .4em
         font-size: 16px
-        margin-top: 3.6em
-        margin-bottom: .8em
-      p
-        margin-bottom: 1em
-      .subtitle
+        font-weight: 600
+        color: var(--theme-color) 
+    .skills
+      max-width: 600px 
+      padding: .4em 0
+      margin-bottom: 1.4em
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-wrap: wrap 
+    ul
+      margin-bottom: 1em
+      line-height: 1.75em
+      li
+        margin-bottom: .45em
         position: relative
-        font-size: 15px
-        font-weight: bold
-        margin-top: 3.6em
-        .iconfont
+        padding-left: 1.3em
+        &:before
+          content: '●'
           position: absolute
-          left: -1.5em
-          margin-right: .4em
-          font-size: 16px
-          font-weight: 600
-          color: var(--theme-color) 
-      .skills
-        max-width: 600px 
-        padding: .4em 0
-        margin-bottom: 1.4em
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-wrap: wrap 
-      ul
-        margin-bottom: 1em
-        line-height: 1.75em
-        li
-          margin-bottom: .45em
-          position: relative
-          padding-left: 1.3em
-          &:before
-            content: '●'
-            position: absolute
-            left: 0px
-            color: var(--theme-color)
-            display: inline-block
-            transform: scale(.8)
-        .iconfont
-          display: none
-          float: left
-          margin-right: .4em
-          font-size: 14px
+          left: 0px
           color: var(--theme-color)
-          // transform: rotate(90deg)
-        .ellipsis
-          margin-left: 1.4em     
-        .decimal
-          // margin-right: .2em
-          color: var(--theme-color)
-          font-weight: 600
-          display: none
-        .emph
-          font-weight: 600
-          // background: var(--theme-translucent)
-      .feature
-        margin-top: 18px
-        .tag
           display: inline-block
-          margin-right: 10px
-          margin-bottom: 14px
-          padding: 4px 11px 4px
-          border: 1px solid var(--theme-translucent)
-          // box-sizing: border-box
-          border-radius: 6px
-          // background-color: rgba(241,185,8,.1)
-          font-size: 14px
-          color: var(--theme-color)
-          .iconfont
-            float: left
-            margin-right: 5px
-            font-size: 16px
-            font-weight: 400
-      a
-        font-size: 15px
+          transform: scale(.8)
+      .iconfont
+        display: none
+        float: left
+        margin-right: .4em
+        font-size: 14px
+        color: var(--theme-color)
+        // transform: rotate(90deg)
+      .ellipsis
+        margin-left: 1.4em     
+      .decimal
+        // margin-right: .2em
         color: var(--theme-color)
         font-weight: 600
-        // font-style: italic
-        text-decoration: underline
-      @media screen and (max-width: 1920px)
-        padding: 145px
-      @media screen and (max-width: 1440px)
-        padding: 120px
-      @media screen and (max-width: 1024px)
-        padding: 80px
-  @media screen and (max-width: 992px)
-    .right
-      left: 0
-      width: 100%
-      article
-        padding: 10vw
-        padding-top: 100px
+        display: none
+      .emph
+        font-weight: 600
+        // background: var(--theme-translucent)
+    .feature
+      margin-top: 18px
+      .tag
+        display: inline-block
+        margin-right: 10px
+        margin-bottom: 14px
+        padding: 4px 11px 4px
+        border: 1px solid var(--theme-translucent)
+        // box-sizing: border-box
+        border-radius: 6px
+        // background-color: rgba(241,185,8,.1)
+        font-size: 14px
+        color: var(--theme-color)
         .iconfont
-          position: relative
-          left: 0
+          float: left
+          margin-right: 5px
+          font-size: 16px
+          font-weight: 400
+    a
+      font-size: 15px
+      color: var(--theme-color)
+      font-weight: 600
+      // font-style: italic
+      text-decoration: underline
+    @media screen and (max-width: 1920px)
+      padding: 145px
+    @media screen and (max-width: 1440px)
+      padding: 120px
+    @media screen and (max-width: 1024px)
+      padding: 80px
+  @media screen and (max-width: 992px)
+    article
+      padding: 10vw
+      padding-top: 100px
+      .subtitle > .iconfont
+        position: relative
+        left: 0
 </style>

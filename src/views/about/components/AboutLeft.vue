@@ -1,10 +1,12 @@
 <template>
-  <div class="left" :style="{position: position, top: top + 'px'}">
-    <div class="cate">
-      About.
-    </div>
-    <div class="photo" ref="viewCheck" :class="inView ? 'in-view' : ''">
-      <img src="@/assets/images/26.jpg">
+  <div class="sticky" ref="sticky">
+    <div class="wrapper">
+      <div class="cate">
+        About.
+      </div>
+      <div class="photo" ref="viewCheck" :class="inView ? 'in-view' : ''">
+        <img src="@/assets/images/26.jpg">
+      </div>
     </div>
   </div>
 </template>
@@ -19,35 +21,38 @@ export default {
   },
   data () {
     return {
-      position: 'absolute ',
-      top: 0,
     }
   },
   methods: {
     positionState () {
       const clientHeight = document.body.clientHeight
-      const clientWidth = document.body.clientWidth
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (clientWidth > 992) {
-        if (scrollTop >= clientHeight && scrollTop < this.scrollHeight) {
-          this.position = 'fixed'
-          this.top = 0
-        } else if (scrollTop >= this.scrollHeight) {
-          this.position = 'absolute'
-          this.top = this.scrollHeight - clientHeight
-        } else if (scrollTop < clientHeight) {
-          this.position = 'absolute'
-          this.top = 0
-        }
+      const el = this.$refs.sticky
+      if (scrollTop >= clientHeight && scrollTop < this.scrollHeight) {
+        el.style.position = 'fixed'
+        el.style.top = 0
+      } else if (scrollTop >= this.scrollHeight) {
+        el.style.position = 'relative'
+        el.style.top = this.scrollHeight - clientHeight + 'px'
+        console.log(this.scrollHeight - clientHeight,el);
+      } else if (scrollTop < clientHeight) {
+        el.style.position = 'relative'
+        el.style.top = 0
       }
-    },
+    }
   },
   mounted () {
-    window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
-    window.addEventListener('resize', this.utils.throttle(this.positionState), true)
+    const clientWidth = document.body.clientWidth
+    if (this.utils.isIE() && clientWidth > 992) {
+      window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
+      window.addEventListener('resize', this.utils.throttle(this.positionState), true)
+    }
   },
   updated () {
-    this.positionState()
+    const clientWidth = document.body.clientWidth
+    if (this.utils.isIE() && clientWidth > 992) {
+      this.positionState()
+    }
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.utils.throttle(this.positionState), true)
@@ -58,39 +63,40 @@ export default {
 
 
 <style lang="stylus" scoped>
-  .left
-    width: 45%
+  .sticky
+    position: sticky
+    top: 0
+    width:45vw
     height: 100vh
-    display: flex
-    justify-content: center
-    align-items: center
-    background: var(--theme-color)
-    &:after
-      clear: both
-    .cate
-      font-weight: 600
-      font-size: 64px
-      color: #FDFDF9
-    .photo
-      position: absolute
-      top: 100px
-      right: -65px
-      width: 130px
-      height: 130px
-      border-radius: 50%
-      background: #d0cac2
-      overflow: hidden
-      transform: scale(0)
-      transition: all .8s ease
-      @media screen and (max-width: 1024px)
-        right: -50px
-        width: 100px
-        height: 100px
-    .in-view
-      transform: scale(1)
-      img
-        width: 100%
-  @media screen and (max-width: 992px)
-    .left
-      display: none
+    .wrapper
+      height: 100vh
+      display: flex
+      justify-content: center
+      align-items: center
+      background: var(--theme-color)
+      &:after
+        clear: both
+      .cate
+        font-weight: 600
+        font-size: 64px
+        color: #FDFDF9
+      .photo
+        position: absolute
+        top: 100px
+        right: -65px
+        width: 130px
+        height: 130px
+        border-radius: 50%
+        background: #d0cac2
+        overflow: hidden
+        transform: scale(0)
+        transition: all .8s ease
+        @media screen and (max-width: 1024px)
+          right: -50px
+          width: 100px
+          height: 100px
+      .in-view
+        transform: scale(1)
+        img
+          width: 100%
 </style>

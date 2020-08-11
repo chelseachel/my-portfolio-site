@@ -1,8 +1,14 @@
 <template>
   <div class="about" ref="about">
     <common-pad-title>About</common-pad-title>
-    <about-left :scrollHeight="scrollHeight" v-if="!isMobile"></about-left>
-    <about-right></about-right>
+    <div class="main">
+      <div class='left'>
+        <about-left :scrollHeight="scrollHeight" v-if="!isMobile"></about-left>
+      </div>
+      <div class="right">
+        <about-right></about-right>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,6 +46,18 @@ export default {
 <style lang="stylus" scoped>
   .about
     position: relative
-    width: 100vw
-    min-height: 100vh
+    .main
+      position: relative
+      width: 100vw
+      min-height: 100vh
+      display: flex
+      .left
+        flex: 9
+        order: 1
+      .right
+        flex: 11
+        order: 2
+  @media screen and (max-width: 992px)
+    .left
+      display: none
 </style>

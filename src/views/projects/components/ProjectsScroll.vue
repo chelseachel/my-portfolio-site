@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="blank"></div>
     <div class="wrapper">
       <projects-scroll-item v-for="(item, index) in list" :key="item.id" :item="item" :index="index" ref="item"></projects-scroll-item>
       <div class="bottom" ref="bottom" :style="{height: bottomHeight + 'px'}"></div>
@@ -185,21 +184,11 @@ export default {
 
 
 <style lang="stylus" scoped>
-  .container
-    position: relative
-    width: 100%
-    display: flex
-    .blank
-      flex: 45
-    .wrapper
-      flex: 55
-      display: block
-      margin-top: calc(20vh - 100px)
-      .bottom
-        width: 100%
+  .wrapper
+    margin-top: calc(20vh - 100px)
+    .bottom
+      width: 100%
   @media screen and (max-width: 992px)
-    .blank
-      display: none
     .bottom
       display: none
 </style>

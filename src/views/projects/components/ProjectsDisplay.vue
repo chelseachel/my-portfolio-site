@@ -1,19 +1,17 @@
 <template>
-  <div class="display" :style="{position: position, top: top + 'px'}" ref="display">
+  <div class="display" ref="sticky">
     <div class="title">Projects<span>.</span></div>
-    <div class="wrapper" :class="inView ? 'in-view' : ''" ref="viewCheck">
-      <ul class="nav">
-        <li 
-          v-for="(item, index) in list" :key="index" 
-           
-          @click="handleClickIndex(index)"
-        >
-          <span :class="index == activeIndex ? 'active-class' : ''">
-            {{item}} 
-          </span>
-        </li>
-      </ul>
-    </div>
+    <ul class="nav" :class="inView ? 'in-view' : ''" ref="viewCheck">
+      <li 
+        v-for="(item, index) in list" :key="index" 
+         
+        @click="handleClickIndex(index)"
+      >
+        <span :class="index == activeIndex ? 'active-class' : ''">
+          {{item}} 
+        </span>
+      </li>
+    </ul>
     <div class="img">
       <img src="@/assets/images/1.jpg"/>
     </div>
@@ -39,8 +37,6 @@ export default {
   },
   data () {
     return {
-      position: 'absolute ',
-      top: 0,
       list: ['My Portfolio', '滑动交互记账 App', '旅游网站 App', '分页器插件', '颜色排序游戏', '黑白棋游戏' ]
     }
   },
@@ -53,15 +49,16 @@ export default {
     positionState () {
       const clientHeight = document.body.clientHeight
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      const el = this.$refs.sticky
       if (scrollTop >= this.offset && scrollTop < (this.offset + this.scrollHeight - clientHeight)) {
-        this.position = 'fixed'
-        this.top = 0
+        el.style.position = 'fixed'
+        el.style.top = 0
       } else if (scrollTop >= (this.offset + this.scrollHeight - clientHeight)) {
-        this.position = 'absolute'
-        this.top = this.scrollHeight - clientHeight
+        el.style.position = 'absolute'
+        el.style.top = this.scrollHeight - clientHeight + 'px'
       } else if (scrollTop < this.offset) {
-        this.position = 'absolute'
-        this.top = 0
+        el.style.position = 'absolute'
+        el.style.top = 0
       }
     },
     handleClickIndex (index) {
@@ -73,11 +70,17 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
-    window.addEventListener('resize', this.utils.throttle(this.positionState), true)
+    const clientWidth = document.body.clientWidth
+    if (this.utils.isIE() && clientWidth > 992) {
+      window.addEventListener('scroll', this.utils.throttle(this.positionState), true)
+      window.addEventListener('resize', this.utils.throttle(this.positionState), true)
+    }
   },
   updated () {
-    this.positionState()
+    const clientWidth = document.body.clientWidth
+    if (this.utils.isIE() && clientWidth > 992) {
+      this.positionState()
+    }
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.utils.throttle(this.positionState), true)
@@ -89,8 +92,13 @@ export default {
 
 <style lang="stylus" scoped>
   .display
-    width: 45%
+    position: sticky
+    top: 0
+    width:45vw
     height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
     overflow: hidden
     z-index: 2
     .title
@@ -106,7 +114,7 @@ export default {
         font-size: 30px
       span
         color: var(--theme-color)
-    .wrapper
+    .nav
       height: 100vh
       display: flex
       flex-flow: column
@@ -118,50 +126,44 @@ export default {
       transform: translateY(-50%)
       opacity: 0
       transition: all .6s ease-in-out
-      @media screen and (max-width: 992px)
-        left: 0
     .in-view
       opacity: 1
       top: 50%
-      .nav
-        // width: 150px
+      li
+        width: 100%
         line-height: 3.7em
         white-space: nowrap
         font-size: 15px
         font-weight: 400
-        @media screen and (max-width: 992px)
-          font-size: 14px
-        li
-          width: 100%
-          text-align: left
+        text-align: left
+        // font-weight: 600
+        span
+          position: relative
+          cursor: pointer
+          transition: all .2s
+          &:hover:before
+            width: 100%
+            left: 0
+            opacity: 1
+          &:before
+            content: ''
+            position: absolute
+            bottom: -1px
+            // left: 100%
+            width: 0
+            height: 2px
+            opacity: 0
+            border-radius: 1px
+            background: var(--theme-color)
+            z-index: -1
+            transition: all .3s
+        .active-class
           // font-weight: 600
-          span
-            position: relative
-            cursor: pointer
-            transition: all .2s
-            &:hover:before
-              width: 100%
-              left: 0
-              opacity: 1
-            &:before
-              content: ''
-              position: absolute
-              bottom: -1px
-              // left: 100%
-              width: 0
-              height: 2px
-              opacity: 0
-              border-radius: 1px
-              background: var(--theme-color)
-              z-index: -1
-              transition: all .3s
-          .active-class
-            // font-weight: 600
-            // color: var(--theme-color)
-            &:before
-              width: 100%
-              // left: 0
-              opacity: 1
+          // color: var(--theme-color)
+          &:before
+            width: 100%
+            // left: 0
+            opacity: 1
     .img
       width: 450px
       max-width: calc(90% - 170px)
@@ -185,8 +187,5 @@ export default {
       min-width: 300px
       min-height: 300px
       z-index: -1
-  @media screen and (max-width: 992px)
-    .display
-      display: none
       
 </style>

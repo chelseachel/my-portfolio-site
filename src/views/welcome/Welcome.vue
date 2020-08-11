@@ -39,10 +39,8 @@ export default {
 <style lang="stylus" scoped>
   .welcome
     position:relative
-    margin-top: -64px
     width: 100vw
     height: 100vh
-    border-top: 4px solid var(--theme-translucent)
     box-sizing: border-box
   .v-enter
     opacity: 0

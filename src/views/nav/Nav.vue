@@ -65,9 +65,8 @@ export default {
 <style lang="stylus" scoped>
   .header
     z-index: 99
-    position: sticky
+    position: fixed
     top: 0px
-    margin-top: 4px
     width: 100%
     height: 60px
     background: #fdfcf6
@@ -119,7 +118,6 @@ export default {
           transition: all .3s
       .active-color
         color: var(--theme-color)
-        font-weight: 600
         &:before
           width: 100%
           left: 0

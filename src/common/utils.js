@@ -1,4 +1,3 @@
-
 export default {
   isElementInView(el) {
     var rect = el.getBoundingClientRect()
@@ -12,7 +11,7 @@ export default {
   },
   throttle(fn, delay = 16) {
     let timer = null
-    return function () {
+    return function() {
       if (timer) {
         return
       }
@@ -25,6 +24,11 @@ export default {
   isMobile() {
     const flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
     return flag
+  },
+  isIE() { 
+    if (!!window.ActiveXObject || "ActiveXObject" in window)
+    return true; // IE11 返回 true
+    else
+    return false; // Edge 返回 false
   }
 }
-

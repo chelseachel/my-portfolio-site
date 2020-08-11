@@ -34,8 +34,9 @@ export default {
           info: '<span>复杂交互逻辑</span>',
           list: [
                 '通过<strong>全局状态管理</strong>实现组件的动态定位与切换',
+                '使用 JS 实现兼容 <strong>IE</strong> 的 <strong>sticky</strong> 粘性定位',
                 '无插件的<strong>滚动视差</strong>功能',
-                '结合 CSS 3D 变换实现文字循环<strong>动画</strong>，并支持点击交互',
+                '结合 CSS 3D 变换实现<strong>文字循环</strong>动画，并支持点击交互',
                 '结合 swiper 插件实现<strong>动态</strong>绑定的轮播组件'
                 ]
         },
@@ -43,7 +44,7 @@ export default {
           info: '<span>优化用户体验</span>',
           list: [
                 '对图片高度不固定的瀑布流组件采取<strong>预加载</strong>方案',
-                '运用媒体查询、Grid 布局等方案，实现<strong>自适应</strong>各规格的设备屏幕',
+                '运用媒体查询、Flex 布局等方案，实现<strong>自适应</strong>各规格的设备屏幕',
                 '实现<strong>一键换肤</strong>，并对皮肤进行 <strong>localStorage</strong> 缓存处理',
                 '采取<strong>节流</strong>方案优化滚动事件'
                 ]
@@ -55,7 +56,7 @@ export default {
                 ]
         }
         ],
-        techs: ['Vue', 'Vuex', 'anime.js', 'vue-awesome-swiper', 'Stylus']
+        techs: ['Vue', 'Vuex', 'SVG/anime.js', 'vue-awesome-swiper', 'Stylus']
       }, {
         id: '002',
         url: '',

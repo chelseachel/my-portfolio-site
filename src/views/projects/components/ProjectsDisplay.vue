@@ -104,7 +104,7 @@ export default {
     .title
       position: absolute
       top: 6%
-      left: 8%
+      left: 9%
       // font-size: 33px
       font-size: 3.5vw
       font-weight: 600

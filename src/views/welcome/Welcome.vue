@@ -41,7 +41,7 @@ export default {
     position:relative
     width: 100vw
     height: 100vh
-    box-sizing: border-box
+    overflow: hidden
   .v-enter
     opacity: 0
   .v-enter-active

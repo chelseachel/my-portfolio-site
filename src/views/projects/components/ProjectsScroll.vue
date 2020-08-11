@@ -147,7 +147,7 @@ export default {
     itemHeight: function () {
       let clientHeight = document.body.clientHeight
       // 使 item 顶部与展示图片平齐
-      let bottomH = clientHeight - 0.2*clientHeight - (this.itemHeight - 100)
+      let bottomH = clientHeight - 0.2*clientHeight - (this.itemHeight - 150)
       this.bottomHeight = bottomH < 0 ? 0 : bottomH
     }
   },
@@ -185,7 +185,7 @@ export default {
 
 <style lang="stylus" scoped>
   .wrapper
-    margin-top: calc(20vh - 100px)
+    margin-top: calc(20vh - 150px)
     .bottom
       width: 100%
   @media screen and (max-width: 992px)

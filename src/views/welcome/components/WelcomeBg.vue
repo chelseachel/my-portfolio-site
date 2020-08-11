@@ -21,15 +21,14 @@ export default {
     position: absolute
     top: 15%
     bottom: 0
-    left: 0
-    right: 0
-    margin: auto
+    left: 50%
+    transform: translateX(-50%)
     width: 80%
     opacity: .6
     z-index: -1
     @media screen and (min-width: 1600px)
       width: 1280px
     @media screen and (max-width: 992px)
-      top: 0
+      top: 10%
       min-width: 600px
 </style>

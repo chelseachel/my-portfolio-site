@@ -2,8 +2,8 @@
   <div class="projects" ref="projects">
     <common-pad-title>Projects</common-pad-title>
     <div class="main">
-      <div class="left">
-        <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex" v-if="!isMobile"></projects-display>
+      <div class="left" v-if="!isMobile">
+        <projects-display :scrollHeight="scrollHeight" :offset="offset" @scrollToIndex="handleScrollToIndex"></projects-display>
       </div>
       <div class="right">
         <projects-scroll ref="scroll" @refreshHeight='getHeight'></projects-scroll>
@@ -61,14 +61,13 @@ export default {
       min-height: 100vh
       display: flex
       .left
+        display: block
         flex: 9
         order: 1
+        @media screen and (max-width: 992px)
+          display: none
       .right
         flex: 11
         order: 2
-  @media screen and (max-width: 992px)
-    .left
-      display: none
-      .main
-        margin-top: 65px
+  
 </style>

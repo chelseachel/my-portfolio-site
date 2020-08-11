@@ -2,8 +2,8 @@
   <div class="about" ref="about">
     <common-pad-title>About</common-pad-title>
     <div class="main">
-      <div class='left'>
-        <about-left :scrollHeight="scrollHeight" v-if="!isMobile"></about-left>
+      <div class='left' v-if="!isMobile">
+        <about-left :scrollHeight="scrollHeight"></about-left>
       </div>
       <div class="right">
         <about-right></about-right>
@@ -52,12 +52,12 @@ export default {
       min-height: 100vh
       display: flex
       .left
+        display: block
         flex: 9
         order: 1
+        @media screen and (max-width: 992px)
+          display: none
       .right
         flex: 11
         order: 2
-  @media screen and (max-width: 992px)
-    .left
-      display: none
 </style>

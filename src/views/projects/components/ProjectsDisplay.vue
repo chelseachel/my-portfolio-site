@@ -13,7 +13,7 @@
       </li>
     </ul>
     <div class="img">
-      <img src="@/assets/images/1.jpg"/>
+      <img src="@/assets/images/gifs/qunar--original-standard.gif"/>
     </div>
     <div class="blob-wrapper">
       <morphing-blob></morphing-blob>
@@ -99,7 +99,6 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-    overflow: hidden
     z-index: 2
     .title
       position: absolute
@@ -125,7 +124,7 @@ export default {
       left: 10%
       transform: translateY(-50%)
       opacity: 0
-      transition: all .6s ease-in-out
+      transition: all .7s ease-in-out
     .in-view
       opacity: 1
       top: 50%
@@ -167,20 +166,25 @@ export default {
     .img
       width: 450px
       max-width: calc(90% - 170px)
-      height: 500px
+      height: 480px
       max-height: 60vh
       position: absolute
       top: 20%
       right: 0px
+      text-align: right
       img
         max-width: 100%
         max-height: 100%
         position: relative
         top: 0px
         right: 0px
+        border-radius: 5px
+        // border: 1px solid #fafafa
+        box-shadow: 0 2px 4px 1px rgba(238, 238, 238, .2)
+        // box-shadow: 0 2px 4px 1px rgba(18, 22, 33, .02)
     .blob-wrapper
       position: absolute
-      top: 30%
+      top: 35%
       right: 20%
       width: 60%
       height: 60%

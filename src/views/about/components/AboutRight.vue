@@ -36,7 +36,7 @@
       <ul class="skill-list">
         <li><span class="decimal">1.</span>能灵活运用 <span class="emph">HTML5 / CSS3</span> 进行语义化开发，熟悉响应式布局，有移动端与 PC 端的开发适配经验，能像素级还原设计稿</li>
         <li><span class="decimal">2.</span>熟悉 <span class="emph">Javascript / ES6</span> 语法，能熟用 <span class="emph">Web API</span></li>
-        <li><span class="decimal">3.</span>能熟用 <span class="emph">Vue / Veux / Vue-router</span> ，熟悉模块化开发模式</li>
+        <li><span class="decimal">3.</span>能熟用 <span class="emph">Vue / Veux / Vue-router</span> ，具有组件化开发思维，对 React 有基本了解</li>
         <li><span class="decimal">4.</span>了解 <span class="emph">Webpack</span> 的基本配置，有相关的实践经验</li>
         <li><span class="decimal">5.</span>了解 <span class="emph">Ajax</span> 请求，能够使用 mock.js 等工具进行接口数据模拟</li>
         <span class="ellipsis">……</span>

@@ -3,7 +3,7 @@
     <others-title></others-title>
     <others-gallery @showSwiper="handleSwiperShow"></others-gallery>
     <transition name="fade">
-      <gallery-swiper :imgs="images" :index="itemIndex" v-show="showSwiper" @close="handleSwiperClose"></gallery-swiper>
+      <gallery-swiper :imgs="images" :index="itemIndex" v-if="showSwiper" @close="handleSwiperClose"></gallery-swiper>
     </transition>
   </div>
 </template>

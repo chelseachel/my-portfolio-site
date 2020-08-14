@@ -85,7 +85,7 @@ export default {
     text-align: justify
     opacity: 0
     transform: translateY(50px)
-    transition: all .6s ease-in-out
+    transition: all .7s ease-in-out
     .pic
       display: none
     .title

@@ -72,7 +72,7 @@ export default {
     },
     setLocalStorage (num) {
       try {
-        localStorage.num = num
+        localStorage.setItem('num', num)
       } catch (e) {} 
     },
     handleResetSkin () {

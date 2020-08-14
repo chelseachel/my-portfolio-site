@@ -5,7 +5,7 @@
         About.
       </div>
       <div class="photo" ref="viewCheck" :class="inView ? 'in-view' : ''">
-        <img src="@/assets/images/26.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/26.jpg">
       </div>
     </div>
   </div>

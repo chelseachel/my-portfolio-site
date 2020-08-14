@@ -7,14 +7,26 @@
          
         @click="handleClickIndex(index)"
       >
-        <span :class="index == activeIndex ? 'active-class' : ''">
+        <span :class="index === activeIndex ? 'active-class' : ''">
           {{item}} 
         </span>
       </li>
     </ul>
-    <div class="img">
-      <img src="@/assets/images/gifs/qunar--original-standard.gif"/>
+    
+    <div class="img" 
+      :class="inView ? 'img-in-view' : ''"
+      >
+      <transition mode="out-in">
+        <img 
+          v-for="(item, index) in gifs" 
+          :key="index"
+          v-if="index === activeIndex"
+          :src="gifs[index]" 
+          :style="lowHeight(index) ? {marginTop: '50px'} : {}"
+        />
+      </transition>
     </div>
+    
     <div class="blob-wrapper">
       <morphing-blob></morphing-blob>
     </div>
@@ -33,7 +45,8 @@ export default {
   mixins: [checkInView],
   props: {
     scrollHeight: Number,
-    offset: Number
+    offset: Number,
+    gifs: Array
   },
   data () {
     return {
@@ -67,6 +80,9 @@ export default {
     },
     handleStoreIndex (index) {
       this.$store.commit('changeActiveIndex', index)
+    },
+    lowHeight(index) {
+      return index === 0 || index === 3 || index === 4 || index === 5
     }
   },
   mounted () {
@@ -102,7 +118,7 @@ export default {
     z-index: 2
     .title
       position: absolute
-      top: 6%
+      top: 8%
       left: 9%
       // font-size: 33px
       font-size: 3.5vw
@@ -157,8 +173,6 @@ export default {
             z-index: -1
             transition: all .3s
         .active-class
-          // font-weight: 600
-          // color: var(--theme-color)
           &:before
             width: 100%
             // left: 0
@@ -166,30 +180,43 @@ export default {
     .img
       width: 450px
       max-width: calc(90% - 170px)
-      height: 480px
+      height: 500px
       max-height: 60vh
       position: absolute
+      top: calc(20% + 50px)
+      right: -20px
+      // padding: 10px
+      // border: 2px solid var(--theme-translucent)
+      // border-radius: 6px
+      text-align: center
+      transition: all .7s ease-in-out
+    .img-in-view
+      opacity: 1
       top: 20%
-      right: 0px
-      text-align: right
       img
         max-width: 100%
         max-height: 100%
-        position: relative
-        top: 0px
-        right: 0px
         border-radius: 5px
-        // border: 1px solid #fafafa
+        // border: 10px solid #fdfcf6
         box-shadow: 0 2px 4px 1px rgba(238, 238, 238, .2)
         // box-shadow: 0 2px 4px 1px rgba(18, 22, 33, .02)
     .blob-wrapper
+      display: none
+      opacity: .5
       position: absolute
-      top: 35%
-      right: 20%
+      bottom: -4%
+      left: -5%
       width: 60%
-      height: 60%
-      min-width: 300px
-      min-height: 300px
+      height: 0
+      padding-bottom: 60%
+      // min-width: 300px
+      // min-height: 300px
+      transform: scaleX(1.2) rotate(240deg)
       z-index: -1
-      
+  .v-enter, .v-leave-to
+    opacity: 0
+  .v-enter-to, .v-leave
+    opacity: 1
+  .v-enter-active, .v-leave-active
+    transition: all .3s ease-in-out
 </style>

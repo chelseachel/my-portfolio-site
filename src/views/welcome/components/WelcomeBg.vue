@@ -19,7 +19,7 @@ export default {
 <style lang="stylus" scoped>
   .bg
     position: absolute
-    top: 15%
+    top: 15.5%
     bottom: 0
     left: 50%
     transform: translateX(-50%)

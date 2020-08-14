@@ -126,7 +126,7 @@ export default {
         techs: ['Vue', 'npm', 'Jest']
       }, {
         id: '005',
-        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site/src/assets/images/gifs/#color-sort-2--640-high.gif',
+        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site/src/assets/images/gifs/color-sort-2--640-high.gif',
         title: 'Color Sort - 颜色排序游戏',
         desc: '在对 Web 颜色模式差异有所了解后，利用 HSL 模式的渐变优势，我开发了这个颜色排序游戏。其中实现了 lerp 渐变色、颜色洗牌、颜色排序、结果判断等功能。',
         content: [

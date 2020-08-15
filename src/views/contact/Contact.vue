@@ -1,24 +1,29 @@
 <template>
-  <div class="wrapper">
+  <div class="contact">
     <div class="back" @click="handleClickTop">
       <div class="arrow"></div>
     </div>
-    <section class="container">
-      <!-- <p>
+    <div class="contact-list">
+      <a href="https://github.com/chelseachel/">
         <span class="iconfont icon-github"></span>
-        <a href="https://github.com/chelseachel/">github.com/chelseachel</a>
-      </p>
-      <p>
+      </a>
+      <a href="https://codepen.io/chelseachel">
         <span class="iconfont icon-codepen"></span>
-        <a href="https://codepen.io/chelseachel">codepen.io/chelseachel</a>
-      </p> -->
+      </a>
+      <a href="mailto:chelseachel@icloud.com">
+        <span class="iconfont icon-email_outlined"></span>
+      </a>
+      <a href="javascript:void(0);" class="tooltip" @click="toggleTooltip">
+        <span class="iconfont icon-wechat"></span>
+        <span class="tooltiptext">18518989119</span>
+        <span class="mobitooltip tooltiptext" v-if="showTooltip">18518989119</span>
+      </a>
+    </div>
+    <footer>
       <p>
-        <a href="https://github.com/chelseachel/">Github</a>
-        <a href="https://codepen.io/chelseachel/">CodePen</a>
+        Designd with <span class="heart"></span> by Chelsea 
       </p>
-      <p>chelseachel@icloud.com<br>wechat: 18518989119</p>
-      <!-- <p>wechat: 18518989119</p> -->
-    </section>
+    </footer>
   </div>
 </template>
 
@@ -26,11 +31,22 @@
 
 export default {
   name: 'Contact',
-  components: {
+  data() {
+    return {
+      showTooltip: false
+    }
   },
   methods: {
     handleClickTop () {
       this.$emit('backToTop')
+    },
+    toggleTooltip () {
+      if (this.utils.isMobile()) {
+        console.log(true);
+        this.showTooltip = !this.showTooltip
+      } else {
+        this.showTooltip = false
+      }
     }
   }
 }
@@ -39,12 +55,11 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/styles/variables.styl'
-  .wrapper
+  .contact
     position: relative
     width: 100vw
     height: 400px
     background: var(--theme-translucent)
-    display: flex
     &:before
       content: ''
       width: 66px
@@ -64,13 +79,11 @@ export default {
       height: 60px
       border-radius: 50%
       background: #fdfcf6
-      // box-shadow: 0 5px 10px 3px rgba(18, 22, 33, .04)
       transition: all .2s ease-in-out
       cursor: pointer
       z-index: 10
       &:hover
         transform: translateX(-50%) scale(.92)
-        // box-shadow: 0 4px 4px 1px rgba(18, 22, 33, .04)
       .arrow
         position: absolute
         top: 29px
@@ -80,38 +93,125 @@ export default {
         border-left: 2px solid $color1
         border-top: 2px solid $color1
         transform: rotate(45deg)
-    .container
-      margin: 100px auto
-      text-align: center
-      // p
-      //   margin: 22px 0
-      //   padding: 5px 12px
-      //   // border-radius: 14px
-      //   // border: 2px solid #fdfcf6
-      //   // background: #fdfcf6
-      //   a
-      //     color: var(--theme-color)
-      //     font-size: 14px
-      //     // font-weight: 600
-      //   .iconfont
-      //     // display: inline-block
-      //     font-size: 24px
-      //     vertical-align: middle
-      //     margin-right: 8px
-      //     // margin-top: 2px
-      //     color: var(--theme-color)
-      //     background: #fdfcf6
-      //     border-radius: 3px
-      p
-        margin: 22px 0
-        padding: 5px 12px
-        line-height: 1.75em
+    .contact-list
+      margin: 0 50px
+      height: 340px
+      display: flex
+      justify-content: center
+      align-items: center
+      a
+        position: relative
+        margin: 0 30px
+        background: #fdfcf6
+        padding: 10px
+        border-radius: 50%
+        font-size: 30px
         color: var(--theme-color)
-        a
-          margin: 0 30px
-          padding: 5px 12px
+        @media screen and (max-width: 769px)
+          margin: 0 10px
+        .icon-email_outlined
+          font-size: 29px
+      .tooltip
+        .tooltiptext
+          visibility: hidden
+          opacity: 0
+          background: #fdfcf6
+          padding: 10px 15px
           border-radius: 20px
-          border: 2px solid var(--theme-color)
-          color: var(--theme-color)
+          text-align: center
+          font-size: 14px
           font-weight: 600
+          transition: opacity .5s ease
+          position: absolute
+          top: 130%
+          left: -16px
+          z-index: 1
+          &:before
+            content: ''
+            width: 10px
+            height: 10px
+            background: #fdfcf6
+            transform: rotate(45deg)
+            position: absolute
+            top: -5px
+            left: 30px
+        @media screen and (min-width: 769px)
+          &:hover 
+            .tooltiptext
+              visibility: visible
+              opacity: 1
+        .mobitooltip
+          visibility: visible
+          opacity: 1
+    footer
+      position: absolute
+      bottom: 0px
+      width: 100%
+      p
+        line-height: 60px
+        font-size: 14px
+        color: var(--theme-color)
+        text-align: center
+        .heart
+          display: inline-block
+          position: relative
+          margin-left: 6px
+          margin-right: 6px
+          width: 8px
+          height: 8px
+          border-radius: 1px
+          background: var(--theme-color)
+          transform: rotate(45deg)
+          &:before
+            content: ''
+            width: 8px
+            height: 8px
+            position: absolute
+            top: -4px
+            left: 0px
+            background: var(--theme-color)
+            border-radius: 50%
+            animation: move1 3s ease-in-out infinite
+            @keyframes move1
+              0% 
+                top: -4px
+                left: 0px
+              25%  
+                top: -4px
+                left: 0px
+              50%
+                top: 4px
+                left: 0px
+              75%
+                top: 4px
+                left: 0px 
+              100%
+                top: -4px
+                left: 0px
+          &:after
+            content: ''
+            width: 8px
+            height: 8px
+            position: absolute
+            top: 0px
+            left: -4px
+            background: var(--theme-color)
+            border-radius: 50%
+            animation: move2 3s ease-in-out infinite
+            @keyframes move2
+              0% 
+                top: 0px
+                left: -4px
+              25% 
+                top: 0px
+                left: 4px
+              50%
+                top: 0px
+                left: 4px
+              75%
+                top: 0px
+                left: -4px
+              100%
+                top: 0px
+                left: -4px
 </style>

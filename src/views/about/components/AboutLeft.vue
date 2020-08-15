@@ -87,7 +87,7 @@ export default {
         width: 130px
         height: 130px
         border-radius: 50%
-        background: #d0cac2
+        background: #eee
         overflow: hidden
         transform: scale(0)
         transition: all .8s ease

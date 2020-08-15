@@ -4,12 +4,12 @@
       <span>{{item.title}}</span>
       
     </div>
+    <div class="pic">
+      <img :src="item.url">
+    </div>
     <div class="link">
       <a href="">Github</a>
       <a href="">Demo</a>
-    </div>
-    <div class="pic">
-      <img :src="item.url">
     </div>
     <div class="desc" v-html="item.desc"></div>
     <div class="content-wrapper">
@@ -93,8 +93,6 @@ export default {
       font-size: 20px
       font-weight: 600
     .link
-      @media screen and (max-width: 992px)
-        text-align: center
       a
         position: relative
         display: inline-block
@@ -168,15 +166,15 @@ export default {
       max-width: 100%
       padding: 50px 10vw
       margin: 0px
-      .pic
-        height: 300px
-        margin-bottom: 25px
-        background: #ccc
-        text-align: center
-        img
-          width:50%
-          height: 100%
-          background: #998
       .title
         text-align: center
+      .pic
+        display: block
+        margin-top: 20px
+        margin-bottom: 20px
+        text-align: center
+        img
+          border-radius: 5px
+          max-width:100%
+          max-height: 300px
 </style>

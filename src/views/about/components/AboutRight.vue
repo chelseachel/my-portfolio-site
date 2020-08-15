@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
     <article>
-      <p>我叫黄艺千，坐标北京，是一名前端开发者。<br>我毕业于深圳大学广告系，完全自学进入前端领域，在此之前，我是一名手作人。我喜欢用代码编写令人愉悦的交互体验。<!-- 擅长排版与 PPT 交互动画， --><br></p><p>你可以通过我的 <a href="https://codepen.io/chelseachel" target="_blank">CodePen</a> 和 <a href="https://github.com/chelseachel/" target="_blank">Github</a> 了解我。</p>
+      <p>我叫黄艺千，坐标北京，是一名前端开发者。</p>
+      <p>我毕业于深圳大学广告系，完全自学进入前端领域，在此之前，我是一名手作人。我喜欢用代码编写令人愉悦的交互体验。<!-- 擅长排版与 PPT 交互动画， --><br></p><p>你可以通过我的 <a href="https://codepen.io/chelseachel" target="_blank">CodePen</a> 和 <a href="https://github.com/chelseachel/" target="_blank">Github</a> 了解我。</p>
       <!-- <p> -->
       <!-- <span class="iconfont icon-github"></span>
         <a href="https://github.com/chelseachel/">github.com/chelseachel/</a><br> -->
@@ -17,16 +18,27 @@
       </p>
       <!-- <p>乐于把自己所想动手实现出来，我是这样一个人。<br></p> -->
       <p class="subtitle"><span class="iconfont icon-code"></span>Being a desigrammer</p>
-      <p>开始自学前端，也是同样的原因。<br>
+      <p>
+        开始自学前端，也是同样的原因。
+      </p>
+      <p>
         作为一个擅长理工科的人，比起纯粹的设计，我更偏好艺术与技术的结合。<br>
+      </p>
+      <p>
         我喜欢美好的功能性设计，喜欢有趣而优雅的交互体验，本身就擅长交互动画制作。
-        而能自己亲手用代码将它们实现出来，会更酷不是吗？<br>
-        本着这样的初心，我曾在 <a href="https://www.codecademy.dev/">codecademy</a> 自学了 HTML、CSS 和 Javascript，然而当时并没有发展成职业，算是一个未尽的愿望……</p>
+        而能自己亲手用代码将心中所想实现出来，会更酷不是吗？
+        本着这样的初心，我曾在 <a href="https://www.codecademy.dev/">codecademy</a> 自学了 HTML、CSS 和 Javascript，然而当时并没有发展成职业，算是一个未尽的愿望。
+      </p>
+      <p>
+        如今我决心继续践行它，逐渐拾起曾经掌握的技能。在巩固编程基础的同时，也在实践中持续地拾获着更广、更深的前端技术。
+      </p>
+      <p>就如同亲手制成一件作品一般，Coding 的过程也是在锻造一件作品，产生的是理性的光辉。这过程越有挑战性，就能带来越大的愉悦，完成时也越有成就感，伴随而来的还有打怪能力的升级。这一年我对此感受深刻。
+      </p>
       <p>
         <!-- 作为一个未完成的愿望，我决心继续践行它。<br>
         去年起，我将前端的点滴慢慢拾起，也逐渐拾获更多、更深的技能。<br> -->
-        如今我决心继续践行它，逐渐拾起曾经掌握的技能，也在持续拾获更广、更深的技能。<br>每当把心中所想用手指敲打出来，就如同亲手制成一件作品，我看到无限的可能性。<br>
-        如你所见，我实实在在踏入了前端这条河流。
+        我总是习惯于把事情完成到极致，而很显然，这需要技术能力来作支撑。你能做到什么样——势必建立在你的技术基础之上。
+        那么，保持实践、探索、沉淀，前方有无限的可能性。
       </p>
       <h2>My Skills</h2>
       <h3>前端技能</h3>
@@ -35,8 +47,8 @@
       </div>
       <ul class="skill-list">
         <li><span class="decimal">1.</span>能灵活运用 <span class="emph">HTML5 / CSS3</span> 进行语义化开发，熟悉响应式布局，有移动端与 PC 端的开发适配经验，能像素级还原设计稿</li>
-        <li><span class="decimal">2.</span>熟悉 <span class="emph">Javascript / ES6</span> 语法，能熟用 <span class="emph">Web API</span></li>
-        <li><span class="decimal">3.</span>能熟用 <span class="emph">Vue / Veux / Vue-router</span> ，具有组件化开发思维，对 React 有基本了解</li>
+        <li><span class="decimal">2.</span>熟悉 <span class="emph">Javascript / ES6</span> 语法，熟悉 <span class="emph">Web API</span></li>
+        <li><span class="decimal">3.</span>能熟练使用 <span class="emph">Vue / Veux / Vue-router</span> 开发项目 ，具有组件化开发思维，对 React 有基本的了解</li>
         <li><span class="decimal">4.</span>了解 <span class="emph">Webpack</span> 的基本配置，有相关的实践经验</li>
         <li><span class="decimal">5.</span>了解 <span class="emph">Ajax</span> 请求，能够使用 mock.js 等工具进行接口数据模拟</li>
         <span class="ellipsis">……</span>
@@ -146,8 +158,8 @@ export default {
         position: absolute
         left: -1.5em
         margin-right: .4em
-        font-size: 16px
-        font-weight: 600
+        font-size: 20px
+        font-weight: 400
         color: var(--theme-color) 
     .skills
       max-width: 600px 
@@ -206,8 +218,9 @@ export default {
           margin-right: 5px
           font-size: 16px
           font-weight: 400
+    strong
+      font-weight: 600
     a
-      font-size: 15px
       color: var(--theme-color)
       font-weight: 600
       // font-style: italic
@@ -221,7 +234,7 @@ export default {
   @media screen and (max-width: 992px)
     article
       padding: 10vw
-      padding-top: 100px
+      padding-bottom: 50px
       .subtitle > .iconfont
         position: relative
         left: 0

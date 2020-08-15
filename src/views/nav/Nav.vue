@@ -92,7 +92,7 @@ export default {
       justify-content: center
       align-items: center
       @media screen and (max-width: 768px)
-        padding: 0 10px
+        padding: 0 3.2%
         justify-content: space-around
       li
         position: relative
@@ -101,12 +101,6 @@ export default {
         font-size: 14px
         cursor: pointer
         transition: all .3s
-        @media screen and (max-width: 768px)
-          margin: 0
-        &:hover:before
-          width: 100%
-          left: 0
-          border-radius: 1px
         &:before
           content: ''
           position: absolute
@@ -116,6 +110,15 @@ export default {
           height: 2px
           background: var(--theme-color)
           transition: all .3s
+        @media screen and (max-width: 768px)
+          margin: 0
+          // font-size: 13px
+          // font-weight: 600
+        @media screen and (min-width: 993px)
+          &:hover:before
+            width: 100%
+            left: 0
+            border-radius: 1px
       .active-color
         color: var(--theme-color)
         &:before

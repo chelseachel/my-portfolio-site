@@ -75,7 +75,6 @@ export default {
     margin-top: calc(20vh - 150px)
     .bottom
       width: 100%
-  @media screen and (max-width: 992px)
-    .bottom
-      display: none
+      @media screen and (max-width: 992px)
+        display: none
 </style>

@@ -185,9 +185,6 @@ export default {
       position: absolute
       top: calc(20% + 50px)
       right: -20px
-      // padding: 10px
-      // border: 2px solid var(--theme-translucent)
-      // border-radius: 6px
       text-align: center
       transition: all .7s ease-in-out
     .img-in-view
@@ -197,11 +194,10 @@ export default {
         max-width: 100%
         max-height: 100%
         border-radius: 5px
-        // border: 10px solid #fdfcf6
-        box-shadow: 0 2px 4px 1px rgba(238, 238, 238, .2)
-        // box-shadow: 0 2px 4px 1px rgba(18, 22, 33, .02)
+        // box-shadow: 0 2px 4px 1px rgba(238, 238, 238, .04)
+        box-shadow: 0 2px 4px 1px rgba(18, 22, 33, .02)
     .blob-wrapper
-      display: none
+      // display: none
       opacity: .5
       position: absolute
       bottom: -4%
@@ -209,14 +205,14 @@ export default {
       width: 60%
       height: 0
       padding-bottom: 60%
-      // min-width: 300px
-      // min-height: 300px
       transform: scaleX(1.2) rotate(240deg)
       z-index: -1
   .v-enter, .v-leave-to
     opacity: 0
+    transform: scale(.9)
   .v-enter-to, .v-leave
     opacity: 1
+    transform: scale(1)
   .v-enter-active, .v-leave-active
-    transition: all .3s ease-in-out
+    transition: all .25s ease-in-out
 </style>

@@ -28,7 +28,7 @@ export default {
     z-index: -1
     @media screen and (min-width: 1600px)
       width: 1280px
-    @media screen and (max-width: 992px)
-      top: 10%
-      min-width: 600px
+    // @media screen and (max-width: 992px)
+    //   top: 10%
+    //   min-width: 600px
 </style>

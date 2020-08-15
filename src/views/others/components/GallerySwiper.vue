@@ -84,7 +84,6 @@ export default {
         max-height: 600px
         .swiper-slide
           display: flex
-          flex-direction: column
           justify-content: center
           align-items: center
           .gallery-img
@@ -92,11 +91,15 @@ export default {
             max-height: 100%
             box-shadow: 0px 0px 10px 3px rgba(12, 12, 12, .1)
             cursor: pointer
+            @media screen and (max-width: 768px)
+              max-width: 70%
         .swiper-button-prev
         .swiper-button-next
           color: #FDFDF9
           opacity: .9
           transform: scale(1.2)
+          @media screen and (max-width: 768px)
+            transform: scale(1)
         .swiper-button-prev
           left: 20px
         .swiper-button-next

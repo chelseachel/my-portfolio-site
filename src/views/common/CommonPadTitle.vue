@@ -20,6 +20,8 @@ export default {
     .title-pad
       width: 100%
       height: 50px
+      margin-top: 50px
+      margin-bottom: 60px
       display: flex
       justify-content: center
       align-items: center

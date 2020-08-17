@@ -47,11 +47,6 @@ export default {
       this.$emit('resetSkin')
     }
   },
-  watch: {
-    activeIndex: function () {
-
-    }
-  },
   mounted () {
     window.addEventListener('scroll', this.utils.throttle(this.dynamicNav), true)
   },
@@ -76,7 +71,6 @@ export default {
     display: flex
     transition: all .6s ease
     .logo
-      float: left
       padding-left: 25px
       height: 60px
       line-height: 60px
@@ -84,16 +78,14 @@ export default {
       font-weight: 600
       color: var(--theme-color)
       @media screen and (max-width: 768px)
-        display: none
+        padding-left: 3%
+        font-size: 15px
     .nav
       flex: 1
       height: 60px
       display: flex
       justify-content: center
       align-items: center
-      @media screen and (max-width: 768px)
-        padding: 0 3.2%
-        justify-content: space-around
       li
         position: relative
         margin: 0 25px
@@ -101,6 +93,8 @@ export default {
         font-size: 14px
         cursor: pointer
         transition: all .3s
+        &:first-child
+          display: none
         &:before
           content: ''
           position: absolute
@@ -111,9 +105,8 @@ export default {
           background: var(--theme-color)
           transition: all .3s
         @media screen and (max-width: 768px)
-          margin: 0
-          // font-size: 13px
-          // font-weight: 600
+          margin: 2.5%
+          font-size: 13px
         @media screen and (min-width: 993px)
           &:hover:before
             width: 100%
@@ -130,7 +123,7 @@ export default {
       position: relative
       width: 80px
       height: 60px
-      @media screen and (max-width: 992px)
+      @media screen and (max-width: 768px)
         display: none
     .round
       position: absolute

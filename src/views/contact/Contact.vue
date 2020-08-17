@@ -4,19 +4,23 @@
       <div class="arrow"></div>
     </div>
     <div class="contact-list">
-      <a href="https://github.com/chelseachel/">
+      <a href="https://github.com/chelseachel/" target="_blank">
         <span class="iconfont icon-github"></span>
       </a>
-      <a href="https://codepen.io/chelseachel">
+      <a href="https://codepen.io/chelseachel" target="_blank">
         <span class="iconfont icon-codepen"></span>
       </a>
       <a href="mailto:chelseachel@icloud.com">
         <span class="iconfont icon-email_outlined"></span>
       </a>
-      <a href="javascript:void(0);" class="tooltip" @click="toggleTooltip">
+      <a href="javascript:void(0);" 
+        @mouseover="handleMouseOver" 
+        @mouseout="handleMouseOut"
+        @click.stop="toggleTooltip"
+      >
         <span class="iconfont icon-wechat"></span>
-        <span class="tooltiptext">18518989119</span>
-        <span class="mobitooltip tooltiptext" v-if="showTooltip">18518989119</span>
+        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/wechat.jpg" class="qr-code" v-show="showQR" />
+        <span class="mobitooltip" v-if="showTooltip">18518989119</span>
       </a>
     </div>
     <footer>
@@ -33,19 +37,29 @@ export default {
   name: 'Contact',
   data() {
     return {
-      showTooltip: false
+      showTooltip: false,
+      showQR: false
     }
   },
   methods: {
     handleClickTop () {
       this.$emit('backToTop')
     },
-    toggleTooltip () {
+    handleMouseOver () {
       if (this.utils.isMobile()) {
-        console.log(true);
+        this.showQR = false
+      } else {
+        this.showQR = true
+      }
+    },
+    handleMouseOut () {
+      this.showQR = false
+    },
+    toggleTooltip () { // 移动端 tooltip
+      if (this.utils.isMobile()) {
         this.showTooltip = !this.showTooltip
       } else {
-        this.showTooltip = false
+        return
       }
     }
   }
@@ -111,20 +125,23 @@ export default {
           margin: 0 10px
         .icon-email_outlined
           font-size: 29px
-      .tooltip
-        .tooltiptext
-          visibility: hidden
-          opacity: 0
+        .qr-code
+          width: 120px
+          height: 120px
+          position: absolute
+          bottom: 100%
+          left: 100%
+          border-radius: 5px
+        .mobitooltip
+          position: absolute
+          bottom: 140%
+          left: -50px
           background: #fdfcf6
-          padding: 10px 15px
+          padding: 11px 16px
           border-radius: 20px
           text-align: center
-          font-size: 14px
-          font-weight: 600
+          font-size: 15px
           transition: opacity .5s ease
-          position: absolute
-          top: 130%
-          left: -16px
           z-index: 1
           &:before
             content: ''
@@ -133,16 +150,8 @@ export default {
             background: #fdfcf6
             transform: rotate(45deg)
             position: absolute
-            top: -5px
-            left: 30px
-        @media screen and (min-width: 769px)
-          &:hover 
-            .tooltiptext
-              visibility: visible
-              opacity: 1
-        .mobitooltip
-          visibility: visible
-          opacity: 1
+            bottom: -5px
+            right: 40px
     footer
       position: absolute
       bottom: 0px

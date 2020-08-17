@@ -39,9 +39,10 @@ export default {
       isMobile: this.utils.isMobile(),
       list : [{
         id: '001',
-        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/my-site--640-high.gif',
+        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/my-site--640-high.gif',
         title: 'My Portfolio - 本网站',
-        titleZh: ' - 本网站',
+        github: 'https://github.com/chelseachel/my-portfolio-site',
+        demo: null,
         desc: '这是一个用 Vue.js 构建的响应式站点，以 PC 端为主，同时兼容移动端，是我的个人展示网站，由我独立设计开发。<br>希望它能帮助你认识我。',
         content: [
           // '实现较复杂的交互逻辑：<br>通过全局状态管理实现组件的动态定位与切换；无插件的滚动视差功能；结合 CSS 3D 转换实现文字循环动画，并支持点击交互；结合 swiper.js 实现动态绑定的轮播组件',
@@ -77,9 +78,11 @@ export default {
         techs: ['Vue', 'Vuex', 'SVG/anime.js', 'vue-awesome-swiper', 'Stylus']
       }, {
         id: '002',
-        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/tally-2--original-high.gif',
+        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/tally-2--original-high.gif',
         title: 'Tally App - 滑动交互记账清单',
-        titleZh: ' - 交互记账清单',
+        github: 'https://github.com/chelseachel/tally-app',
+        demo: 'http://chelseachel.gitee.io/tally-app',
+        qrImg: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/tally.jpg',
         desc: '这是一款移动端的滑动交互记账 App，源自个人设计的交互原型，有着简约舒适的界面。独特的记账形式是它的亮点。它提供了清单编辑、清单统计、清单增删等功能。',
         content: [
         { list: [
@@ -95,9 +98,11 @@ export default {
         techs: ['Vue', 'Vuex', 'Vue-router', 'Stylus']
       }, {
         id: '003',
-        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/qunar--original-standard.gif',
+        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/qunar--original-standard.gif',
         title: 'Travel App - 旅游网站 App',
-        desc: '这是我第一次使用 Vue.js 完成的项目，是一个实战学习项目。<br>模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用，并且自己进行了一些功能拓展。<br>可<a href="https://github.com/chelseachel/TravelApp">在此</a>查看我的详细笔记。',
+        github: 'https://github.com/chelseachel/TravelApp',
+        demo: null,
+        desc: '这是我第一次使用 Vue.js 完成的项目，是一个实战学习项目。<br>模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用，并且自己进行了一些功能拓展。<br>可<a href="https://github.com/chelseachel/TravelApp" target="_blank">在此</a>查看我的详细笔记。',
         content: [
         { 
           list: [
@@ -111,8 +116,10 @@ export default {
         techs: ['Vue', 'Vuex', 'Vue-router', 'vue-awesome-swiper', 'better-scroll']
       }, {
         id: '004',
-        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/pagi.gif',
+        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/pagi.gif',
         title: 'Vue Handy Pagination - 分页器插件',
+        github: 'https://github.com/chelseachel/vue-handy-pagination',
+        demo: 'https://codepen.io/chelseachel/pen/MWKymmO/',
         desc: '这是一个 npm 开源项目，是基于 Vue 的 Web 分页器插件，可通过 npm 安装或者 script 标签引入使用。在过程中我熟悉了插件的开发，以及 npm library 的配置和打包发布流程。',
         content: [
         {
@@ -126,8 +133,10 @@ export default {
         techs: ['Vue', 'npm', 'Jest']
       }, {
         id: '005',
-        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/color-sort-3--640-high.gif',
+        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/color-sort-3--640-high.gif',
         title: 'Color Sort - 颜色排序游戏',
+        github: 'https://github.com/chelseachel/color-sort-game',
+        demo: 'http://chelseachel.gitee.io/color-sort-game',
         desc: '在对 Web 颜色模式差异有所了解后，利用 HSL 模式的渐变优势，我开发了这个颜色排序游戏。其中实现了 lerp 渐变色、颜色洗牌、颜色排序、结果判断等功能。',
         content: [
         { 
@@ -140,8 +149,10 @@ export default {
         techs: ['Javascript', 'jQuery UI', 'Three.js', 'HTML/CSS']
       }, {
         id: '006',
-        url: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/othello--short-original-low.gif',
+        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/othello--short-original-low.gif',
         title: 'Othello - 黑白棋游戏',
+        github: 'https://github.com/chelseachel/othello',
+        demo: ' http://chelseachel.gitee.io/othello',
         desc: '这是使用原生 JS 开发的黑白翻转棋游戏，我编写它是为了锻炼自己的编程逻辑能力。',
         content: [
         { 
@@ -158,7 +169,7 @@ export default {
     gifs() {
       let gifs = []
       this.list.forEach((item) => {
-        gifs.push(item.url)
+        gifs.push(item.imgUrl)
       })
       return gifs
     }

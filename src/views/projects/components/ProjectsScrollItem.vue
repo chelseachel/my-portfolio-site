@@ -5,11 +5,19 @@
       
     </div>
     <div class="pic">
-      <img :src="item.url">
+      <img :src="item.imgUrl">
     </div>
     <div class="link">
-      <a href="">Github</a>
-      <a href="">Demo</a>
+      <a target="_blank" :href="item.github">Github</a>
+      <a target="_blank"
+        :href="item.demo" 
+        v-if="item.demo !== null"
+        @click="handleClickQRCode"
+        @mouseover="handleMouseOver"
+        @mouseout="handleMouseOut"
+      >Demo
+        <img :src="item.qrImg" class="qr-code" v-if="showQR" />
+      </a>
     </div>
     <div class="desc" v-html="item.desc"></div>
     <div class="content-wrapper">
@@ -48,7 +56,8 @@ export default {
   },
   data () {
     return {
-      rect: null
+      rect: null,
+      showQR: false
     }
   },
   methods: {
@@ -58,6 +67,21 @@ export default {
       if (this.rect && this.rect.top < (clientHeight * 0.35) && this.rect.top > 0 || this.rect && this.rect.bottom >= (clientHeight * 0.4) && this.rect.bottom <= clientHeight) {
         this.$store.commit('changeActiveIndex', this.index)
       }
+    },
+    handleClickQRCode (e) {
+      if (this.item.qrImg && !this.utils.isMobile()) {
+        e.preventDefault()
+      } 
+    },
+    handleMouseOver () {
+      if (this.utils.isMobile()) {
+        this.showQR = false
+      } else {
+        this.showQR = true
+      }
+    },
+    handleMouseOut () {
+      this.showQR = false
     }
   },
   mounted () {
@@ -111,6 +135,11 @@ export default {
         &:hover
           background: var(--theme-translucent)
           color: var(--theme-color)
+        .qr-code
+          position: absolute
+          top: 32px
+          left: 0px
+          border-radius: 6px
     .desc,
     .content-wrapper
       margin-bottom: 1em

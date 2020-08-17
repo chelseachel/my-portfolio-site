@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <article>
-      <p>我叫黄艺千，坐标北京，是一名前端开发者。</p>
+      <p>我叫艺千，坐标北京，是一名前端开发者。</p>
       <p>我毕业于深圳大学广告系，完全自学进入前端领域，在此之前，我是一名手作人。我喜欢用代码编写令人愉悦的交互体验。<!-- 擅长排版与 PPT 交互动画， --><br></p><p>你可以通过我的 <a href="https://codepen.io/chelseachel" target="_blank">CodePen</a> 和 <a href="https://github.com/chelseachel/" target="_blank">Github</a> 了解我。</p>
       <!-- <p> -->
       <!-- <span class="iconfont icon-github"></span>

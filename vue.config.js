@@ -7,6 +7,7 @@ function resolve(dir) {
 module.exports = {
     // 基本路径
     publicPath: './',
+    outputDir: resolve('docs'),
     // webpack配置
     configureWebpack: {
         plugins: [

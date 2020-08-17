@@ -19,7 +19,7 @@
         @click.stop="toggleTooltip"
       >
         <span class="iconfont icon-wechat"></span>
-        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/wechat.jpg" class="qr-code" v-show="showQR" />
+        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/wechat.jpg" alt="18518989119" class="qr-code" v-show="showQR" />
         <span class="mobitooltip" v-if="showTooltip">18518989119</span>
       </a>
     </div>
@@ -115,14 +115,16 @@ export default {
       align-items: center
       a
         position: relative
-        margin: 0 30px
+        margin: 0 20px
         background: #fdfcf6
-        padding: 10px
+        padding: 11px
         border-radius: 50%
-        font-size: 30px
+        font-size: 32px
         color: var(--theme-color)
         @media screen and (max-width: 769px)
           margin: 0 10px
+          padding: 10px
+          font-size: 30px
         .icon-email_outlined
           font-size: 29px
         .qr-code

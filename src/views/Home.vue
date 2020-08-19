@@ -38,6 +38,14 @@ export default {
       themeNum: localStorage.num || 0
     }
   },
+  computed: {
+    themeColor () {
+      return this.themes[this.themeNum][0]
+    },
+    themeTranslucent () {
+      return this.themes[this.themeNum][1]
+    }
+  },
   methods: {
     handleGoAnchor (index) {
       const anchor = this.anchorElements[index]
@@ -70,9 +78,10 @@ export default {
       document.documentElement.style.setProperty('--theme-color', color)
       document.documentElement.style.setProperty('--theme-translucent', colorTranslucent)
     },
-    setLocalStorage (num) {
+    setLocalStorage (num, color) {
       try {
         localStorage.setItem('num', num)
+        localStorage.setItem('themeColor', color)
       } catch (e) {} 
     },
     handleResetSkin () {
@@ -81,12 +90,12 @@ export default {
       } else {
         this.themeNum = 0
       }
-      this.resetSkin(this.themes[this.themeNum][0], this.themes[this.themeNum][1])
-      this.setLocalStorage(this.themeNum)
+      this.resetSkin(this.themeColor, this.themeTranslucent)
+      this.setLocalStorage(this.themeNum, this.themeColor)
     }
   },
   created () {
-    this.resetSkin(this.themes[this.themeNum][0], this.themes[this.themeNum][1])
+    this.resetSkin(this.themeColor, this.themeTranslucent)
   },
   mounted () {
     this.anchorElements[0]=this.$refs.welcome.$el

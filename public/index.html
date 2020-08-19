@@ -27,7 +27,7 @@
     width: 16px;
     height: 16px;
     margin: 8px;
-    background: var(--theme-color);
+    background: var(--loading-color);
     border-radius: 50%;
     float: left;
     animation: jumping 1s ease-in infinite;
@@ -60,7 +60,7 @@
       transform: translate(0, 0);
     }
 
-    100% ｛ 
+    100% {
       transform: translate(0, 0);
     }
   }
@@ -72,6 +72,13 @@
     <strong>We're sorry but
       <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
   </noscript>
+  <script type="text/javascript">
+    try {
+      if (localStorage.themeColor) {
+        document.documentElement.style.setProperty('--loading-color', localStorage.themeColor)
+      }
+    } catch (e) {} 
+  </script>
   </div>
   <div id="app"><div id="loader-wrapper">
     <div id="loader">

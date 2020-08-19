@@ -112,20 +112,14 @@ export default {
         name: 'Vue',
         level: 8
       },{
-        name: 'Webpack',
+        name: 'React',
         level: 6
       },{
-        name: 'React',
-        level: 5
+        name: 'Webpack',
+        level: 6
       }]
     }
   },
-  methods: {
-    
-  },
-  mounted () {
-    
-  }
 }
 </script>
 

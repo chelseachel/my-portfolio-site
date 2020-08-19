@@ -125,8 +125,6 @@ export default {
           margin: 0 10px
           padding: 10px
           font-size: 30px
-        .icon-email_outlined
-          font-size: 29px
         .qr-code
           width: 120px
           height: 120px

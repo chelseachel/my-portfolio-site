@@ -76,16 +76,19 @@
     try {
       if (localStorage.themeColor) {
         document.documentElement.style.setProperty('--loading-color', localStorage.themeColor)
+      } else {
+        document.documentElement.style.setProperty('--loading-color', 'rgb(241,185,8)')
       }
     } catch (e) {} 
   </script>
-  </div>
-  <div id="app"><div id="loader-wrapper">
-    <div id="loader">
-      <span class="jump"></span>
-      <span class="jump"></span>
-      <span class="jump"></span>
-      <span class="jump"></span>
+  <div id="app">
+    <div id="loader-wrapper">
+      <div id="loader">
+        <span class="jump"></span>
+        <span class="jump"></span>
+        <span class="jump"></span>
+        <span class="jump"></span>
+      </div>
     </div>
   </div>
   <!-- built files will be auto injected -->

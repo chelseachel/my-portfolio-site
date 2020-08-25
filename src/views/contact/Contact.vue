@@ -3,26 +3,32 @@
     <div class="back" @click="handleClickTop">
       <div class="arrow"></div>
     </div>
-    <div class="contact-list">
-      <a href="https://github.com/chelseachel/" target="_blank">
-        <span class="iconfont icon-github"></span>
-      </a>
-      <a href="https://codepen.io/chelseachel" target="_blank">
-        <span class="iconfont icon-codepen"></span>
-      </a>
-      <a href="mailto:chelseachel@icloud.com">
-        <span class="iconfont icon-email_outlined"></span>
-      </a>
-      <a href="javascript:void(0);" 
-        @mouseover="handleMouseOver" 
-        @mouseout="handleMouseOut"
-        @click.stop="toggleTooltip"
-      >
-        <span class="iconfont icon-wechat"></span>
-        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/wechat.jpg" alt="18518989119" class="qr-code" v-show="showQR" />
-        <span class="mobitooltip" v-if="showTooltip">18518989119</span>
-      </a>
-    </div>
+    <section>
+      <div class="contact-list">
+        <a href="https://github.com/chelseachel/" target="_blank">
+          <span class="iconfont icon-github"></span>
+        </a>
+        <a href="https://codepen.io/chelseachel" target="_blank">
+          <span class="iconfont icon-codepen"></span>
+        </a>
+        <a href="mailto:chelseachel@icloud.com">
+          <span class="iconfont icon-email_outlined"></span>
+        </a>
+        <a href="javascript:void(0);" 
+          @mouseover="handleMouseOver" 
+          @mouseout="handleMouseOut"
+          @click.stop="toggleTooltip"
+        >
+          <span class="iconfont icon-wechat"></span>
+          <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/wechat.jpg" alt="18518989119" class="qr-code" v-show="showQR" />
+          <span class="mobitooltip" v-if="showTooltip">18518989119</span>
+        </a>
+      </div>
+      <div class="contact-msg">
+        <div class="triangle"></div>
+        <p>如果对我感兴趣，请联系我吧：）</p>
+      </div>
+    </section>
     <footer>
       <p>
         Designd with <span class="heart"></span> by Chelsea 
@@ -32,7 +38,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Contact',
   data() {
@@ -107,51 +112,71 @@ export default {
         border-left: 2px solid $color1
         border-top: 2px solid $color1
         transform: rotate(45deg)
-    .contact-list
-      margin: 0 50px
-      height: 340px
+    section
+      height: inherit
       display: flex
+      flex-direction: column
       justify-content: center
-      align-items: center
-      a
-        position: relative
-        margin: 0 20px
-        background: #fdfcf6
-        padding: 11px
-        border-radius: 50%
-        font-size: 32px
-        color: var(--theme-color)
-        @media screen and (max-width: 769px)
-          margin: 0 10px
-          padding: 10px
-          font-size: 30px
-        .qr-code
-          width: 120px
-          height: 120px
-          position: absolute
-          bottom: 100%
-          left: 100%
-          border-radius: 5px
-        .mobitooltip
-          position: absolute
-          bottom: 140%
-          left: -50px
+      .contact-list
+        display: flex
+        justify-content: center
+        align-items: center
+        a
+          position: relative
+          margin: 0 20px
           background: #fdfcf6
-          padding: 11px 16px
-          border-radius: 20px
-          text-align: center
-          font-size: 15px
-          transition: opacity .5s ease
-          z-index: 1
-          &:before
-            content: ''
-            width: 10px
-            height: 10px
-            background: #fdfcf6
-            transform: rotate(45deg)
+          padding: 11px
+          border-radius: 50%
+          font-size: 32px
+          color: var(--theme-color)
+          @media screen and (max-width: 769px)
+            margin: 0 10px
+            padding: 10px
+            font-size: 30px
+          .qr-code
+            width: 120px
+            height: 120px
             position: absolute
-            bottom: -5px
-            right: 40px
+            bottom: 100%
+            left: 100%
+            border-radius: 5px
+          .mobitooltip
+            position: absolute
+            bottom: 140%
+            left: -50px
+            background: #fdfcf6
+            padding: 11px 16px
+            border-radius: 20px
+            text-align: center
+            font-size: 15px
+            transition: opacity .5s ease
+            z-index: 1
+            &:before
+              content: ''
+              width: 10px
+              height: 10px
+              background: #fdfcf6
+              transform: rotate(45deg)
+              position: absolute
+              bottom: -5px
+              right: 40px
+      .contact-msg
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        margin-top: 32px
+        .triangle
+          width: 0px
+          height: 0px
+          border: 7px solid transparent
+          border-bottom: 7px solid var(--theme-translucent)
+        p
+          line-height: 1em
+          padding: 12px 12px 12px 20px
+          border-radius: 10px
+          background: var(--theme-translucent)
+          color: #fdfcf6
     footer
       position: absolute
       bottom: 0px

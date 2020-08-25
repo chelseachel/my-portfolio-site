@@ -1,5 +1,5 @@
 <template>
-  <div class="home" ref="home" id="home">
+  <div class="home">
     <Nav @goAnchor="handleGoAnchor" @resetSkin="handleResetSkin" :anchorIndex="anchorIndex"></Nav>
     <welcome ref="welcome"></welcome>
     <about ref="about"></about>
@@ -67,12 +67,12 @@ export default {
       }
     },
     getOffset () {
-      for(let i = 0; i < this.anchorElements.length; i++) {
-        this.offset[i] = this.anchorElements[i].offsetTop
-      }
+      this.anchorElements.forEach(item => {
+        this.offset.push(item.offsetTop)
+      })
     },
     handleScrollBack () {
-      this.$refs.welcome.$el.scrollIntoView({behavior: "smooth"})
+      this.$el.scrollIntoView({behavior: "smooth"})
     },
     resetSkin (color, colorTranslucent) {
       document.documentElement.style.setProperty('--theme-color', color)
@@ -98,11 +98,7 @@ export default {
     this.resetSkin(this.themeColor, this.themeTranslucent)
   },
   mounted () {
-    this.anchorElements[0]=this.$refs.welcome.$el
-    this.anchorElements[1]=this.$refs.about.$el
-    this.anchorElements[2]=this.$refs.projects.$el
-    this.anchorElements[3]=this.$refs.others.$el
-    this.anchorElements[4]=this.$refs.contact.$el
+    this.anchorElements=[this.$refs.welcome.$el, this.$refs.about.$el, this.$refs.projects.$el, this.$refs.others.$el, this.$refs.contact.$el]
     this.$nextTick(function() {
       this.getAnchorIndex()
     }, 0)

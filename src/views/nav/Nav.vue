@@ -93,8 +93,6 @@ export default {
         font-size: 14px
         cursor: pointer
         transition: all .3s
-        &:first-child
-          display: none
         &:before
           content: ''
           position: absolute
@@ -104,14 +102,16 @@ export default {
           height: 2px
           background: var(--theme-color)
           transition: all .3s
-        @media screen and (max-width: 768px)
-          margin: 2.5%
-          font-size: 13px
         @media screen and (min-width: 993px)
           &:hover:before
             width: 100%
             left: 0
             border-radius: 1px
+        @media screen and (max-width: 768px)
+          margin: 2.5%
+          font-size: 13px
+          &:first-child
+            display: none
       .active-color
         color: var(--theme-color)
         &:before

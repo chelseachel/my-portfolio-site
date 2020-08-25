@@ -102,7 +102,7 @@ export default {
         title: 'Travel App - 旅游网站 App',
         github: 'https://github.com/chelseachel/TravelApp',
         demo: null,
-        desc: '这是我第一次使用 Vue.js 完成的项目，是一个实战学习项目。<br>模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用，并且自己进行了一些功能拓展。<br>可<a href="https://github.com/chelseachel/TravelApp" target="_blank">在此</a>查看我的详细笔记。',
+        desc: '这是我第一次使用 Vue.js 完成的项目，是一个实战学习项目。<br>模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用，并且自己进行了一些功能拓展。',
         content: [
         { 
           list: [

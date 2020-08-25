@@ -34,7 +34,7 @@ export default {
     itemHeight: function () {
       let clientHeight = document.body.clientHeight
       // 使 item 顶部与展示图片平齐
-      let bottomH = clientHeight - 0.2*clientHeight - (this.itemHeight - 150)
+      let bottomH = clientHeight - 0.2*clientHeight - (this.itemHeight - 100)
       this.bottomHeight = bottomH < 0 ? 0 : bottomH
     }
   },

@@ -5,7 +5,7 @@
         About.
       </div>
       <div class="photo" ref="viewCheck" :class="inView ? 'in-view' : ''">
-        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/26.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.5/imgs/26.jpg">
       </div>
     </div>
   </div>
@@ -18,10 +18,6 @@ export default {
   mixins: [checkInView],
   props: {
     scrollHeight: Number
-  },
-  data () {
-    return {
-    }
   },
   methods: {
     positionState () {

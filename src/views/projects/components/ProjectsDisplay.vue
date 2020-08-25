@@ -22,7 +22,7 @@
           :key="index"
           v-if="index === activeIndex"
           :src="gifs[index]" 
-          :style="lowHeight(index) ? {marginTop: '50px'} : {}"
+          :style="lowHeight(index) ? {marginTop: '60px'} : {}"
         />
       </transition>
     </div>
@@ -178,18 +178,19 @@ export default {
             // left: 0
             opacity: 1
     .img
-      width: 450px
+      width: 440px
       max-width: calc(90% - 170px)
       height: 500px
       max-height: 60vh
       position: absolute
-      top: calc(20% + 50px)
+      top: 20%
       right: -20px
       text-align: center
+      transform: translateY(50px)
       transition: all .7s ease-in-out
     .img-in-view
       opacity: 1
-      top: 20%
+      transform: translateY(0px)
       img
         max-width: 100%
         max-height: 100%

@@ -32,14 +32,13 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: true,
+        },
         observer: true,
         observeParents: true, //当swiper的父元素变化时，swiper更新
       }
-    }
-  },
-  computed: {
-    swiper() {
-      return this.$refs.mySwiper.$swiper
     }
   },
   watch: {
@@ -49,7 +48,7 @@ export default {
   },
   methods: {
     handleCloseClick (e) {
-      if (e.target.className == 'swiper-slide swiper-slide-active' || e.target.className == 'wrapper') {
+      if (e.target.className === 'swiper-slide swiper-slide-active' || e.target.className === 'wrapper') {
         this.$emit('close')
       }
     },
@@ -59,6 +58,9 @@ export default {
     handleNextClick () {
       this.swiper.slideNext()
     }
+  },
+  mounted() {
+    this.swiper = this.$refs.mySwiper.$swiper
   }
 }
 </script>

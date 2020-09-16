@@ -1,5 +1,5 @@
 <template>
-  <div class="others" :class="inView ? 'in-view' : ''" ref="viewCheck">
+  <div class="others">
     <others-title></others-title>
     <others-gallery :imgs="images" @showSwiper="handleSwiperShow"></others-gallery>
     <transition name="fade">
@@ -12,13 +12,11 @@
 import OthersTitle from './components/OthersTitle'
 import OthersGallery from './components/OthersGallery'
 import GallerySwiper from './components/GallerySwiper'
-import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'Others',
   components: {
     OthersTitle, OthersGallery, GallerySwiper
   },
-  mixins: [checkInView],
   data () {
     return {
       showSwiper: false,
@@ -132,17 +130,17 @@ export default {
   .others
     width: 100vw
     padding-bottom: 130px
-    background-color: var(--theme-translucent)
-    transition: background-color .6s
-  .in-view
-    background-color: transparent
-  .fade-enter
-  .fade-leave-to
-    opacity: 0
-  .fade-enter-to
-  .fade-leave
-    opacity: 1
-  .fade-enter-active
-  .fade-leave-active
-    transition: opacity .3s
+    // background-color: var(--theme-translucent)
+    // transition: background-color .6s
+  // .in-view
+  //   background-color: transparent
+  // .fade-enter
+  // .fade-leave-to
+  //   opacity: 0
+  // .fade-enter-to
+  // .fade-leave
+  //   opacity: 1
+  // .fade-enter-active
+  // .fade-leave-active
+  //   transition: opacity .3s
 </style>

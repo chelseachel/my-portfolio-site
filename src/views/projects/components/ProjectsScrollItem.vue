@@ -5,18 +5,17 @@
       
     </div>
     <div class="pic">
-      <img :src="item.imgUrl">
+      <img :src="item.imgUrl" @error="utils.reloadImg(item.imgUrl)">
     </div>
     <div class="link">
       <a target="_blank" :href="item.github">Github</a>
       <a target="_blank"
         :href="item.demo" 
         v-if="item.demo !== null"
+        :class="{'has-qrcode': item.qrImg}"
         @click="handleClickQRCode"
-        @mouseover="handleMouseOver"
-        @mouseout="handleMouseOut"
       >Demo
-        <img :src="item.qrImg" class="qr-code" v-if="showQR" />
+        <img class="qr-code" :src="item.qrImg" @error="utils.reloadImg(item.qrImg)" v-if="item.qrImg" />
       </a>
     </div>
     <div class="desc" v-html="item.desc"></div>
@@ -72,16 +71,6 @@ export default {
       if (this.item.qrImg && !this.utils.isMobile()) {
         e.preventDefault()
       } 
-    },
-    handleMouseOver () {
-      if (this.utils.isMobile()) {
-        this.showQR = false
-      } else {
-        this.showQR = true
-      }
-    },
-    handleMouseOut () {
-      this.showQR = false
     }
   },
   mounted () {
@@ -132,14 +121,21 @@ export default {
         color: var(--theme-color)
         font-style: italic
         transition: all .2s ease
-        &:hover
-          background: var(--theme-translucent)
-          color: var(--theme-color)
+      .has-qrcode
         .qr-code
+          width: 120px
+          height: 120px
           position: absolute
           top: 32px
           left: 0px
           border-radius: 6px
+          background: #fdfcf6
+          z-index: 1
+          display: none
+        @media (hover: hover) and (pointer: fine)
+          &:hover
+            .qr-code
+              display: block
     .desc,
     .content-wrapper
       margin-bottom: 1em

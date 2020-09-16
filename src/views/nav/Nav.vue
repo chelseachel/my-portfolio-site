@@ -3,7 +3,7 @@
     <a class="logo" href="./index.html">CHELSEA'S</a>
     <ul class="nav">
       <li 
-        :class="{'active-color' : index === anchorIndex}"
+        :class="{'active-color': index === anchorIndex}"
         v-for="(item, index) in category" :key="index" @click="handleClickAnchor(index)"
       >
         {{item}}
@@ -102,7 +102,7 @@ export default {
           height: 2px
           background: var(--theme-color)
           transition: all .3s
-        @media screen and (min-width: 993px)
+        @media (hover: hover) and (pointer: fine)
           &:hover:before
             width: 100%
             left: 0

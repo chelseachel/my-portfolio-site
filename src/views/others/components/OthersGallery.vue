@@ -117,17 +117,18 @@ export default {
           background: var(--theme-translucent)
           overflow: hidden
           transition: all .8s ease
-          &:hover
-            img
-              transform: scale(1.2)
-          &:hover:before
-            content:''
-            position: absolute
-            width: 100%
-            height: 100%
-            background: rgba(255,255,255,.1)
-            z-index: 10
-            cursor: zoom-in
+          @media (hover: hover) and (pointer: fine)
+            &:hover
+              img
+                transform: scale(1.2)
+            &:hover:before
+              content:''
+              position: absolute
+              width: 100%
+              height: 100%
+              background: rgba(255,255,255,.1)
+              z-index: 10
+              cursor: zoom-in
           img
             width: 100%
             opacity: 0.1

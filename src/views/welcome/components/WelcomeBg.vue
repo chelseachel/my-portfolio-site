@@ -24,7 +24,7 @@ export default {
     left: 50%
     transform: translateX(-50%)
     width: 80%
-    opacity: .6
+    opacity: .5
     z-index: -1
     @media screen and (min-width: 1600px)
       width: 1280px

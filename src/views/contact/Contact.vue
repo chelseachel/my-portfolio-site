@@ -15,18 +15,20 @@
           <span class="iconfont icon-email_outlined"></span>
         </a>
         <a href="javascript:void(0);" 
-          @mouseover="handleMouseOver" 
-          @mouseout="handleMouseOut"
           @click.stop="toggleTooltip"
         >
-          <span class="iconfont icon-wechat"></span>
-          <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/wechat.jpg" alt="18518989119" class="qr-code" v-show="showQR" />
-          <span class="mobitooltip" v-if="showTooltip">18518989119</span>
+          <span class="iconfont icon-wechat">
+            <img class="qr-code" src="https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.5/imgs/wechat.jpg" />
+            <span class="mobitooltip" v-if="showTooltip">
+              <span class="info">18518989119</span>
+              <span class="triangle"></span>
+            </span>
+          </span>
         </a>
       </div>
-      <div class="contact-msg">
+      <div class="contact-msg" :class="inView ? 'in-view' : ''" ref="viewCheck">
         <div class="triangle"></div>
-        <p>如果对我感兴趣，请联系我吧：）</p>
+        <p>期待能有机会与您共事</p>
       </div>
     </section>
     <footer>
@@ -38,27 +40,18 @@
 </template>
 
 <script>
+import { checkInView } from '@/common/mixin.js'
 export default {
   name: 'Contact',
+  mixins: [checkInView],
   data() {
     return {
       showTooltip: false,
-      showQR: false
     }
   },
   methods: {
     handleClickTop () {
       this.$emit('backToTop')
-    },
-    handleMouseOver () {
-      if (this.utils.isMobile()) {
-        this.showQR = false
-      } else {
-        this.showQR = true
-      }
-    },
-    handleMouseOut () {
-      this.showQR = false
     },
     toggleTooltip () { // 移动端 tooltip
       if (this.utils.isMobile()) {
@@ -133,39 +126,52 @@ export default {
             margin: 0 10px
             padding: 10px
             font-size: 30px
-          .qr-code
-            width: 120px
-            height: 120px
-            position: absolute
-            bottom: 100%
-            left: 100%
-            border-radius: 5px
-          .mobitooltip
-            position: absolute
-            bottom: 140%
-            left: -50px
-            background: #fdfcf6
-            padding: 11px 16px
-            border-radius: 20px
-            text-align: center
-            font-size: 15px
-            transition: opacity .5s ease
-            z-index: 1
-            &:before
-              content: ''
-              width: 10px
-              height: 10px
-              background: #fdfcf6
-              transform: rotate(45deg)
+          .icon-wechat
+            @media (hover: hover) and (pointer: fine)
+              &:hover
+                .qr-code
+                  display: block
+            .qr-code
+              width: 120px
+              height: 120px
               position: absolute
-              bottom: -5px
-              right: 40px
+              bottom: 100%
+              left: 100%
+              border-radius: 5px
+              background: #fdfcf6
+              z-index: 1
+              display: none
+            .mobitooltip
+              position: absolute
+              bottom: 120%
+              left: -50px
+              transition: opacity .5s ease
+              display: flex
+              flex-direction: column
+              justify-content: center
+              align-items: center
+              z-index: 1
+              .info
+                padding: 12px 17px
+                border-radius: 10px
+                font-family: "Open Sans", "Avenir", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", Arial, sans-serif
+                font-size: 15px
+                background: var(--theme-translucent)
+                color: #fdfcf6
+              .triangle
+                width: 0px
+                height: 0px
+                border: 7px solid transparent
+                border-top: 7px solid var(--theme-translucent)
+                position: relative
+                left: 12px
       .contact-msg
+        opacity: 0
         display: flex
         flex-direction: column
         justify-content: center
         align-items: center
-        margin-top: 32px
+        margin-top: 20px
         .triangle
           width: 0px
           height: 0px
@@ -173,10 +179,13 @@ export default {
           border-bottom: 7px solid var(--theme-translucent)
         p
           line-height: 1em
-          padding: 12px 12px 12px 20px
+          padding: 12px 20px
           border-radius: 10px
           background: var(--theme-translucent)
           color: #fdfcf6
+      .in-view
+        opacity: 1
+        transition: opacity 1s ease 2s
     footer
       position: absolute
       bottom: 0px

@@ -82,7 +82,7 @@ export default {
         title: 'Tally App - 滑动交互记账清单',
         github: 'https://github.com/chelseachel/tally-app',
         demo: 'http://chelseachel.gitee.io/tally-app',
-        qrImg: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn/images/tally.jpg',
+        qrImg: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.5/imgs/tally.jpg',
         desc: '这是一款移动端的滑动交互记账 App，源自个人设计的交互原型，有着简约舒适的界面。独特的记账形式是它的亮点。它提供了清单编辑、清单统计、清单增删等功能。',
         content: [
         { list: [
@@ -102,7 +102,7 @@ export default {
         title: 'Travel App - 旅游网站 App',
         github: 'https://github.com/chelseachel/TravelApp',
         demo: null,
-        desc: '这是我第一次使用 Vue.js 完成的项目，是一个实战学习项目。<br>模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用，并且自己进行了一些功能拓展。',
+        desc: '在通读过 Vue 文档以后，以它作为我的第一个 Vue 实战练习项目，模仿去哪儿网开发了首页、城市列表搜索页、景点详情页等页面，由此熟悉了 Vue 相关生态的使用。',
         content: [
         { 
           list: [
@@ -120,14 +120,14 @@ export default {
         title: 'Vue Handy Pagination - 分页器插件',
         github: 'https://github.com/chelseachel/vue-handy-pagination',
         demo: 'https://codepen.io/chelseachel/pen/MWKymmO/',
-        desc: '这是一个 npm 开源项目，是基于 Vue 的 Web 分页器插件，可通过 npm 安装或者 script 标签引入使用。在过程中我熟悉了插件的开发，以及 npm library 的配置和打包发布流程。',
+        desc: '这是一个 NPM 开源项目，是基于 Vue 的 Web 分页器插件，可通过 NPM 安装或者 script 标签引入使用。在过程中我熟悉了插件的开发，以及 NPM library 的配置和打包发布流程。',
         content: [
         {
           list: [
                 '开发分页器的业务逻辑，并设定基础样式',
                 '开放 API，支持<strong>自定义</strong>样式定制',
                 '尝试使用 <strong>Jest</strong> 编写了单元测试',
-                '撰写英文文档及使用示例，方便快速使用'
+                '撰写文档及使用示例，方便快速使用'
                 ]
         }],
         techs: ['Vue', 'npm', 'Jest']
@@ -137,7 +137,7 @@ export default {
         title: 'Color Sort - 颜色排序游戏',
         github: 'https://github.com/chelseachel/color-sort-game',
         demo: 'http://chelseachel.gitee.io/color-sort-game',
-        desc: '在对 Web 颜色模式差异有所了解后，利用 HSL 模式的渐变优势，我开发了这个颜色排序游戏。其中实现了 lerp 渐变色、颜色洗牌、颜色排序、结果判断等功能。',
+        desc: '在对 Web 颜色模式差异有所了解后，利用 HSL 模式的渐变优势，我开发了这个颜色排序游戏（仅支持 PC 端）。其中实现了 lerp 渐变色、颜色洗牌、颜色排序、结果判断等功能。',
         content: [
         { 
           list: [

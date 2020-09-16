@@ -31,7 +31,8 @@ export default {
       themes: [
         ['rgb(241,185,8)', 'rgba(241,185,8,.2)'],
         ['rgb(130,119,23)', 'rgba(130,119,23,.2)'],
-        ['rgb(140,208,189)', 'rgba(140,208,189,.2)'],
+        ['rgb(93,195,177)', 'rgba(93,195,177,.2)'],
+        // ['rgb(140,208,189)', 'rgba(140,208,189,.2)'],
         ['rgb(247,72,78)', 'rgba(247,72,78,.1)']
         // ['rgb(238,200,182)', 'rgba(238,200,182,.2)']
       ],
@@ -67,8 +68,8 @@ export default {
       }
     },
     getOffset () {
-      this.anchorElements.forEach(item => {
-        this.offset.push(item.offsetTop)
+      this.anchorElements.forEach((item, index) => {
+        this.offset[index] = item.offsetTop
       })
     },
     handleScrollBack () {

@@ -1,6 +1,8 @@
 <template>
   <div class="welcome">
-    <welcome-bg></welcome-bg>
+    <transition>
+      <welcome-bg v-if="show"></welcome-bg>
+    </transition>
     <welcome-info></welcome-info>
     <transition>
       <welcome-scroll v-if="show"></welcome-scroll>
@@ -22,15 +24,8 @@ export default {
       show: false
     }
   },
-  methods: {
-    showCompo () {
-      setTimeout(() => {
-        this.show = true
-      }, 1000)
-    }
-  },
   mounted () {
-    this.showCompo()
+    this.show = true
   }
 }
 </script>
@@ -45,5 +40,5 @@ export default {
   .v-enter
     opacity: 0
   .v-enter-active
-    transition: opacity 1s ease  
+    transition: opacity 3s ease 1s
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <article>
-      <p>我叫艺千，坐标北京，是一名前端开发者。</p>
+      <p>我是 Chelsea，坐标北京，是一名前端开发者。</p>
       <p>我毕业于深圳大学广告系，完全自学进入前端领域，在此之前，我是一名手作人。我喜欢用代码编写令人愉悦的交互体验。<!-- 擅长排版与 PPT 交互动画， --><br></p><p>你可以通过我的 <a href="https://codepen.io/chelseachel" target="_blank">CodePen</a> 和 <a href="https://github.com/chelseachel/" target="_blank">Github</a> 了解我。</p>
       <!-- <p> -->
       <!-- <span class="iconfont icon-github"></span>
@@ -27,10 +27,10 @@
       <p>
         我喜欢美好的功能性设计，喜欢有趣而优雅的交互体验，本身就擅长交互动画制作。
         而能自己亲手用代码将心中所想实现出来，会更酷不是吗？
-        本着这样的初心，我曾在 <a href="https://www.codecademy.dev/">codecademy</a> 自学了 HTML、CSS 和 Javascript，然而当时并没有发展成职业，算是一个未尽的愿望。
+        本着这样的初心，我曾在 codecademy 自学了 HTML、CSS 和 Javascript，然而当时并没有发展成职业，算是一个未尽的愿望。
       </p>
       <p>
-        如今我决心继续践行它，逐渐拾起曾经掌握的技能。在巩固编程基础的同时，也在实践中持续地拾获着更广、更深的前端技术。
+        后来我开始继续践行它，逐渐拾起曾经掌握的技能。在巩固编程基础的同时，也在实践中持续地拾获着更广、更深的前端技术。
       </p>
       <p>就如同亲手制成一件作品一般，Coding 的过程也是在锻造一件作品，产生的是理性的光辉。这过程越有挑战性，就能带来越大的愉悦，完成时也越有成就感，伴随而来的还有打怪能力的升级。这一年我对此感受深刻。
       </p>

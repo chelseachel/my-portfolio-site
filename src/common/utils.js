@@ -30,5 +30,11 @@ export default {
     return true; // IE11 返回 true
     else
     return false; // Edge 返回 false
+  },
+  reloadImg(url) {
+    const img = event.target
+    img.src = url + '?' + Math.random()
+    img.onerror = this.reloadImg(img.src)
+    console.log('reload');
   }
 }

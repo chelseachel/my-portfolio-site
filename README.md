@@ -1,4 +1,5 @@
 # My Portfolio
-> Chelsea's Portfolio ｜ 基于 Vue.js 构建<br>
-### 线上预览
+Hi ! <br>This is **Chelsea's Portfolio**, <br> ｜ Built with Vue.js.<br>
+### 欢迎线上预览
 https://chelseahuang.me
+<br>

@@ -5,7 +5,7 @@
         About.
       </div>
       <div class="photo" ref="viewCheck" :class="inView ? 'in-view' : ''">
-        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.5/imgs/26.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.8/imgs/portrait.jpg">
       </div>
     </div>
   </div>
@@ -87,10 +87,13 @@ export default {
         overflow: hidden
         transform: scale(0)
         transition: all .8s ease
-        @media screen and (max-width: 1024px)
+        @media screen and (max-width: 1100px)
           right: -50px
           width: 100px
           height: 100px
+        img
+          position: absolute
+          bottom: 0
       .in-view
         transform: scale(1)
         img

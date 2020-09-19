@@ -14,11 +14,11 @@
         <a href="mailto:chelseachel@icloud.com">
           <span class="iconfont icon-email_outlined"></span>
         </a>
-        <a href="javascript:void(0);" 
+        <a class="wechat" href="javascript:void(0);" 
           @click.stop="toggleTooltip"
         >
           <span class="iconfont icon-wechat">
-            <img class="qr-code" src="https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.5/imgs/wechat.jpg" />
+            <img class="qr-code" src="https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.8/imgs/wechat.jpg" />
             <span class="mobitooltip" v-if="showTooltip">
               <span class="info">18518989119</span>
               <span class="triangle"></span>
@@ -126,11 +126,11 @@ export default {
             margin: 0 10px
             padding: 10px
             font-size: 30px
-          .icon-wechat
-            @media (hover: hover) and (pointer: fine)
-              &:hover
-                .qr-code
-                  display: block
+        a.wechat
+          @media (hover: hover) and (pointer: fine)
+            &:hover
+              .qr-code
+                display: block
             .qr-code
               width: 120px
               height: 120px

@@ -223,8 +223,8 @@ export default {
       padding: 145px
     @media screen and (max-width: 1440px)
       padding: 120px
-    @media screen and (max-width: 1024px)
-      padding: 80px
+    @media screen and (max-width: 1100px)
+      padding: 90px
   @media screen and (max-width: 992px)
     article
       padding: 10vw

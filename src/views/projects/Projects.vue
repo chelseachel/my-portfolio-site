@@ -82,7 +82,7 @@ export default {
         title: 'Tally App - 滑动交互记账清单',
         github: 'https://github.com/chelseachel/tally-app',
         demo: 'http://chelseachel.gitee.io/tally-app',
-        qrImg: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.5/imgs/tally.jpg',
+        qrImg: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.8/imgs/tally.jpg',
         desc: '这是一款移动端的滑动交互记账 App，源自个人设计的交互原型，有着简约舒适的界面。独特的记账形式是它的亮点。它提供了清单编辑、清单统计、清单增删等功能。',
         content: [
         { list: [

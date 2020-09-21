@@ -127,44 +127,44 @@ export default {
             padding: 10px
             font-size: 30px
         a.wechat
+          .qr-code
+            width: 120px
+            height: 120px
+            position: absolute
+            bottom: 100%
+            left: 100%
+            border-radius: 5px
+            background: #fdfcf6
+            z-index: 1
+            display: none
+          .mobitooltip
+            position: absolute
+            bottom: 120%
+            left: -50px
+            transition: opacity .5s ease
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            z-index: 1
+            .info
+              padding: 12px 17px
+              border-radius: 10px
+              font-family: "Open Sans", "Avenir", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", Arial, sans-serif
+              font-size: 15px
+              background: var(--theme-translucent)
+              color: #fdfcf6
+            .triangle
+              width: 0px
+              height: 0px
+              border: 7px solid transparent
+              border-top: 7px solid var(--theme-translucent)
+              position: relative
+              left: 12px
           @media (hover: hover) and (pointer: fine)
             &:hover
               .qr-code
                 display: block
-            .qr-code
-              width: 120px
-              height: 120px
-              position: absolute
-              bottom: 100%
-              left: 100%
-              border-radius: 5px
-              background: #fdfcf6
-              z-index: 1
-              display: none
-            .mobitooltip
-              position: absolute
-              bottom: 120%
-              left: -50px
-              transition: opacity .5s ease
-              display: flex
-              flex-direction: column
-              justify-content: center
-              align-items: center
-              z-index: 1
-              .info
-                padding: 12px 17px
-                border-radius: 10px
-                font-family: "Open Sans", "Avenir", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", Arial, sans-serif
-                font-size: 15px
-                background: var(--theme-translucent)
-                color: #fdfcf6
-              .triangle
-                width: 0px
-                height: 0px
-                border: 7px solid transparent
-                border-top: 7px solid var(--theme-translucent)
-                position: relative
-                left: 12px
       .contact-msg
         opacity: 0
         display: flex

@@ -116,6 +116,7 @@ export default {
           border-radius: 5px
           background: var(--theme-translucent)
           overflow: hidden
+          transform: translateY(0px)
           transition: all .8s ease
           img
             width: 100%

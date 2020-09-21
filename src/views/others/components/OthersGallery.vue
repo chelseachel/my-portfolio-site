@@ -117,6 +117,14 @@ export default {
           background: var(--theme-translucent)
           overflow: hidden
           transition: all .8s ease
+          img
+            width: 100%
+            opacity: 0.1
+            transform: translateY(-100px)
+            transition: all .8s ease
+          .in-view
+            opacity: 1
+            transform: translateY(0px)
           @media (hover: hover) and (pointer: fine)
             &:hover
               img
@@ -129,14 +137,6 @@ export default {
               background: rgba(255,255,255,.1)
               z-index: 10
               cursor: zoom-in
-          img
-            width: 100%
-            opacity: 0.1
-            transform: translateY(-100px)
-            transition: all .8s ease
-          .in-view
-            opacity: 1
-            transform: translateY(0px)
   @media screen and (max-width: 992px)
     .gallery
       width: 90vw

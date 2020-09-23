@@ -138,7 +138,7 @@ export default {
               background: rgba(255,255,255,.1)
               z-index: 10
               cursor: zoom-in
-  @media screen and (max-width: 992px)
+  @media screen and (max-width: 685px)
     .gallery
       width: 90vw
       .container

@@ -91,6 +91,9 @@ export default {
         id: '023',
         url: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.8/imgs/small/23.jpg'
       }, {
+        id: '036',
+        url: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.9/imgs/small/36.jpg'
+      }, {
         id: '024',
         url: 'https://cdn.jsdelivr.net/gh/chelseachel/cdn@0.8/imgs/small/24.jpg'
       }, {

@@ -39,7 +39,7 @@ export default {
       isMobile: this.utils.isMobile(),
       list : [{
         id: '001',
-        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.1/src/assets/images/gifs/my-site--640-high.gif',
+        imgUrl: 'https://cdn.jsdelivr.net/gh/chelseachel/my-portfolio-site@0.2/src/assets/images/gifs/my-site2--640-high.gif',
         title: 'My Portfolio - 本网站',
         github: 'https://github.com/chelseachel/my-portfolio-site',
         demo: null,

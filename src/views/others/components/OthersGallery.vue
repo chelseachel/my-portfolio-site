@@ -3,13 +3,13 @@
     <div class="container" 
       ref="container" 
       :style="{width: width + 'px', height: height + 'px'}"
+      @click.prevent="handleGalleryClick"
     >
       <div class="box" 
         v-for="(item, index) in imgs" :key="item.id" 
         ref="box" 
-        @click="handleGalleryClick(index)"
         >
-        <div class="pic">
+        <div class="pic" :data-index="index">
           <img 
             :src="item.url" 
             :class="inView ? 'in-view' : ''"
@@ -82,7 +82,12 @@ export default {
     imageLoaded() {
       this.loadedImages += 1
     },
-    handleGalleryClick (index) {
+    handleGalleryClick (e) {
+      const target = e.target
+      let index
+      if (target.className === 'pic') {
+        index = parseInt(target.getAttribute('data-index'))
+      }
       this.$emit('showSwiper', index)
     }
   },

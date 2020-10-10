@@ -33,7 +33,7 @@
     </section>
     <footer>
       <p>
-        Designd with <span class="heart"></span> by Chelsea 
+        Designed with <span class="heart"></span> by Chelsea 
       </p>
     </footer>
   </div>

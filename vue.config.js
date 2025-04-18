@@ -6,7 +6,7 @@ function resolve(dir) {
 module.exports = {
   // 基本路径
   publicPath: './',
-  outputDir: resolve('docs'),
+  outputDir: resolve('dist'),
   // webpack配置
   /* 生产环境是否生成 sourceMap 文件，false将提高构建速度 */
   productionSourceMap: false,
